@@ -12,12 +12,9 @@
     <artifactId>service</artifactId>
 
     <dependencies>
-
-
         <dependency>
             <groupId>com.switchfully.teamteam.parkshark</groupId>
             <artifactId>domain</artifactId>
-            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
