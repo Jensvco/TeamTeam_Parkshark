@@ -2,12 +2,12 @@ package com.switchfully.teamteam.parkshark;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-public class ParksharkApplication {
-
+@EntityScan(basePackages = {"com.switchfully.teamteam"})
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(ParksharkApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }
