@@ -30,8 +30,8 @@ public class DivisionController {
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
-    public List<DivisionDto> getDivisions() {
-        return divisionService.getDivisions().stream()
+    public List<DivisionDto> getAllDivisions() {
+        return divisionService.getAllDivisions().stream()
                 .map(division -> divisionMapper.toDto(division))
                 .collect(toList());
     }

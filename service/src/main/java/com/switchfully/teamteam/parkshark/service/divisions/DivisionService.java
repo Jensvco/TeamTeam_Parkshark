@@ -21,7 +21,7 @@ public class DivisionService {
         return divisionRepository.save(divisionToCreate);
     }
 
-    public List<Division> getDivisions() {
+    public List<Division> getAllDivisions() {
         return divisionRepository.findAll();
     }
 
