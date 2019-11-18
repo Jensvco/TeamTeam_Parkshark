@@ -27,4 +27,9 @@ public class DivisionService {
         return divisionRepository.findAll();
     }
 
+    public Division findDivisionById(long id) {
+        return divisionRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
+    }
+
 }

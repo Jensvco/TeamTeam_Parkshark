@@ -43,4 +43,10 @@ public class DivisionController {
                 .collect(toList());
     }
 
+    @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(OK)
+    public DivisionDto getDivision(@PathVariable long id) {
+        return divisionMapper.toDto(divisionService.findDivisionById(id));
+    }
+
 }
