@@ -5,6 +5,8 @@ import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DivisionService {
 
@@ -17,6 +19,10 @@ public class DivisionService {
 
     public Division createDivision(Division divisionToCreate){
         return divisionRepository.save(divisionToCreate);
+    }
+
+    public List<Division> getDivisions() {
+        return divisionRepository.findAll();
     }
 
 }
