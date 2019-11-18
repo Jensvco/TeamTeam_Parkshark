@@ -1,9 +1,9 @@
-package com.switchfully.teamteam.parkshark.domain;
+package com.switchfully.teamteam.parkshark.domain.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.switchfully.teamteam.parkshark.domain.Address;
+import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PARKING_LOT")
@@ -15,16 +15,19 @@ public class ParkingLot {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "PARKING_LOT_CATEGORY_ID")
+    @OneToOne
+    @JoinColumn(name = "PARKING_LOT_CATEGORY_ID")
     private ParkingLotCategory parkingLotCategory;
 
     @Column(name = "CAPACITY")
     private int capacity;
 
-    @Column(name = "CONTACT_PERSON_ID")
+    @OneToOne
+    @JoinColumn(name = "CONTACT_PERSON_ID")
     private ContactPerson contactPerson;
 
-    @Column(name = "ADDRESS_ID")
+    @OneToOne
+    @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
     @Column(name = "PRICE_PER_HOUR")

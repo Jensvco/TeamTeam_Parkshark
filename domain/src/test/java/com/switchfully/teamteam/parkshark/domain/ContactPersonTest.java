@@ -1,5 +1,6 @@
 package com.switchfully.teamteam.parkshark.domain;
 
+import com.switchfully.teamteam.parkshark.domain.models.ContactPerson;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

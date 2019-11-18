@@ -1,4 +1,7 @@
-package com.switchfully.teamteam.parkshark.domain;
+package com.switchfully.teamteam.parkshark.domain.models;
+
+import com.switchfully.teamteam.parkshark.domain.Address;
+import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
