@@ -1,10 +1,27 @@
 package com.switchfully.teamteam.parkshark.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ADDRESS")
 public class Address {
+
+    @Id
     private int id;
+
+    @Column(name = "STREET_NAME")
     private String streetName;
+
+    @Column(name = "HOUSE_NUMBER")
     private String houseNumber;
+
+    @Column(name = "POSTAL_CODE")
     private String postalCode;
+
+    @Column(name = "CITY")
     private String city;
 
     private Address(Builder builder) {

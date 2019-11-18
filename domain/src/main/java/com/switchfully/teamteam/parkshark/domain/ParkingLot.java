@@ -1,13 +1,33 @@
 package com.switchfully.teamteam.parkshark.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PARKING_LOT")
 public class ParkingLot {
 
+    @Id
     private long id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "PARKING_LOT_CATEGORY_ID")
     private ParkingLotCategory parkingLotCategory;
+
+    @Column(name = "CAPACITY")
     private int capacity;
+
+    @Column(name = "CONTACT_PERSON_ID")
     private ContactPerson contactPerson;
+
+    @Column(name = "ADDRESS_ID")
     private Address address;
+
+    @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
     private ParkingLot(Builder builder) {

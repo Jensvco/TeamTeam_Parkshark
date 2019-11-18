@@ -1,15 +1,31 @@
 package com.switchfully.teamteam.parkshark.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
+
+@Entity
+@Table(name = "CONTACT_PERSON")
 public class ContactPerson {
+    @Id
     private int id;
+
+    @Column(name = "NAME")
     private String name;
-    private PhoneNumber phoneNumber;
+
+    private List<PhoneNumber> phoneNumbers;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "ADDRESS_ID")
     private Address address;
 
     private ContactPerson(Builder builder) {
         name = builder.name;
-        phoneNumber = builder.phoneNumber;
+        phoneNumbers = builder.phoneNumbers;
         email = builder.email;
         address = builder.address;
     }
@@ -22,8 +38,8 @@ public class ContactPerson {
         return name;
     }
 
-    public PhoneNumber getPhoneNumber() {
-        return phoneNumber;
+    public List<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
     public String getEmail() {
@@ -36,7 +52,7 @@ public class ContactPerson {
 
     public static final class Builder {
         private String name;
-        private PhoneNumber phoneNumber;
+        private List<PhoneNumber> phoneNumbers;
         private String email;
         private Address address;
 
@@ -49,8 +65,8 @@ public class ContactPerson {
             return this;
         }
 
-        public Builder withPhoneNumber(PhoneNumber phoneNumber) {
-            this.phoneNumber = phoneNumber;
+        public Builder withPhoneNumber(List<PhoneNumber> phoneNumbers) {
+            this.phoneNumbers = phoneNumbers;
             return this;
         }
 
