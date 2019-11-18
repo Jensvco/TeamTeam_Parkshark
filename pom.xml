@@ -51,7 +51,7 @@
             </dependency>
 
             <dependency>
-                <groupId>com.switchfully.teamteam.parksharkr</groupId>
+                <groupId>com.switchfully.teamteam.parkshark</groupId>
                 <artifactId>domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
