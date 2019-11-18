@@ -2,12 +2,27 @@ package com.switchfully.teamteam.parkshark.domain.divisions;
 
 import com.switchfully.teamteam.parkshark.domain.directors.Director;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "DIVISION")
 public class Division {
 
+    @Id
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDivision")
+    @SequenceGenerator(name = "sequenceDivision", sequenceName = "PARKSHARK_DIVISION_SEQ", allocationSize = 1)
     private long id;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "ORIGINAL_NAME")
     private String originalName;
+    @OneToOne
+    @JoinColumn(name = "DIRECTOR_ID")
     private Director director;
+
+    /* Required by JPA */
+    private Division() {
+    }
 
     public Division(DivisionBuilder builder) {
         name = builder.name;
