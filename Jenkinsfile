@@ -14,9 +14,9 @@ pipeline {
 				
             }
         }
-        stage('Api') {
+        stage('War') {
             steps {
-                sh 'mvn clean test -pl :api'
+                sh 'mvn clean test -pl :war'
             }
         }
         stage('Domain') {
