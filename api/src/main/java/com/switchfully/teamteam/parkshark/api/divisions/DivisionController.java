@@ -30,7 +30,7 @@ public class DivisionController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
-    public Division createDivision(CreateDivisionDto dto) {
+    public Division createDivision(@RequestBody CreateDivisionDto dto) {
         var divisionToCreate = divisionMapper.toDomain(dto);
         return divisionService.createDivision(divisionToCreate);
     }
