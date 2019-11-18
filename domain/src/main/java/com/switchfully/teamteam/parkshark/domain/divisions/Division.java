@@ -4,6 +4,8 @@ import com.switchfully.teamteam.parkshark.domain.directors.Director;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name = "DIVISION")
 public class Division {
@@ -16,7 +18,7 @@ public class Division {
     private String name;
     @Column(name = "ORIGINAL_NAME")
     private String originalName;
-    @OneToOne
+    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "DIRECTOR_ID")
     private Director director;
 

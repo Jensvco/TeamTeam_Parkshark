@@ -6,7 +6,10 @@ public class CreateDivisionDto {
 
     private String name;
     private String originalName;
-    private CreateDirectorDto createDirectorDto;
+    private CreateDirectorDto director;
+
+    public CreateDivisionDto() {
+    }
 
     public String getName() {
         return name;
@@ -17,7 +20,7 @@ public class CreateDivisionDto {
     }
 
     public CreateDirectorDto getDirector() {
-        return createDirectorDto;
+        return director;
     }
 
     public static CreateDivisionDto createDivisionDto() {
@@ -34,8 +37,8 @@ public class CreateDivisionDto {
         return this;
     }
 
-    public CreateDivisionDto withDirector(CreateDirectorDto createDirectorDto) {
-        this.createDirectorDto = createDirectorDto;
+    public CreateDivisionDto withDirector(CreateDirectorDto director) {
+        this.director = director;
         return this;
     }
 }

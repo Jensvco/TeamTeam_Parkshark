@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "divisions")
+@RequestMapping(path = "/divisions")
 public class DivisionController {
 
     private DivisionService divisionService;
