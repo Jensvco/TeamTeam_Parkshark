@@ -5,6 +5,7 @@ import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionDto;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionMapper;
 import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.service.divisions.DivisionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +16,17 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/divisions")
+@RequestMapping(path = "divisions")
 public class DivisionController {
 
     private DivisionService divisionService;
     private DivisionMapper divisionMapper;
+
+    @Autowired
+    public DivisionController(DivisionService divisionService, DivisionMapper divisionMapper) {
+        this.divisionService = divisionService;
+        this.divisionMapper = divisionMapper;
+    }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)

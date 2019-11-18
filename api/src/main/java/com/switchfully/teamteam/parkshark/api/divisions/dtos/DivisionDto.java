@@ -8,6 +8,18 @@ public class DivisionDto {
     private String originalName;
     private DirectorDto directorDto;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public DirectorDto getDirector() {
+        return directorDto;
+    }
+
     public static DivisionDto divisionDto() {
         return new DivisionDto();
     }
