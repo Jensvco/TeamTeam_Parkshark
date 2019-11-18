@@ -14,6 +14,25 @@ public class Address {
         city = builder.city;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
 
     public static final class Builder {
         private String streetName;

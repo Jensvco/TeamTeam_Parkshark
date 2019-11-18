@@ -9,8 +9,7 @@ public class PhoneNumber {
         LAND_LINE
     }
 
-    public PhoneNumber(int id, String phoneNumber) {
-        this.id = id;
+    public PhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
