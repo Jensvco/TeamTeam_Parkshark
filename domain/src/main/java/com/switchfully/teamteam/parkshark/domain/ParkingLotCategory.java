@@ -4,8 +4,7 @@ public class ParkingLotCategory {
     private int id;
     private String categoryName;
 
-    public ParkingLotCategory(int id, String categoryName) {
-        this.id = id;
+    public ParkingLotCategory(String categoryName) {
         this.categoryName = categoryName;
     }
 }
