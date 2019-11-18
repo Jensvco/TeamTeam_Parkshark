@@ -1,19 +1,19 @@
 package com.switchfully.teamteam.parkshark.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PHONE_NUMBER")
 public class PhoneNumber {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "PHONE_NUMBER_TYPE")
     private PhoneNumberType phoneNumberType;
 

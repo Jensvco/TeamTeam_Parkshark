@@ -3,27 +3,29 @@ package com.switchfully.teamteam.parkshark.domain.models;
 import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "CONTACT_PERSON")
 public class ContactPerson {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     @Column(name = "NAME")
     private String name;
 
+    @OneToMany
+    @JoinColumn(name="CONTACT_PERSON_ID")
     private List<PhoneNumber> phoneNumbers;
 
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "ADDRESS_ID")
+    @OneToOne
+    @JoinColumn(name="ADDRESS_ID")
     private Address address;
 
     private ContactPerson(Builder builder) {

@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class ParkingLot {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(name = "NAME")
