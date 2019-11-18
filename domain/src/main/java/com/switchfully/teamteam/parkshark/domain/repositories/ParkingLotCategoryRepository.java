@@ -1,10 +1,10 @@
 package com.switchfully.teamteam.parkshark.domain.repositories;
 
-import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
+import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ParkingLotRepository extends CrudRepository<ParkingLot, Integer> {
+public interface ParkingLotCategoryRepository extends CrudRepository<ParkingLotCategory, Integer> {
 
 }
