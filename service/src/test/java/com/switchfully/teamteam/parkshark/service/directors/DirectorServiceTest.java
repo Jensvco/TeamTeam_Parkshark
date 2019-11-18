@@ -26,7 +26,7 @@ class DirectorServiceTest {
     }
 
     @Test
-    void test() {
+    void createDirector() {
         Director director = director()
                 .withFirstName("Nick")
                 .withLastName("Meert")
