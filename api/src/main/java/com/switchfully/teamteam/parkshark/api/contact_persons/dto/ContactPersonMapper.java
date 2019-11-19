@@ -4,14 +4,22 @@ import com.switchfully.teamteam.parkshark.api.Mapper;
 import com.switchfully.teamteam.parkshark.api.addresses.dto.AddressMapper;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
 import com.switchfully.teamteam.parkshark.domain.models.ContactPerson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class ContactPersonMapper implements Mapper<CreateContactPersonDto, ContactPersonDto, ContactPerson> {
 
     private AddressMapper addressMapper;
     private PhoneNumberMapper phoneNumberMapper;
 
+    @Autowired
+    public ContactPersonMapper(AddressMapper addressMapper, PhoneNumberMapper phoneNumberMapper) {
+        this.addressMapper = addressMapper;
+        this.phoneNumberMapper = phoneNumberMapper;
+    }
 
     @Override
     public ContactPerson toDomain(CreateContactPersonDto createContactPersonDto) {

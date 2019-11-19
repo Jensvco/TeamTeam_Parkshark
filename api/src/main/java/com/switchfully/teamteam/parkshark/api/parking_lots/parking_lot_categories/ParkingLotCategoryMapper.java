@@ -1,10 +1,10 @@
 package com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories;
 
 import com.switchfully.teamteam.parkshark.api.Mapper;
-import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.CreateParkingLotCategoryDto;
-import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.ParkingLotCategoryDto;
 import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ParkingLotCategoryMapper implements Mapper<CreateParkingLotCategoryDto, ParkingLotCategoryDto, ParkingLotCategory> {
     @Override
     public ParkingLotCategory toDomain(CreateParkingLotCategoryDto createParkingLotCategoryDto) {

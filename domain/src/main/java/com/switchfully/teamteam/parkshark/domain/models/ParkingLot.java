@@ -10,7 +10,8 @@ import javax.persistence.*;
 public class ParkingLot {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceParkingLot")
+    @SequenceGenerator(name = "sequenceParkingLot", sequenceName = "PARKSHARK_PARKINGLOT_SEQ", allocationSize = 1)
     private long id;
 
     @Column(name = "NAME")

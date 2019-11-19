@@ -14,13 +14,14 @@ public class ParkingLotController {
     private ParkingLotMapper parkingLotMapper;
 
     @Autowired
-    public ParkingLotController(ParkingLotService parkingLotService) {
+    public ParkingLotController(ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper) {
         this.parkingLotService = parkingLotService;
+        this.parkingLotMapper = parkingLotMapper;
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ParkingLot createParkingLot(CreateParkingLotDto createParkingLotDto) {
+    public ParkingLot createParkingLot(@RequestBody CreateParkingLotDto createParkingLotDto) {
         return parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
     }
 

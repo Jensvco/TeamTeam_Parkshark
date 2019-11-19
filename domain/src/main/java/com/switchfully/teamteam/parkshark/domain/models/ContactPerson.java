@@ -39,9 +39,6 @@ public class ContactPerson {
         address = builder.address;
     }
 
-    public ContactPerson() {
-    }
-
     public int getId() {
         return id;
     }
