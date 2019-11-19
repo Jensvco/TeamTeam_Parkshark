@@ -14,10 +14,13 @@ public class Division {
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDivision")
     @SequenceGenerator(name = "sequenceDivision", sequenceName = "PARKSHARK_DIVISION_SEQ", allocationSize = 1)
     private long id;
+
     @Column(name = "NAME")
     private String name;
+
     @Column(name = "ORIGINAL_NAME")
     private String originalName;
+
     @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "DIRECTOR_ID")
     private Director director;

@@ -10,8 +10,10 @@ public class Director {
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDirector")
     @SequenceGenerator(name = "sequenceDirector", sequenceName = "PARKSHARK_DIRECTOR_SEQ", allocationSize = 1)
     private long id;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
+
     @Column(name="LAST_NAME")
     private String lastName;
 

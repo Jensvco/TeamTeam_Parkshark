@@ -33,7 +33,7 @@ class DirectorServiceTest {
                 .build();
         when(directorRepository.save(director)).thenReturn(director);
 
-        assertThat(directorService.createADirector(director)).isEqualToComparingFieldByField(director);
+        assertThat(directorService.createDirector(director)).isEqualToComparingFieldByField(director);
     }
 
 }

@@ -13,13 +13,19 @@ import java.util.List;
 public class DivisionService {
 
     private final DivisionRepository divisionRepository;
+    private final DivisionValidator divisionValidator;
 
     @Autowired
-    public DivisionService(DivisionRepository divisionRepository) {
+    public DivisionService(DivisionRepository divisionRepository,
+                           DivisionValidator divisionValidator) {
         this.divisionRepository = divisionRepository;
+        this.divisionValidator = divisionValidator;
     }
 
-    public Division createDivision(Division divisionToCreate){
+    public Division createDivision(Division divisionToCreate) {
+        if (!divisionValidator.isValidForCreation(divisionToCreate)) {
+            throw new IllegalArgumentException();
+        }
         return divisionRepository.save(divisionToCreate);
     }
 

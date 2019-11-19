@@ -28,7 +28,7 @@ public class DirectorController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
     public DirectorDto createDirector(@RequestBody CreateDirectorDto dto){
-        Director newDirector = directorService.createADirector(directorMapper.toDomain(dto));
+        Director newDirector = directorService.createDirector(directorMapper.toDomain(dto));
         return directorMapper.toDto(newDirector);
     }
 }

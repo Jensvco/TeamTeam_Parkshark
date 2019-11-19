@@ -11,14 +11,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class DirectorService {
 
     private final DirectorRepository directorRepository;
+    private final DirectorValidator directorValidator;
 
     @Autowired
-    public DirectorService(DirectorRepository directorRepository) {
+    public DirectorService(DirectorRepository directorRepository,
+                           DirectorValidator directorValidator) {
         this.directorRepository = directorRepository;
+        this.directorValidator = directorValidator;
     }
 
-    public Director createADirector(Director newDirector){
-        return directorRepository.save(newDirector);
+    public Director createDirector(Director directorToCreate) {
+        if (!directorValidator.isValidForCreation(directorToCreate)) {
+            throw new IllegalArgumentException();
+        }
+        return directorRepository.save(directorToCreate);
     }
 
 }
