@@ -33,7 +33,7 @@ public class Division {
     private Division() {
     }
 
-    public Division(DivisionBuilder builder) {
+    private Division(DivisionBuilder builder) {
         name = builder.name;
         originalName = builder.originalName;
         director = builder.director;
