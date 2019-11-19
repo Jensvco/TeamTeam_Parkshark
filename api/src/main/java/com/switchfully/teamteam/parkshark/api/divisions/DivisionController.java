@@ -3,7 +3,6 @@ package com.switchfully.teamteam.parkshark.api.divisions;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.CreateDivisionDto;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionDto;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionMapper;
-import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.service.divisions.DivisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +32,9 @@ public class DivisionController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
-    public Division createDivision(@RequestBody CreateDivisionDto dto) {
+    public DivisionDto createDivision(@RequestBody CreateDivisionDto dto) {
         var divisionToCreate = divisionMapper.toDomain(dto);
-        return divisionService.createDivision(divisionToCreate);
+        return divisionMapper.toDto(divisionService.createDivision(divisionToCreate));
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
