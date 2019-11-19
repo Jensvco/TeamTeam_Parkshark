@@ -19,6 +19,25 @@
 
         <dependency>
             <groupId>com.switchfully.teamteam.parkshark</groupId>
+            <artifactId>domain</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.switchfully.teamteam.parkshark</groupId>
+            <artifactId>infrastructure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.switchfully.teamteam.parkshark</groupId>
+            <artifactId>infrastructure</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.switchfully.teamteam.parkshark</groupId>
             <artifactId>service</artifactId>
         </dependency>
 
