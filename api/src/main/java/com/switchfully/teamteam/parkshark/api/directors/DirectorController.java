@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@RequestMapping(path = "/directors")
+@RequestMapping(path = "/" + DirectorController.RESOURCE_NAME)
 @RestController
 public class DirectorController {
+
+    public static final String RESOURCE_NAME = "directors";
 
     private final DirectorService directorService;
     private final DirectorMapper directorMapper;
