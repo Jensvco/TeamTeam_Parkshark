@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.switchfully.teamteam.parkshark.api.divisions.DivisionController.RESOURCE_NAME;
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/divisions")
+@RequestMapping(path = "/" + RESOURCE_NAME)
 public class DivisionController {
+
+    public static final String RESOURCE_NAME = "divisions";
 
     private DivisionService divisionService;
     private DivisionMapper divisionMapper;
