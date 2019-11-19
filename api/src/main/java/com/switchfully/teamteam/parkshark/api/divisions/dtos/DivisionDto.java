@@ -7,6 +7,7 @@ public class DivisionDto {
     private String name;
     private String originalName;
     private DirectorDto director;
+    private Long parentId;
 
     public DivisionDto() {
     }
@@ -21,6 +22,10 @@ public class DivisionDto {
 
     public DirectorDto getDirector() {
         return director;
+    }
+
+    public Long getParentId() {
+        return parentId;
     }
 
     public static DivisionDto divisionDto() {
@@ -39,6 +44,11 @@ public class DivisionDto {
 
     public DivisionDto withDirector(DirectorDto director) {
         this.director = director;
+        return this;
+    }
+
+    public DivisionDto withParentId(Long parentId) {
+        this.parentId = parentId;
         return this;
     }
 }
