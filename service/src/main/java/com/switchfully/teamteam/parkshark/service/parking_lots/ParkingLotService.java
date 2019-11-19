@@ -5,8 +5,6 @@ import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotReposito
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @Transactional
 public class ParkingLotService {
@@ -17,14 +15,16 @@ public class ParkingLotService {
         this.parkingLotRepository = parkingLotRepository;
     }
 
-    public ParkingLot createParkingLot(ParkingLot parkingLotCreate){
+    public ParkingLot createParkingLot(ParkingLot parkingLotCreate) {
         return parkingLotRepository.save(parkingLotCreate);
     }
 
-    public Iterable<ParkingLot> findAllParkingLots(){
+    public Iterable<ParkingLot> findAllParkingLots() {
         return parkingLotRepository.findAll();
     }
-    
 
+    public ParkingLot findParkingLotById(int id) {
+       return parkingLotRepository.findById(id).orElse(null);
+    }
 }
 

@@ -26,4 +26,16 @@ public class PhoneNumber {
         this.phoneNumber = phoneNumber;
         this.phoneNumberType = phoneNumberType;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public PhoneNumberType getPhoneNumberType() {
+        return phoneNumberType;
+    }
 }

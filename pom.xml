@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
 
-    <groupId>com.switchfully.teamteam</groupId>
+    <groupId>com.switchfully.teamteam.parkshark</groupId>
     <artifactId>parkshark</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>parkshark</name>
@@ -14,7 +14,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
@@ -58,7 +58,21 @@
 
             <dependency>
                 <groupId>com.switchfully.teamteam.parkshark</groupId>
+                <artifactId>domain</artifactId>
+                <type>test-jar</type>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.switchfully.teamteam.parkshark</groupId>
                 <artifactId>infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.switchfully.teamteam.parkshark</groupId>
+                <artifactId>infrastructure</artifactId>
+                <type>test-jar</type>
                 <version>${project.version}</version>
             </dependency>
 
@@ -80,6 +94,8 @@
                 <artifactId>ojdbc8</artifactId>
                 <version>${ojdbc.version}</version>
             </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
