@@ -13,8 +13,8 @@ import static com.switchfully.teamteam.parkshark.domain.divisions.Division.Divis
 @Component
 public class DivisionMapper implements Mapper<CreateDivisionDto, DivisionDto, Division> {
 
-    private DivisionService divisionService;
-    private DirectorMapper directorMapper;
+    private final DivisionService divisionService;
+    private final DirectorMapper directorMapper;
 
     @Autowired
     public DivisionMapper(DivisionService divisionService, DirectorMapper directorMapper) {
