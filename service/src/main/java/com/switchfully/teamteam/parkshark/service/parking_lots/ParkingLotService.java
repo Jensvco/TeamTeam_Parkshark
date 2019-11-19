@@ -24,7 +24,7 @@ public class ParkingLotService {
     public Iterable<ParkingLot> findAllParkingLots(){
         return parkingLotRepository.findAll();
     }
-
+    
 
 }
 
