@@ -21,8 +21,8 @@ public class DivisionController {
 
     public static final String RESOURCE_NAME = "divisions";
 
-    private DivisionService divisionService;
-    private DivisionMapper divisionMapper;
+    private final DivisionService divisionService;
+    private final DivisionMapper divisionMapper;
 
     @Autowired
     public DivisionController(DivisionService divisionService, DivisionMapper divisionMapper) {
@@ -41,7 +41,7 @@ public class DivisionController {
     @ResponseStatus(OK)
     public List<DivisionDto> getAllDivisions() {
         return divisionService.getAllDivisions().stream()
-                .map(division -> divisionMapper.toDto(division))
+                .map(divisionMapper::toDto)
                 .collect(toList());
     }
 
