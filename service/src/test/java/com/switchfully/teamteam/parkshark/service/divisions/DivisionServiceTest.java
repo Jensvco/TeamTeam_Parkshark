@@ -1,5 +1,6 @@
 package com.switchfully.teamteam.parkshark.service.divisions;
 
+import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.mockito.Mock;
 import static com.switchfully.teamteam.parkshark.domain.directors.Director.DirectorBuilder.director;
 import static com.switchfully.teamteam.parkshark.domain.divisions.Division.DivisionBuilder.division;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -17,18 +19,19 @@ class DivisionServiceTest {
     @Mock
     private DivisionRepository divisionRepository;
 
+    @Mock
+    private DivisionValidator divisionValidator;
+
     @InjectMocks
     private DivisionService divisionService;
+
+    private Division division;
 
     @BeforeEach
     void setUp() {
         initMocks(this);
-    }
 
-    @Test
-    void createDivision() {
-        // given
-        var division = division()
+        division()
                 .withDirector(director()
                         .withFirstName("Nick")
                         .withLastName("Meert")
@@ -36,13 +39,25 @@ class DivisionServiceTest {
                 .withName("IT")
                 .withOriginalName("Technical guys")
                 .build();
+    }
 
+    @Test
+    void createDivision_whenDivisionValidForCreation() {
         when(divisionRepository.save(division)).thenReturn(division);
+        when(divisionValidator.isValidForCreation(division)).thenReturn(true);
 
-        // when & then
         assertThat(divisionService.createDivision(division))
                 .usingRecursiveComparison()
                 .isEqualTo(division);
+    }
+
+    @Test
+    void createDivision_whenDivisionNOTValidForCreation_thenThrowException() {
+        when(divisionRepository.save(division)).thenReturn(division);
+        when(divisionValidator.isValidForCreation(division)).thenReturn(false);
+
+        assertThatThrownBy(() -> divisionService.createDivision(division))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
