@@ -10,7 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -33,7 +32,7 @@ public class ParkingLotServiceTest {
     void setUp() {
         initMocks(this);
 
-        parkingLot = new ParkingLot.ParkingLotBuilder()
+        parkingLot = new ParkingLot.Builder()
                 .withCapacity(500)
                 .withName("Blok A")
                 .withPricePerHour(10)

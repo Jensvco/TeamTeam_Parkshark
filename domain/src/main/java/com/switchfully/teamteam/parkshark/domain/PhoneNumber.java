@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class PhoneNumber {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequencePhoneNumber")
+    @SequenceGenerator(name = "sequencePhoneNumber", sequenceName = "PARKSHARK_PHONENUMBER_SEQ", allocationSize = 1)
     private int id;
 
     @Column(name = "PHONE_NUMBER")

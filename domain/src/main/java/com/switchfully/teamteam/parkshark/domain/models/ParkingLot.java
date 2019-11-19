@@ -2,32 +2,36 @@ package com.switchfully.teamteam.parkshark.domain.models;
 
 import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
+import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 
 import javax.persistence.*;
+
+import static javax.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "PARKING_LOT")
 public class ParkingLot {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceParkingLot")
+    @SequenceGenerator(name = "sequenceParkingLot", sequenceName = "PARKSHARK_PARKINGLOT_SEQ", allocationSize = 1)
     private long id;
 
     @Column(name = "NAME")
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "PARKING_LOT_CATEGORY_ID")
     private ParkingLotCategory parkingLotCategory;
 
     @Column(name = "CAPACITY")
     private int capacity;
 
-    @OneToOne
+    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "CONTACT_PERSON_ID")
     private ContactPerson contactPerson;
 
-    @OneToOne
+    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 

@@ -8,7 +8,7 @@ class ParkingLotTest {
     @Test
     void parkingLotBuilderTest() {
         ParkingLotCategory parkingLotCategory = new ParkingLotCategory("Underground");
-        ParkingLot parkingLot = new ParkingLot.ParkingLotBuilder()
+        ParkingLot parkingLot = new ParkingLot.Builder()
                 .withName("Blok A")
                 .withParkingLotCategory(parkingLotCategory)
                 .withCapacity(500)

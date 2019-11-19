@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ParkingLotValidatorTest {
-    private ParkingLot.ParkingLotBuilder parkinglot;
+    private ParkingLot.Builder parkinglot;
     private ParkingLotValidator validator;
 
     @BeforeEach
     void setUp() {
         validator = new ParkingLotValidator();
 
-        parkinglot = new ParkingLot.ParkingLotBuilder()
+        parkinglot = new ParkingLot.Builder()
                 .withCapacity(500)
                 .withName("Blok A")
                 .withPricePerHour(10);

@@ -11,7 +11,8 @@ import java.util.List;
 public class ContactPerson {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceContactPerson")
+    @SequenceGenerator(name = "sequenceContactPerson", sequenceName = "PARKSHARK_CONTACT_PERSON_SEQ", allocationSize = 1)
     private int id;
 
     @Column(name = "NAME")
