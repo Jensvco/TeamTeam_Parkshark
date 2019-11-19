@@ -13,6 +13,19 @@ public class ParkingLotCategory {
     @Column(name = "CATEGORY_NAME")
     private String categoryName;
 
+    /* Required by JPA */
+    private ParkingLotCategory() {
+    }
+
+    public ParkingLotCategory(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public ParkingLotCategory(int id, String categoryName) {
+        this.id = id;
+        this.categoryName = categoryName;
+    }
+
     public int getId() {
         return id;
     }
@@ -20,18 +33,5 @@ public class ParkingLotCategory {
     public String getCategoryName() {
         return categoryName;
     }
-
-    public ParkingLotCategory(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public ParkingLotCategory(int id, String categoryName){
-        this.id=id;
-        this.categoryName=categoryName;
-    }
-
-
-
-
 
 }

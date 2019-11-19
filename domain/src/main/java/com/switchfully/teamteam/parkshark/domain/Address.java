@@ -22,6 +22,10 @@ public class Address {
     @Column(name = "CITY")
     private String city;
 
+    /* Required by JPA */
+    private Address() {
+    }
+
     private Address(Builder builder) {
         streetName = builder.streetName;
         houseNumber = builder.houseNumber;

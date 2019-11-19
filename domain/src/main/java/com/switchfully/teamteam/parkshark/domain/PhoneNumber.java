@@ -22,6 +22,10 @@ public class PhoneNumber {
         LAND_LINE
     }
 
+    /* Required by JPA */
+    private PhoneNumber() {
+    }
+
     public PhoneNumber(String phoneNumber, PhoneNumberType phoneNumberType) {
         this.phoneNumber = phoneNumber;
         this.phoneNumberType = phoneNumberType;

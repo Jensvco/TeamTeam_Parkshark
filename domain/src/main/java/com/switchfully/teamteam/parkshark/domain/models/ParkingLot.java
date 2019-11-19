@@ -34,6 +34,10 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
+    /* Required by JPA */
+    private ParkingLot() {
+    }
+
     private ParkingLot(Builder builder) {
         name = builder.name;
         parkingLotCategory = builder.parkingLotCategory;

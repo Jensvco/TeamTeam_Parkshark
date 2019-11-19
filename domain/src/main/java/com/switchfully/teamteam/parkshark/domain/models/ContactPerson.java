@@ -28,6 +28,10 @@ public class ContactPerson {
     @JoinColumn(name="ADDRESS_ID")
     private Address address;
 
+    /* Required by JPA */
+    private ContactPerson() {
+    }
+
     private ContactPerson(Builder builder) {
         name = builder.name;
         phoneNumbers = builder.phoneNumbers;
