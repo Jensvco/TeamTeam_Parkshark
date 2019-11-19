@@ -3,6 +3,7 @@ package com.switchfully.teamteam.parkshark.api.parking_lots;
 import com.switchfully.teamteam.parkshark.api.addresses.dto.AddressDto;
 import com.switchfully.teamteam.parkshark.api.contact_persons.dto.ContactPersonDto;
 import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.ParkingLotCategoryDto;
+import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
 
 public class ParkingLotDto {
 
@@ -14,7 +15,6 @@ public class ParkingLotDto {
     private AddressDto addressDto;
     private double pricePerHour;
 
-
     public ParkingLotDto(long id, String name, ParkingLotCategoryDto parkingLotCategoryDto, int capacity, ContactPersonDto contactPersonDto, AddressDto addressDto, double pricePerHour) {
         this.id = id;
         this.name = name;
@@ -24,5 +24,4 @@ public class ParkingLotDto {
         this.addressDto = addressDto;
         this.pricePerHour = pricePerHour;
     }
-
 }

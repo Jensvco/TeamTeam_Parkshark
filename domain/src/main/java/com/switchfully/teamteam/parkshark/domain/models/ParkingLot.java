@@ -34,17 +34,16 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
-    /* Required by JPA */
-    private ParkingLot() {
+    private ParkingLot(ParkingLotBuilder parkingLotBuilder) {
+        name = parkingLotBuilder.name;
+        parkingLotCategory = parkingLotBuilder.parkingLotCategory;
+        capacity = parkingLotBuilder.capacity;
+        contactPerson = parkingLotBuilder.contactPerson;
+        address = parkingLotBuilder.address;
+        pricePerHour = parkingLotBuilder.pricePerHour;
     }
 
-    private ParkingLot(Builder builder) {
-        name = builder.name;
-        parkingLotCategory = builder.parkingLotCategory;
-        capacity = builder.capacity;
-        contactPerson = builder.contactPerson;
-        address = builder.address;
-        pricePerHour = builder.pricePerHour;
+    public ParkingLot() {
     }
 
     public long getId() {
@@ -75,7 +74,7 @@ public class ParkingLot {
         return pricePerHour;
     }
 
-    public static final class Builder {
+    public static final class ParkingLotBuilder {
         private String name;
         private ParkingLotCategory parkingLotCategory;
         private int capacity;
@@ -83,36 +82,36 @@ public class ParkingLot {
         private Address address;
         private double pricePerHour;
 
-        public static Builder parkingLot() {
-            return new Builder();
+        public static ParkingLotBuilder parkingLot() {
+            return new ParkingLotBuilder();
         }
 
-        public Builder withName(String name) {
+        public ParkingLotBuilder withName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder withParkingLotCategory(ParkingLotCategory parkingLotCategory) {
+        public ParkingLotBuilder withParkingLotCategory(ParkingLotCategory parkingLotCategory) {
             this.parkingLotCategory = parkingLotCategory;
             return this;
         }
 
-        public Builder withCapacity(int capacity) {
+        public ParkingLotBuilder withCapacity(int capacity) {
             this.capacity = capacity;
             return this;
         }
 
-        public Builder withContactPerson(ContactPerson contactPerson) {
+        public ParkingLotBuilder withContactPerson(ContactPerson contactPerson) {
             this.contactPerson = contactPerson;
             return this;
         }
 
-        public Builder withAddress(Address address) {
+        public ParkingLotBuilder withAddress(Address address) {
             this.address = address;
             return this;
         }
 
-        public Builder withPricePerHour(double pricePerHour) {
+        public ParkingLotBuilder withPricePerHour(double pricePerHour) {
             this.pricePerHour = pricePerHour;
             return this;
         }

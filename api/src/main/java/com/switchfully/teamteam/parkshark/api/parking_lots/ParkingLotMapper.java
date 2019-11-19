@@ -15,11 +15,11 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
 
     @Override
     public ParkingLot toDomain(CreateParkingLotDto createParkingLotDto) {
-        return new ParkingLot.Builder()
+        return new ParkingLot.ParkingLotBuilder()
                 .withCapacity(createParkingLotDto.getCapacity())
-                .withAddress(addressMapper.toDomain(createParkingLotDto.getAddressDto()))
+                .withAddress(addressMapper.toDomain(createParkingLotDto.getAddress()))
                 .withName(createParkingLotDto.getName())
-                .withParkingLotCategory(parkingLotCategoryMapper.toDomain(createParkingLotDto.getParkingLotCategoryDto()))
+                .withParkingLotCategory(parkingLotCategoryMapper.toDomain(createParkingLotDto.getParkingLotCategory()))
                 .build();
     }
 
