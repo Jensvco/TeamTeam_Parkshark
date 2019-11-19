@@ -42,6 +42,7 @@ public class DivisionControllerIntegrationTest extends ControllerIntegrationTest
                         CreateDivisionDto.class);
 
         assertThat(createdDivision).usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(createADivision());
     }
 
@@ -86,6 +87,7 @@ public class DivisionControllerIntegrationTest extends ControllerIntegrationTest
         assertThat(allDivisions).hasSize(1);
         assertThat(allDivisions[0])
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(divisionInDb);
     }
 

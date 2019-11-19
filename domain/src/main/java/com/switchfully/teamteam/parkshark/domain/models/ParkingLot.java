@@ -10,8 +10,7 @@ import javax.persistence.*;
 public class ParkingLot {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceParkingLot")
-    @SequenceGenerator(name = "sequenceParkingLot", sequenceName = "PARKSHARK_PARKINGLOT_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(name = "NAME")
@@ -35,17 +34,18 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
-    private ParkingLot(ParkingLotBuilder parkingLotBuilder) {
-        name = parkingLotBuilder.name;
-        parkingLotCategory = parkingLotBuilder.parkingLotCategory;
-        capacity = parkingLotBuilder.capacity;
-        contactPerson = parkingLotBuilder.contactPerson;
-        address = parkingLotBuilder.address;
-        pricePerHour = parkingLotBuilder.pricePerHour;
-    }
+    @ManyToOne
+    @JoinColumn(name="DIVISION_ID")
+    private Division division;
 
-    /* Required by JPA */
-    private ParkingLot() {
+    private ParkingLot(Builder builder) {
+        name = builder.name;
+        parkingLotCategory = builder.parkingLotCategory;
+        capacity = builder.capacity;
+        contactPerson = builder.contactPerson;
+        address = builder.address;
+        pricePerHour = builder.pricePerHour;
+        division = builder.division;
     }
 
     public long getId() {
@@ -76,45 +76,50 @@ public class ParkingLot {
         return pricePerHour;
     }
 
-    public static final class ParkingLotBuilder {
+    public static final class Builder {
         private String name;
         private ParkingLotCategory parkingLotCategory;
         private int capacity;
         private ContactPerson contactPerson;
         private Address address;
         private double pricePerHour;
+        public Division division;
 
-        public static ParkingLotBuilder parkingLot() {
-            return new ParkingLotBuilder();
+        public static Builder parkingLot() {
+            return new Builder();
         }
 
-        public ParkingLotBuilder withName(String name) {
+        public Builder withName(String name) {
             this.name = name;
             return this;
         }
 
-        public ParkingLotBuilder withParkingLotCategory(ParkingLotCategory parkingLotCategory) {
+        public Builder withParkingLotCategory(ParkingLotCategory parkingLotCategory) {
             this.parkingLotCategory = parkingLotCategory;
             return this;
         }
 
-        public ParkingLotBuilder withCapacity(int capacity) {
+        public Builder withCapacity(int capacity) {
             this.capacity = capacity;
             return this;
         }
 
-        public ParkingLotBuilder withContactPerson(ContactPerson contactPerson) {
+        public Builder withContactPerson(ContactPerson contactPerson) {
             this.contactPerson = contactPerson;
             return this;
         }
 
-        public ParkingLotBuilder withAddress(Address address) {
+        public Builder withAddress(Address address) {
             this.address = address;
             return this;
         }
 
-        public ParkingLotBuilder withPricePerHour(double pricePerHour) {
+        public Builder withPricePerHour(double pricePerHour) {
             this.pricePerHour = pricePerHour;
+            return this;
+        }
+        public Builder withPricePerHour(Division division){
+            this.division = division;
             return this;
         }
 

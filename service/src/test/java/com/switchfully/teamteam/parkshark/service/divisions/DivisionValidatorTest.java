@@ -69,6 +69,4 @@ class DivisionValidatorTest {
                 .isFalse();
     }
 
-    // TODO PARKSHARK: testing director values
-
 }

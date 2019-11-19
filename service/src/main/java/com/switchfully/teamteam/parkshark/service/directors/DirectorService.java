@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DirectorService {
 
-    private DirectorRepository directorRepository;
-    private DirectorValidator directorValidator;
+    private final DirectorRepository directorRepository;
+    private final DirectorValidator directorValidator;
 
     @Autowired
     public DirectorService(DirectorRepository directorRepository,

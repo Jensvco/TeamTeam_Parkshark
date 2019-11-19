@@ -29,7 +29,7 @@ public class Director {
         return lastName;
     }
 
-    /* Needed for JPA */
+    /* Required by JPA */
     private Director() {
     }
 

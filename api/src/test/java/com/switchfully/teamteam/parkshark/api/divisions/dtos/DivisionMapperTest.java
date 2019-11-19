@@ -3,11 +3,11 @@ package com.switchfully.teamteam.parkshark.api.divisions.dtos;
 import com.switchfully.teamteam.parkshark.api.directors.dtos.CreateDirectorDto;
 import com.switchfully.teamteam.parkshark.api.directors.dtos.DirectorMapper;
 import com.switchfully.teamteam.parkshark.domain.directors.Director;
+import com.switchfully.teamteam.parkshark.service.divisions.DivisionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.stereotype.Component;
 
 import static com.switchfully.teamteam.parkshark.api.directors.dtos.CreateDirectorDto.createDirectorDto;
 import static com.switchfully.teamteam.parkshark.api.directors.dtos.DirectorDto.directorDto;
@@ -16,15 +16,18 @@ import static com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionDto.
 import static com.switchfully.teamteam.parkshark.domain.directors.Director.DirectorBuilder.director;
 import static com.switchfully.teamteam.parkshark.domain.divisions.Division.DivisionBuilder.division;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@Component
 class DivisionMapperTest {
 
     @Mock
     private DirectorMapper directorMapper;
+
+    @Mock
+    private DivisionService divisionService;
 
     @InjectMocks
     private DivisionMapper divisionMapper;
@@ -35,7 +38,7 @@ class DivisionMapperTest {
     }
 
     @Test
-    void toDto() {
+    void toDto_withoutParent() {
         // given
         when(directorMapper.toDto(any(Director.class))).thenReturn(
                 directorDto()
@@ -51,6 +54,7 @@ class DivisionMapperTest {
         // when & then
         assertThat(divisionMapper.toDto(division))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(
                         divisionDto()
                                 .withName("IT")
@@ -61,7 +65,7 @@ class DivisionMapperTest {
     }
 
     @Test
-    void toDomain() {
+    void toDomain_withoutParent() {
         // given
         when(directorMapper.toDomain(any(CreateDirectorDto.class))).thenReturn(
                 director()
@@ -77,6 +81,7 @@ class DivisionMapperTest {
         // when & then
         assertThat(divisionMapper.toDomain(dto))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(
                         division()
                                 .withName("IT")
@@ -86,6 +91,89 @@ class DivisionMapperTest {
                                         .withLastName("Meert")
                                         .build())
                                 .build());
+    }
+
+    @Test
+    void toDomain_withNonExistingParentId_thenShouldThrowException() {
+        // given
+        when(directorMapper.toDomain(any(CreateDirectorDto.class))).thenReturn(
+                director()
+                        .withFirstName("Nick")
+                        .withLastName("Meert")
+                        .build());
+        when(divisionService.findDivisionById(10)).thenThrow(IllegalArgumentException.class);
+
+        var dto = createDivisionDto()
+                .withDirector(createDirectorDto())
+                .withName("IT")
+                .withOriginalName("IT")
+                .withParentId(10L);
+
+        assertThatThrownBy(() -> divisionMapper.toDomain(dto))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void toDomain_withExistingParentId_thenShouldCreateSubdivision() {
+        // given
+        when(directorMapper.toDomain(any(CreateDirectorDto.class))).thenReturn(
+                director()
+                        .withFirstName("Nick")
+                        .withLastName("Meert")
+                        .build());
+        when(divisionService.findDivisionById(10L)).thenReturn(division()
+                .withName("Big Boss")
+                .withOriginalName("Bossy")
+                .build());
+
+        var dto = createDivisionDto()
+                .withDirector(createDirectorDto())
+                .withName("IT")
+                .withOriginalName("IT")
+                .withParentId(10L);
+
+        assertThat(divisionMapper.toDomain(dto))
+                .usingRecursiveComparison()
+                .ignoringFields("id")
+                .isEqualTo(division()
+                        .withName("IT")
+                        .withOriginalName("IT")
+                        .withDirector(director()
+                                .withFirstName("Nick")
+                                .withLastName("Meert")
+                                .build())
+                        .withParent(division()
+                                .withName("Big Boss")
+                                .withOriginalName("Bossy")
+                                .build())
+                        .build());
+    }
+
+    @Test
+    void toDomain_withNullParentId_thenShouldCreateDivision() {
+        // given
+        when(directorMapper.toDomain(any(CreateDirectorDto.class))).thenReturn(
+                director()
+                        .withFirstName("Nick")
+                        .withLastName("Meert")
+                        .build());
+
+        var dto = createDivisionDto()
+                .withDirector(createDirectorDto())
+                .withName("IT")
+                .withOriginalName("IT");
+
+        assertThat(divisionMapper.toDomain(dto))
+                .usingRecursiveComparison()
+                .ignoringFields("id")
+                .isEqualTo(division()
+                        .withName("IT")
+                        .withOriginalName("IT")
+                        .withDirector(director()
+                                .withFirstName("Nick")
+                                .withLastName("Meert")
+                                .build())
+                        .build());
     }
 
 }
