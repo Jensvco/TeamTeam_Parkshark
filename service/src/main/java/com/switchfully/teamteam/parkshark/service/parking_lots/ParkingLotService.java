@@ -1,10 +1,11 @@
 package com.switchfully.teamteam.parkshark.service.parking_lots;
 
-import com.switchfully.teamteam.parkshark.domain.divisions.ParkingLot;
 import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
 import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -17,9 +18,13 @@ public class ParkingLotService {
     }
 
     public ParkingLot createParkingLot(ParkingLot parkingLotCreate){
-        parkingLotRepository.save(parkingLotCreate);
-        return null;
+        return parkingLotRepository.save(parkingLotCreate);
     }
+
+    public Iterable<ParkingLot> findAllParkingLots(){
+        return parkingLotRepository.findAll();
+    }
+
 
 }
 
