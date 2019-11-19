@@ -43,7 +43,8 @@ public class ParkingLot {
         pricePerHour = parkingLotBuilder.pricePerHour;
     }
 
-    public ParkingLot() {
+    /* Required by JPA */
+    private ParkingLot() {
     }
 
     public long getId() {
