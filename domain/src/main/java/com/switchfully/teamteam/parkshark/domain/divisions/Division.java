@@ -25,6 +25,10 @@ public class Division {
     @JoinColumn(name = "DIRECTOR_ID")
     private Director director;
 
+    @OneToOne
+    @JoinColumn(name = "PARENT_DIVISION_ID")
+    private Division parent;
+
     /* Required by JPA */
     private Division() {
     }
@@ -33,6 +37,7 @@ public class Division {
         name = builder.name;
         originalName = builder.originalName;
         director = builder.director;
+        parent = builder.parent;
     }
 
     public long getId() {
@@ -51,10 +56,15 @@ public class Division {
         return director;
     }
 
+    public Division getParent() {
+        return parent;
+    }
+
     public static class DivisionBuilder {
         private String name;
         private String originalName;
         private Director director;
+        private Division parent;
 
         public static DivisionBuilder division() {
             return new DivisionBuilder();
@@ -72,6 +82,11 @@ public class Division {
 
         public DivisionBuilder withDirector(Director director) {
             this.director = director;
+            return this;
+        }
+
+        public DivisionBuilder withParent(Division parent) {
+            this.parent = parent;
             return this;
         }
 
