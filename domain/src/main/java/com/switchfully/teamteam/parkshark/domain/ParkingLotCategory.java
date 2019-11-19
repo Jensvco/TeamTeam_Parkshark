@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.domain;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "PARKING_LOT_CATEGORY")
 public class ParkingLotCategory {
 

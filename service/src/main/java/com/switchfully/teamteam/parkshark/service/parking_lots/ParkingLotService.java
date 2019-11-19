@@ -5,8 +5,6 @@ import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotReposito
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 @Transactional
 public class ParkingLotService {

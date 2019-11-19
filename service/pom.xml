@@ -12,19 +12,12 @@
     <artifactId>service</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.switchfully.teamteam</groupId>
+            <groupId>com.switchfully.teamteam.parkshark</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    </dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.switchfully.teamteam.parkshark</groupId>
-            <artifactId>domain</artifactId>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
 </project>
