@@ -6,18 +6,18 @@ import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categorie
 
 public class CreateParkingLotDto {
     private String name;
-    private ParkingLotCategoryDto parkingLotCategoryDto;
+    private ParkingLotCategoryDto parkingLotCategory;
     private int capacity;
-    private ContactPersonDto contactPersonDto;
-    private AddressDto addressDto;
+    private ContactPersonDto contactPerson;
+    private AddressDto address;
     private double pricePerHour;
 
-    public CreateParkingLotDto(String name, ParkingLotCategoryDto parkingLotCategoryDto, int capacity, ContactPersonDto contactPersonDto, AddressDto addressDto, double pricePerHour) {
+    public CreateParkingLotDto(String name, ParkingLotCategoryDto parkingLotCategory, int capacity, ContactPersonDto contactPersonDto, AddressDto addressDto, double pricePerHour) {
         this.name = name;
-        this.parkingLotCategoryDto = parkingLotCategoryDto;
+        this.parkingLotCategory = parkingLotCategory;
         this.capacity = capacity;
-        this.contactPersonDto = contactPersonDto;
-        this.addressDto = addressDto;
+        this.contactPerson = contactPersonDto;
+        this.address = addressDto;
         this.pricePerHour = pricePerHour;
     }
 
@@ -25,20 +25,20 @@ public class CreateParkingLotDto {
         return name;
     }
 
-    public ParkingLotCategoryDto getParkingLotCategoryDto() {
-        return parkingLotCategoryDto;
+    public ParkingLotCategoryDto getParkingLotCategory() {
+        return parkingLotCategory;
     }
 
     public int getCapacity() {
         return capacity;
     }
 
-    public ContactPersonDto getContactPersonDto() {
-        return contactPersonDto;
+    public ContactPersonDto getContactPerson() {
+        return contactPerson;
     }
 
-    public AddressDto getAddressDto() {
-        return addressDto;
+    public AddressDto getAddress() {
+        return address;
     }
 
     public double getPricePerHour() {

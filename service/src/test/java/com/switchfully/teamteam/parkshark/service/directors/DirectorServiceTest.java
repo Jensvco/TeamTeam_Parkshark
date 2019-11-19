@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.service.directors;
 
 import com.switchfully.teamteam.parkshark.domain.directors.Director;
 import com.switchfully.teamteam.parkshark.domain.directors.DirectorRepository;
+import com.switchfully.teamteam.parkshark.service.EntityValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
