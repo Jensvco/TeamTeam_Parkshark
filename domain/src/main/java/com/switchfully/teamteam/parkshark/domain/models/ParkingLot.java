@@ -34,6 +34,10 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
+    @ManyToOne
+    @JoinColumn(name="DIVISION_ID")
+    private Division division;
+
     private ParkingLot(Builder builder) {
         name = builder.name;
         parkingLotCategory = builder.parkingLotCategory;
@@ -41,6 +45,7 @@ public class ParkingLot {
         contactPerson = builder.contactPerson;
         address = builder.address;
         pricePerHour = builder.pricePerHour;
+        division = builder.division;
     }
 
     public long getId() {
@@ -78,6 +83,7 @@ public class ParkingLot {
         private ContactPerson contactPerson;
         private Address address;
         private double pricePerHour;
+        public Division division;
 
         public static Builder parkingLot() {
             return new Builder();
@@ -110,6 +116,10 @@ public class ParkingLot {
 
         public Builder withPricePerHour(double pricePerHour) {
             this.pricePerHour = pricePerHour;
+            return this;
+        }
+        public Builder withPricePerHour(Division division){
+            this.division = division;
             return this;
         }
 
