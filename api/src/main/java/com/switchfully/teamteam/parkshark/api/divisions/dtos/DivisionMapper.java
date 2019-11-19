@@ -35,6 +35,7 @@ public class DivisionMapper implements Mapper<CreateDivisionDto, DivisionDto, Di
     @Override
     public DivisionDto toDto(Division division) {
         var dto = divisionDto()
+                .withId(division.getId())
                 .withName(division.getName())
                 .withOriginalName(division.getOriginalName())
                 .withDirector(directorMapper.toDto(division.getDirector()));

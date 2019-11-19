@@ -4,12 +4,17 @@ import com.switchfully.teamteam.parkshark.api.directors.dtos.DirectorDto;
 
 public class DivisionDto {
 
+    private Long id;
     private String name;
     private String originalName;
     private DirectorDto director;
     private Long parentId;
 
     public DivisionDto() {
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -30,6 +35,11 @@ public class DivisionDto {
 
     public static DivisionDto divisionDto() {
         return new DivisionDto();
+    }
+
+    public DivisionDto withId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public DivisionDto withName(String name) {
