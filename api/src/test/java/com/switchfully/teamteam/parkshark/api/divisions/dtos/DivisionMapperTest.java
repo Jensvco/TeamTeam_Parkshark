@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.stereotype.Component;
 
 import static com.switchfully.teamteam.parkshark.api.directors.dtos.CreateDirectorDto.createDirectorDto;
 import static com.switchfully.teamteam.parkshark.api.directors.dtos.DirectorDto.directorDto;
@@ -22,7 +21,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@Component
 class DivisionMapperTest {
 
     @Mock
@@ -56,6 +54,7 @@ class DivisionMapperTest {
         // when & then
         assertThat(divisionMapper.toDto(division))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(
                         divisionDto()
                                 .withName("IT")
@@ -82,6 +81,7 @@ class DivisionMapperTest {
         // when & then
         assertThat(divisionMapper.toDomain(dto))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(
                         division()
                                 .withName("IT")
@@ -134,6 +134,7 @@ class DivisionMapperTest {
 
         assertThat(divisionMapper.toDomain(dto))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(division()
                         .withName("IT")
                         .withOriginalName("IT")
@@ -164,6 +165,7 @@ class DivisionMapperTest {
 
         assertThat(divisionMapper.toDomain(dto))
                 .usingRecursiveComparison()
+                .ignoringFields("id")
                 .isEqualTo(division()
                         .withName("IT")
                         .withOriginalName("IT")
