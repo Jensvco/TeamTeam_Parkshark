@@ -10,7 +10,7 @@ public class DivisionDto {
     private DirectorDto director;
     private Long parentId;
 
-    public DivisionDto() {
+    private DivisionDto() {
     }
 
     public Long getId() {
