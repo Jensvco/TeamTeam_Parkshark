@@ -21,6 +21,18 @@ public class CreateParkingLotDto {
         this.pricePerHour = pricePerHour;
     }
 
+    public CreateParkingLotDto() {
+    }
+
+    private CreateParkingLotDto(Builder builder) {
+        name = builder.name;
+        parkingLotCategory = builder.parkingLotCategory;
+        capacity = builder.capacity;
+        contactPerson = builder.contactPerson;
+        address = builder.address;
+        pricePerHour = builder.pricePerHour;
+    }
+
     public String getName() {
         return name;
     }
@@ -43,5 +55,52 @@ public class CreateParkingLotDto {
 
     public double getPricePerHour() {
         return pricePerHour;
+    }
+
+
+    public static final class Builder {
+        private String name;
+        private ParkingLotCategoryDto parkingLotCategory;
+        private int capacity;
+        private CreateContactPersonDto contactPerson;
+        private CreateAddressDto address;
+        private double pricePerHour;
+
+        public Builder() {
+        }
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withParkingLotCategory(ParkingLotCategoryDto parkingLotCategory) {
+            this.parkingLotCategory = parkingLotCategory;
+            return this;
+        }
+
+        public Builder withCapacity(int capacity) {
+            this.capacity = capacity;
+            return this;
+        }
+
+        public Builder withContactPerson(CreateContactPersonDto contactPerson) {
+            this.contactPerson = contactPerson;
+            return this;
+        }
+
+        public Builder withAddress(CreateAddressDto address) {
+            this.address = address;
+            return this;
+        }
+
+        public Builder withPricePerHour(double pricePerHour) {
+            this.pricePerHour = pricePerHour;
+            return this;
+        }
+
+        public CreateParkingLotDto build() {
+            return new CreateParkingLotDto(this);
+        }
     }
 }
