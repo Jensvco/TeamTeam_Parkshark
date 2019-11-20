@@ -41,6 +41,9 @@ public class Member {
     @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
     private LocalDate registrationDate;
 
+    public Member() {
+    }
+
     public Member(MemberBuilder builder) {
         firstName = builder.firstName;
         lastName = builder.lastName;
