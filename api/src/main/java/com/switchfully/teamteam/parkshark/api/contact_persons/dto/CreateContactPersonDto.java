@@ -11,6 +11,9 @@ public class CreateContactPersonDto {
     private String email;
     private CreateAddressDto address;
 
+    public CreateContactPersonDto() {
+    }
+
     public CreateContactPersonDto(String name, List<CreatePhoneNumberDto> phoneNumbers, String email, CreateAddressDto address) {
         this.name = name;
         this.phoneNumbers = phoneNumbers;

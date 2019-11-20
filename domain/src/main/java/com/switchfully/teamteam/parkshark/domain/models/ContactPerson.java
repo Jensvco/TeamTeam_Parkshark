@@ -4,7 +4,10 @@ import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import static javax.persistence.CascadeType.*;
 
 @Entity
 @Table(name = "CONTACT_PERSON")
@@ -18,14 +21,14 @@ public class ContactPerson {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = {PERSIST})
     @JoinColumn(name="CONTACT_PERSON_ID")
-    private List<PhoneNumber> phoneNumbers;
+    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     @Column(name = "EMAIL")
     private String email;
 
-    @OneToOne
+    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name="ADDRESS_ID")
     private Address address;
 
@@ -62,7 +65,7 @@ public class ContactPerson {
 
     public static final class Builder {
         private String name;
-        private List<PhoneNumber> phoneNumbers;
+        private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
         private Address address;
 

@@ -30,7 +30,5 @@ public class CreateAddressDto {
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
         this.city = city;
-
-
     }
 }
