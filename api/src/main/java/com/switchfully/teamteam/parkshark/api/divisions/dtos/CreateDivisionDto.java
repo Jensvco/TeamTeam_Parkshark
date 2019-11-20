@@ -9,22 +9,22 @@ public class CreateDivisionDto {
     private CreateDirectorDto director;
     private Long parentId;
 
-    private CreateDivisionDto() {
+    public CreateDivisionDto() {
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    String getOriginalName() {
+    public String getOriginalName() {
         return originalName;
     }
 
-    CreateDirectorDto getDirector() {
+    public CreateDirectorDto getDirector() {
         return director;
     }
 
-    Long getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
