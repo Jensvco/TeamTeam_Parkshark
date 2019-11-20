@@ -1,5 +1,7 @@
 package com.switchfully.teamteam.parkshark.domain.memberships;
 
+import com.switchfully.teamteam.parkshark.domain.memberships.types.MembershipType;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
