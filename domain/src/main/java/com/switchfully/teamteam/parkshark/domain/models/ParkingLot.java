@@ -136,11 +136,6 @@ public class ParkingLot {
             return this;
         }
 
-        public Builder withDivision(Division division){
-            this.division = division;
-            return this;
-        }
-
         public ParkingLot build() {
             return new ParkingLot(this);
         }

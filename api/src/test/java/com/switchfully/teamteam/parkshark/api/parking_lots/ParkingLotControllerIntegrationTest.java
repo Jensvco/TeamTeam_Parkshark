@@ -5,6 +5,9 @@ import com.switchfully.teamteam.parkshark.api.addresses.dto.CreateAddressDto;
 import com.switchfully.teamteam.parkshark.api.contact_persons.dto.CreateContactPersonDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.CreatePhoneNumberDto;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
+import com.switchfully.teamteam.parkshark.domain.directors.Director;
+import com.switchfully.teamteam.parkshark.domain.divisions.Division;
+import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
 import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.switchfully.teamteam.parkshark.domain.ParkingLotCategory.UNDERGROUND;
+import static com.switchfully.teamteam.parkshark.domain.directors.Director.DirectorBuilder.director;
+import static com.switchfully.teamteam.parkshark.domain.divisions.Division.DivisionBuilder.division;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +28,10 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
 
     @Autowired
     private ParkingLotRepository parkingLotRepository;
+    @Autowired
+    private DivisionRepository divisionRepository;
+
+    private Division division;
 
     @Override
     public void clearDatabase() {
@@ -32,6 +41,14 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
     @BeforeEach
     void setup() {
         clearDatabase();
+        division = divisionRepository.saveAndFlush(division()
+                .withName("name")
+                .withOriginalName("originalName")
+                .withDirector(director()
+                        .withFirstName("firstName")
+                        .withLastName("lastName")
+                        .build())
+                .build());
     }
 
     @Test
@@ -76,6 +93,7 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
         CreatePhoneNumberDto phoneNumber = new CreatePhoneNumberDto("0474531267", PhoneNumber.PhoneNumberType.MOBILE_PHONE);
         phoneNumberList.add(phoneNumber);
         return new CreateParkingLotDto.Builder()
+                .withDivision_id(21)
                 .withName("ParkingLot1")
                 .withCapacity(500)
                 .withPricePerHour(10)
