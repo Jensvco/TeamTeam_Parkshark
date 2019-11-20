@@ -27,7 +27,9 @@ public class ContactPersonMapper implements Mapper<CreateContactPersonDto, Conta
                 .withAddress(addressMapper.toDomain(createContactPersonDto.getAddress()))
                 .withEmail(createContactPersonDto.getEmail())
                 .withName(createContactPersonDto.getName())
-                .withPhoneNumber(createContactPersonDto.getPhoneNumbers().stream().map($value -> phoneNumberMapper.toDomain($value)).collect(Collectors.toList()))
+                .withPhoneNumber(createContactPersonDto.getPhoneNumbers().stream()
+                        .map(value -> phoneNumberMapper.toDomain(value))
+                        .collect(Collectors.toList()))
                 .build();
     }
 
@@ -36,7 +38,9 @@ public class ContactPersonMapper implements Mapper<CreateContactPersonDto, Conta
                 .withAddress(addressMapper.toDomain(contactPersonDto.getAddress()))
                 .withEmail(contactPersonDto.getEmail())
                 .withName(contactPersonDto.getName())
-                .withPhoneNumber(contactPersonDto.getPhoneNumbers().stream().map($value -> phoneNumberMapper.toDomain($value)).collect(Collectors.toList()))
+                .withPhoneNumber(contactPersonDto.getPhoneNumbers().stream()
+                        .map(value -> phoneNumberMapper.toDomain(value))
+                        .collect(Collectors.toList()))
                 .build();
     }
 
@@ -44,7 +48,9 @@ public class ContactPersonMapper implements Mapper<CreateContactPersonDto, Conta
     public ContactPersonDto toDto(ContactPerson contactPerson) {
         return new ContactPersonDto(contactPerson.getId()
                 , contactPerson.getName()
-                , contactPerson.getPhoneNumbers().stream().map($value -> phoneNumberMapper.toDto($value)).collect(Collectors.toList())
+                , contactPerson.getPhoneNumbers().stream()
+                .map(value -> phoneNumberMapper.toDto(value))
+                .collect(Collectors.toList())
                 , contactPerson.getEmail()
                 , addressMapper.toDto(contactPerson.getAddress()));
     }

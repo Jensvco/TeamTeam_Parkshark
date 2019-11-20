@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class ParkingLotTest {
     @Test
     void parkingLotBuilderTest() {
-        ParkingLotCategory parkingLotCategory = new ParkingLotCategory("Underground");
+        ParkingLotCategory parkingLotCategory = ParkingLotCategory.UNDERGROUND;
         ParkingLot parkingLot = new ParkingLot.Builder()
                 .withName("Blok A")
                 .withParkingLotCategory(parkingLotCategory)
