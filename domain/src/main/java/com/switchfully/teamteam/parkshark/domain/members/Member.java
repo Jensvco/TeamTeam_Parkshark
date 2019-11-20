@@ -4,10 +4,18 @@ import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import oracle.net.jdbc.TNSAddress.Address;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import java.time.LocalDate;
 
 public class Member {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceMember")
+    @SequenceGenerator(name = "sequenceMember", sequenceName = "PARKSHARK_MEMBER_SEQ", allocationSize = 1)
+    private Long id;
     private String firstName;
     private String lastName;
     private Address address;
