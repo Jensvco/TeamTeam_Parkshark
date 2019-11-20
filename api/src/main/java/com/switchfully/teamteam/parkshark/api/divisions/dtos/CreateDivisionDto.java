@@ -9,22 +9,22 @@ public class CreateDivisionDto {
     private CreateDirectorDto director;
     private Long parentId;
 
-    public CreateDivisionDto() {
+    private CreateDivisionDto() {
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public String getOriginalName() {
+    String getOriginalName() {
         return originalName;
     }
 
-    public CreateDirectorDto getDirector() {
+    CreateDirectorDto getDirector() {
         return director;
     }
 
-    public Long getParentId() {
+    Long getParentId() {
         return parentId;
     }
 
@@ -51,4 +51,5 @@ public class CreateDivisionDto {
         this.parentId = parentId;
         return this;
     }
+
 }

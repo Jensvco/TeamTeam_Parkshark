@@ -2,12 +2,13 @@ package com.switchfully.teamteam.parkshark.api.members.dtos;
 
 import com.switchfully.teamteam.parkshark.api.addresses.dto.AddressDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberDto;
+import com.switchfully.teamteam.parkshark.domain.memberships.types.MembershipType;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateMemberDto {
+
     private String firstName;
     private String lastName;
     private AddressDto address;
@@ -15,50 +16,78 @@ public class CreateMemberDto {
     private String email;
     private String licensePlateNumber;
     private String licensePlateIssuingCountry;
-    private LocalDate registrationDate;
+    private MembershipType membershipType;
 
-    public CreateMemberDto(String firstName, String lastName, AddressDto address, List<PhoneNumberDto> phoneNumbers, String email, String licensePlateNumber, String licensePlateIssuingCountry, LocalDate registrationDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.phoneNumbers = phoneNumbers;
-        this.email = email;
-        this.licensePlateNumber = licensePlateNumber;
-        this.licensePlateIssuingCountry = licensePlateIssuingCountry;
-
-        this.registrationDate = registrationDate;
-    }
-
-    public String getFirstName() {
+    String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
+    String getLastName() {
         return lastName;
     }
 
-    public AddressDto getAddress() {
+    AddressDto getAddress() {
         return address;
     }
 
-    public List<PhoneNumberDto> getPhoneNumbers() {
+    List<PhoneNumberDto> getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
-
-    public LocalDate getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public String getLicensePlateNumber() {
+    String getLicensePlateNumber() {
         return licensePlateNumber;
     }
 
-    public String getLicensePlateIssuingCountry() {
+    String getLicensePlateIssuingCountry() {
         return licensePlateIssuingCountry;
     }
+
+    public MembershipType getMembershipType() {
+        return membershipType;
+    }
+
+    public CreateMemberDto withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public CreateMemberDto withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public CreateMemberDto withAddress(AddressDto address) {
+        this.address = address;
+        return this;
+    }
+
+    public CreateMemberDto withPhoneNumbers(List<PhoneNumberDto> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+        return this;
+    }
+
+    public CreateMemberDto withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public CreateMemberDto withLicensePlateNumber(String licensePlateNumber) {
+        this.licensePlateNumber = licensePlateNumber;
+        return this;
+    }
+
+    public CreateMemberDto withLicensePlateIssuingCountry(String licensePlateIssuingCountry) {
+        this.licensePlateIssuingCountry = licensePlateIssuingCountry;
+        return this;
+    }
+
+    public CreateMemberDto withMembershipType(MembershipType membershipType) {
+        this.membershipType = membershipType;
+        return this;
+    }
+
 }
