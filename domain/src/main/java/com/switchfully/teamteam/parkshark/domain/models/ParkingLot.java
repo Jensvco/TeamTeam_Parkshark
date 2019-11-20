@@ -135,7 +135,8 @@ public class ParkingLot {
             this.pricePerHour = pricePerHour;
             return this;
         }
-        public Builder withPricePerHour(Division division){
+
+        public Builder withDivision(Division division){
             this.division = division;
             return this;
         }

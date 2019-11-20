@@ -7,6 +7,17 @@ public class AddressDto {
     private String postalCode;
     private String city;
 
+    public AddressDto() {
+    }
+
+    public AddressDto(int id, String streetName, String houseNumber, String postalCode, String city) {
+        this.id = id;
+        this.streetName = streetName;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
     public int getId() {
         return id;
     }
@@ -25,13 +36,5 @@ public class AddressDto {
 
     public String getCity() {
         return city;
-    }
-
-    public AddressDto(int id, String streetName, String houseNumber, String postalCode, String city) {
-        this.id = id;
-        this.streetName = streetName;
-        this.houseNumber = houseNumber;
-        this.postalCode = postalCode;
-        this.city = city;
     }
 }

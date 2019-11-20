@@ -33,6 +33,8 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
                 .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
                 .withCapacity(createParkingLotDto.getCapacity())
                 .withAddress(addressMapper.toDomain(createParkingLotDto.getAddress()))
+                .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
+                .withPricePerHour(createParkingLotDto.getPricePerHour())
                 .withName(createParkingLotDto.getName())
                 .withDivision(division)
                 .withParkingLotCategory(createParkingLotDto.getParkingLotCategory())
