@@ -46,7 +46,7 @@ public class Member {
     @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
     private LocalDate registrationDate;
 
-    @Transient
+    @Embedded
     private Membership membership;
 
     private Member(MemberBuilder builder) {

@@ -1,15 +1,24 @@
 package com.switchfully.teamteam.parkshark.domain.memberships;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 
+@Embeddable
 public abstract class Membership {
 
-    private double monthlyCost;
-    private double allocationReduction;
-    private int maximumAllowedAllocationHours;
-    private LocalDate startingDate;
+    @Column(name = "MEMBERSHIP")
+    private MembershipType membershipType;
 
-    public Membership(double monthlyCost, double allocationReduction, int maximumAllowedAllocationHours) {
+    @Transient private double monthlyCost;
+    @Transient private double allocationReduction;
+    @Transient private int maximumAllowedAllocationHours;
+    @Transient private LocalDate startingDate;
+
+    public Membership(double monthlyCost,
+                      double allocationReduction,
+                      int maximumAllowedAllocationHours) {
         this.monthlyCost = monthlyCost;
         this.allocationReduction = allocationReduction;
         this.maximumAllowedAllocationHours = maximumAllowedAllocationHours;
