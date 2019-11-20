@@ -8,6 +8,7 @@ import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> {
@@ -34,7 +35,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withEmail(createMemberDto.getEmail())
                 .withFirstName(createMemberDto.getFirstName())
                 .withLastName(createMemberDto.getLastName())
-                .withLicensePlate(licensePlate)
+                .withLicensePlate(Arrays.asList(licensePlate))
                 .withPhoneNumber(createMemberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(Collectors.toList()))
@@ -48,7 +49,9 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withEmail(memberDto.getEmail())
                 .withFirstName(memberDto.getFirstName())
                 .withLastName(memberDto.getLastName())
-                .withLicensePlate(licensePlateMapper.toDomain(memberDto.getLicensePlate()))
+                .withLicensePlate(memberDto.getLicensePlate().stream()
+                        .map(value -> licensePlateMapper.toDomain(value))
+                        .collect(Collectors.toList()))
                 .withPhoneNumber(memberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(Collectors.toList()))
@@ -65,7 +68,8 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getLastName()
                 , member.getPhoneNumbers().stream().map(value -> phoneNumberMapper.toDto(value)).collect(Collectors.toList())
                 , member.getEmail()
-                , licensePlateMapper.toOverviewDto(member.getLicensePlate())
+                , member.getLicensePlate().stream().map(value -> licensePlateMapper.toOverviewDto(value))
+                .collect(Collectors.toList())
                 , member.getRegistrationDate());
     }
 
