@@ -5,6 +5,10 @@ import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicenseP
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberTest {
@@ -21,12 +25,13 @@ class MemberTest {
 
         LicensePlate licensePlate = new LicensePlate("123-abc", "BE");
 
+
         Member member = Member.memberBuilder()
                 .withFirstName("firstyname")
                 .withLastName("lastyname")
                 .withAddress(address)
                 .withEmail("boe@boe.be")
-                .withLicensePlate(licensePlate)
+                .withLicensePlate(Arrays.asList(licensePlate))
                 .build();
 
 
