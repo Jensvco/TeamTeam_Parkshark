@@ -4,31 +4,48 @@ import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import oracle.net.jdbc.TNSAddress.Address;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import static javax.persistence.CascadeType.PERSIST;
+
+@Entity
+@Table(name ="MEMBER")
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceMember")
     @SequenceGenerator(name = "sequenceMember", sequenceName = "PARKSHARK_MEMBER_SEQ", allocationSize = 1)
     private Long id;
+    @Column(name = "FIRST_NAME")
     private String firstName;
+    @Column(name = "LAST_NAME")
     private String lastName;
+    @ManyToOne
+    @JoinColumn(name = "ADDRESS_ID")
     private Address address;
-    private PhoneNumber phoneNumber;
+
+    @OneToMany(cascade = {PERSIST})
+    @JoinColumn(name = "MEMBER_ID")
+    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @OneToMany
+    @JoinColumn(name = "LICENSE_PLATE_ID")
     private LicensePlate licensePlate;
+
+    @JoinColumn(name = "REGISTRATION_DATE")
     private LocalDate registrationDate;
 
     public Member(MemberBuilder builder) {
         firstName = builder.firstName;
         lastName = builder.lastName;
         address = builder.address;
-        phoneNumber = builder.phoneNumber;
+        phoneNumbers = builder.phoneNumbers;
         email = builder.email;
         licensePlate = builder.licensePlate;
         registrationDate = LocalDate.now();
@@ -38,7 +55,7 @@ public class Member {
         private String firstName;
         private String lastName;
         private Address address;
-        private PhoneNumber phoneNumber;
+        private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
         private LicensePlate licensePlate;
         private LocalDate registrationDate;
@@ -62,8 +79,8 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withPhoneNumber(PhoneNumber phoneNumber) {
-            this.phoneNumber = phoneNumber;
+        public MemberBuilder withPhoneNumber(List<PhoneNumber> phoneNumbers) {
+            this.phoneNumbers = phoneNumbers;
             return this;
         }
 
