@@ -13,16 +13,16 @@ public class OverviewMemberDto {
     private String lastName;
     private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
     private String email;
-    private OverviewLicensePlateDto licensePlate;
+    private List<OverviewLicensePlateDto> licensePlates;
     private LocalDate registrationDate;
 
-    public OverviewMemberDto(Long id, String firstName, String lastName, List<PhoneNumberDto> phoneNumbers, String email, OverviewLicensePlateDto licensePlate, LocalDate registrationDate) {
+    public OverviewMemberDto(Long id, String firstName, String lastName, List<PhoneNumberDto> phoneNumbers, String email, List<OverviewLicensePlateDto> licensePlates, LocalDate registrationDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
         this.email = email;
-        this.licensePlate = licensePlate;
+        this.licensePlates = licensePlates;
         this.registrationDate = registrationDate;
     }
 
@@ -46,8 +46,8 @@ public class OverviewMemberDto {
         return email;
     }
 
-    public OverviewLicensePlateDto getLicensePlate() {
-        return licensePlate;
+    public List<OverviewLicensePlateDto> getLicensePlates() {
+        return licensePlates;
     }
 
     public LocalDate getRegistrationDate() {
