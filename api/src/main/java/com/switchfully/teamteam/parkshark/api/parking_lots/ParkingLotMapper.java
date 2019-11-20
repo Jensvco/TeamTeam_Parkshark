@@ -29,6 +29,8 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
         return new ParkingLot.Builder()
                 .withCapacity(createParkingLotDto.getCapacity())
                 .withAddress(addressMapper.toDomain(createParkingLotDto.getAddress()))
+                .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
+                .withPricePerHour(createParkingLotDto.getPricePerHour())
                 .withName(createParkingLotDto.getName())
                 .withParkingLotCategory(parkingLotCategoryMapper.toDomain(createParkingLotDto.getParkingLotCategory()))
                 .build();

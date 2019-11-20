@@ -12,6 +12,9 @@ public class ParkingLotCategoryDto {
         return categoryName;
     }
 
+    public ParkingLotCategoryDto() {
+    }
+
     public ParkingLotCategoryDto(int id, String categoryName) {
         this.id = id;
         this.categoryName = categoryName;

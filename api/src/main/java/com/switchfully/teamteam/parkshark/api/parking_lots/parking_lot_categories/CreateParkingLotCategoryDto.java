@@ -10,4 +10,5 @@ public class CreateParkingLotCategoryDto {
     public CreateParkingLotCategoryDto(int categoryId) {
         this.categoryId = categoryId;
     }
+
 }
