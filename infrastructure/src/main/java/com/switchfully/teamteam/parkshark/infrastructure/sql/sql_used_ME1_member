@@ -1,0 +1,44 @@
+   create table LICENSE_PLATE
+   (
+   ID number not null,
+   LP_NUMBER varchar2(25) not null,
+   COUNTRY varchar2(25) not null,
+   constraint PK_LICENSE_PLATE primary key (ID)
+   )
+
+
+   create table MEMBER
+   (
+   ID number not null,
+   NAME varchar2(25) not null,
+   FIRST_NAME varchar2(25) not null,
+   LAST_NAME number not null,
+   ADDRESS_ID number not null,
+   EMAIL varchar2(25),
+   LICENSE_PLATE_ID number not null,
+   REGISTRATION_DATE varchar2(25) not null,
+   constraint PK_MEMBER primary key (ID),
+   );
+
+   ALTER TABLE MEMBER
+   ADD CONSTRAINT FK_ADDRESS_ID FOREIGN KEY
+   ( ADDRESS_ID )
+   REFERENCES ADDRESS( ID ) ;
+
+
+   ALTER TABLE MEMBER
+   ADD CONSTRAINT FK_LICENSE_PLATE_ID FOREIGN KEY
+   ( LICENSE_PLATE_ID )
+   REFERENCES LICENSE_PLATE( ID ) ;
+
+
+ALTER TABLE PHONE_NUMBER
+ADD MEMBER_ID number;
+
+ALTER TABLE PHONE_NUMBER
+   ADD CONSTRAINT FK_MEMBER_ID FOREIGN KEY
+   ( MEMBER_ID )
+   REFERENCES MEMBER( ID );
+
+
+      CREATE SEQUENCE  "HRSTUDENT7"."PARKSHARK_LICENCE_PLATE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;

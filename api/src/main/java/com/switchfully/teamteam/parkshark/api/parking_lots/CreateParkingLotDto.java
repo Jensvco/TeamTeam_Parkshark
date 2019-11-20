@@ -2,17 +2,17 @@ package com.switchfully.teamteam.parkshark.api.parking_lots;
 
 import com.switchfully.teamteam.parkshark.api.addresses.dto.CreateAddressDto;
 import com.switchfully.teamteam.parkshark.api.contact_persons.dto.CreateContactPersonDto;
-import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.ParkingLotCategoryDto;
+import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
 
 public class CreateParkingLotDto {
     private String name;
-    private ParkingLotCategoryDto parkingLotCategory;
+    private ParkingLotCategory parkingLotCategory;
     private int capacity;
     private CreateContactPersonDto contactPerson;
     private CreateAddressDto address;
     private double pricePerHour;
 
-    public CreateParkingLotDto(String name, ParkingLotCategoryDto parkingLotCategory, int capacity, CreateContactPersonDto contactPersonDto, CreateAddressDto addressDto, double pricePerHour) {
+    public CreateParkingLotDto(String name, ParkingLotCategory parkingLotCategory, int capacity, CreateContactPersonDto contactPersonDto, CreateAddressDto addressDto, double pricePerHour) {
         this.name = name;
         this.parkingLotCategory = parkingLotCategory;
         this.capacity = capacity;
@@ -25,7 +25,7 @@ public class CreateParkingLotDto {
         return name;
     }
 
-    public ParkingLotCategoryDto getParkingLotCategory() {
+    public ParkingLotCategory getParkingLotCategory() {
         return parkingLotCategory;
     }
 

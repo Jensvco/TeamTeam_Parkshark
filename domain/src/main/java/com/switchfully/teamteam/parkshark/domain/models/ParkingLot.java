@@ -20,8 +20,8 @@ public class ParkingLot {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
-    @JoinColumn(name = "PARKING_LOT_CATEGORY_ID")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "PARKING_LOT_CATEGORY")
     private ParkingLotCategory parkingLotCategory;
 
     @Column(name = "CAPACITY")
