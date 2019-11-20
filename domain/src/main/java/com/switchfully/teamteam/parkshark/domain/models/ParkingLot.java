@@ -20,14 +20,14 @@ public class ParkingLot {
     @Column(name = "NAME")
     private String name;
 
-    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
+    @ManyToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "PARKING_LOT_CATEGORY_ID")
     private ParkingLotCategory parkingLotCategory;
 
     @Column(name = "CAPACITY")
     private int capacity;
 
-    @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
+    @ManyToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "CONTACT_PERSON_ID")
     private ContactPerson contactPerson;
 
@@ -41,6 +41,9 @@ public class ParkingLot {
     @ManyToOne
     @JoinColumn(name="DIVISION_ID")
     private Division division;
+
+    public ParkingLot() {
+    }
 
     private ParkingLot(Builder builder) {
         name = builder.name;

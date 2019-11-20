@@ -15,8 +15,8 @@ public class ParkingLotService {
         this.parkingLotRepository = parkingLotRepository;
     }
 
-    public ParkingLot createParkingLot(ParkingLot parkingLotCreate) {
-        return parkingLotRepository.save(parkingLotCreate);
+    public ParkingLot createParkingLot(ParkingLot parkingLotToCreate) {
+        return parkingLotRepository.save(parkingLotToCreate);
     }
 
     public Iterable<ParkingLot> findAllParkingLots() {

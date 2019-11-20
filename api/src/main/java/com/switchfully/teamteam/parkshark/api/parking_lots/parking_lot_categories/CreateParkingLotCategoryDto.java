@@ -1,13 +1,13 @@
 package com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories;
 
 public class CreateParkingLotCategoryDto {
-    private String categoryName;
+    private int categoryId;
 
-    public String getCategoryName() {
-        return categoryName;
+    public int getId() {
+        return categoryId;
     }
 
-    public CreateParkingLotCategoryDto(String categoryName) {
-        this.categoryName = categoryName;
+    public CreateParkingLotCategoryDto(int categoryId) {
+        this.categoryId = categoryId;
     }
 }

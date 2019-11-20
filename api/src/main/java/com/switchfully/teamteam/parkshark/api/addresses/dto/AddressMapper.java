@@ -11,6 +11,7 @@ public class AddressMapper implements Mapper<CreateAddressDto, AddressDto, Addre
     public Address toDomain(CreateAddressDto createAddressDto) {
         return new Address.Builder()
                 .withCity(createAddressDto.getCity())
+                .withStreetName(createAddressDto.getStreetName())
                 .withHouseNumber(createAddressDto.getHouseNumber())
                 .withPostalCode(createAddressDto.getPostalCode())
                 .withCity(createAddressDto.getCity())

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class ParkingLotCategoryMapper implements Mapper<CreateParkingLotCategoryDto, ParkingLotCategoryDto, ParkingLotCategory> {
     @Override
     public ParkingLotCategory toDomain(CreateParkingLotCategoryDto createParkingLotCategoryDto) {
-        return new ParkingLotCategory(createParkingLotCategoryDto.getCategoryName());
+        return new ParkingLotCategory(createParkingLotCategoryDto.getId());
     }
 
     public ParkingLotCategory toDomain(ParkingLotCategoryDto parkingLotCategoryDto) {
