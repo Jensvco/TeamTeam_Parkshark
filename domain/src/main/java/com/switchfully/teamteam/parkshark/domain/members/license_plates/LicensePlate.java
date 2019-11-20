@@ -25,6 +25,10 @@ public class LicensePlate {
         this.issuingCountry = issuingCountry;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getNumber() {
         return number;
     }
