@@ -1,8 +1,8 @@
 package com.switchfully.teamteam.parkshark.domain.members;
 
+import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
-import oracle.net.jdbc.TNSAddress.Address;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,7 +38,7 @@ public class Member {
     @JoinColumn(name = "LICENSE_PLATE_ID")
     private LicensePlate licensePlate;
 
-    @JoinColumn(name = "REGISTRATION_DATE")
+    @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
     private LocalDate registrationDate;
 
     public Member(MemberBuilder builder) {
@@ -51,6 +51,11 @@ public class Member {
         registrationDate = LocalDate.now();
     }
 
+    public static MemberBuilder memberBuilder() {
+        return new MemberBuilder();
+    }
+
+
     public static class MemberBuilder {
         private String firstName;
         private String lastName;
@@ -58,7 +63,6 @@ public class Member {
         private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
         private LicensePlate licensePlate;
-        private LocalDate registrationDate;
 
         public static MemberBuilder member() {
             return new MemberBuilder();
@@ -94,9 +98,41 @@ public class Member {
             return this;
         }
 
+
         public Member build() {
             return new Member(this);
         }
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public List<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LicensePlate getLicensePlate() {
+        return licensePlate;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
