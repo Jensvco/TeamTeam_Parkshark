@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -44,7 +46,7 @@ class MemberServiceTest {
                 .withLastName("lastyname")
                 .withAddress(address)
                 .withEmail("boe@boe.be")
-                .withLicensePlate(licensePlate)
+                .withLicensePlate(Arrays.asList(licensePlate))
                 .build();
     }
 

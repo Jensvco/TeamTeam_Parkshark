@@ -8,6 +8,8 @@ import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicenseP
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static com.switchfully.teamteam.parkshark.domain.members.Member.memberBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,7 +31,7 @@ public class MemberValidatorTest {
         LicensePlate licensePlate = new LicensePlate("123-abc", "BE");
 
         memberBuilder = memberBuilder().withFirstName("yey").withLastName("sdf").withAddress(address)
-                .withLicensePlate(licensePlate).withEmail("empty");
+                .withLicensePlate(Arrays.asList(licensePlate)).withEmail("empty");
     }
 
     @Test
