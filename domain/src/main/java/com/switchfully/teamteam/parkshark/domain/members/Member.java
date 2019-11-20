@@ -1,5 +1,6 @@
 package com.switchfully.teamteam.parkshark.domain.members;
 
+import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import oracle.net.jdbc.TNSAddress.Address;
 
@@ -10,7 +11,7 @@ public class Member {
     private String firstName;
     private String lastName;
     private Address address;
-    //private PhoneNumber phoneNumber;
+    private PhoneNumber phoneNumber;
     private String email;
     private LicensePlate licensePlate;
     private LocalDate registrationDate;
@@ -19,7 +20,7 @@ public class Member {
         firstName = builder.firstName;
         lastName = builder.lastName;
         address = builder.address;
-        //phoneNumber = builder.phoneNumber;
+        phoneNumber = builder.phoneNumber;
         email = builder.email;
         licensePlate = builder.licensePlate;
         registrationDate = LocalDate.now();
@@ -29,7 +30,7 @@ public class Member {
         private String firstName;
         private String lastName;
         private Address address;
-        //private PhoneNumber phoneNumber;
+        private PhoneNumber phoneNumber;
         private String email;
         private LicensePlate licensePlate;
         private LocalDate registrationDate;
@@ -53,10 +54,10 @@ public class Member {
             return this;
         }
 
-//        public MemberBuilder withPhoneNumber(PhoneNumber phoneNumber) {
-//            this.phoneNumber = phoneNumber;
-//            return this;
-//        }
+        public MemberBuilder withPhoneNumber(PhoneNumber phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
 
         public MemberBuilder withEmail(String email) {
             this.email = email;
