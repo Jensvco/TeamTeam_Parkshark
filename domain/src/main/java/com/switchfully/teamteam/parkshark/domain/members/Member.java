@@ -36,7 +36,7 @@ public class Member {
 
     @OneToMany
     @JoinColumn(name = "LICENSE_PLATE_ID")
-    private LicensePlate licensePlate;
+    private List<LicensePlate> licensePlate = new ArrayList<>();
 
     @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
     private LocalDate registrationDate;
@@ -62,7 +62,7 @@ public class Member {
         private Address address;
         private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
-        private LicensePlate licensePlate;
+        private List<LicensePlate> licensePlate = new ArrayList<>();
 
         public static MemberBuilder member() {
             return new MemberBuilder();
@@ -93,7 +93,7 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withLicensePlate(LicensePlate licensePlate) {
+        public MemberBuilder withLicensePlate(List<LicensePlate> licensePlate) {
             this.licensePlate = licensePlate;
             return this;
         }
@@ -124,7 +124,7 @@ public class Member {
         return email;
     }
 
-    public LicensePlate getLicensePlate() {
+    public List<LicensePlate> getLicensePlate() {
         return licensePlate;
     }
 
