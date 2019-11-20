@@ -12,6 +12,17 @@ public class ContactPersonDto {
     private String email;
     private AddressDto address;
 
+    public ContactPersonDto() {
+    }
+
+    public ContactPersonDto(int id, String name, List<PhoneNumberDto> phoneNumbers, String email, AddressDto address) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumbers = phoneNumbers;
+        this.email = email;
+        this.address = address;
+    }
+
     public int getId() {
         return id;
     }
@@ -30,13 +41,5 @@ public class ContactPersonDto {
 
     public AddressDto getAddress() {
         return address;
-    }
-
-    public ContactPersonDto(int id, String name, List<PhoneNumberDto> phoneNumbers, String email, AddressDto address) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumbers = phoneNumbers;
-        this.email = email;
-        this.address = address;
     }
 }

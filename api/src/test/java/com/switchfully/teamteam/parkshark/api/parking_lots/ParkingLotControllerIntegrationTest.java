@@ -3,19 +3,15 @@ package com.switchfully.teamteam.parkshark.api.parking_lots;
 import com.switchfully.teamteam.parkshark.ControllerIntegrationTest;
 import com.switchfully.teamteam.parkshark.api.addresses.dto.CreateAddressDto;
 import com.switchfully.teamteam.parkshark.api.contact_persons.dto.CreateContactPersonDto;
-import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.CreateParkingLotCategoryDto;
-import com.switchfully.teamteam.parkshark.api.parking_lots.parking_lot_categories.ParkingLotCategoryDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.CreatePhoneNumberDto;
-import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
-import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.switchfully.teamteam.parkshark.domain.ParkingLotCategory.UNDERGROUND;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,7 +29,7 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
                 .postForObject(format(LOCALHOST + ":%s/parkinglots",
                         getPort()),
                         createAParkingLot(),
-                        ParkingLotDto.class);
+                        CreateParkingLotDto.class);
 
         assertThat(createdParkingLot)
                 .usingRecursiveComparison()
@@ -49,7 +45,7 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
                 .withName("ParkingLot1")
                 .withCapacity(500)
                 .withPricePerHour(10)
-                .withParkingLotCategory(new ParkingLotCategoryDto(1, "UNDERGROUND"))
+                .withParkingLotCategory(UNDERGROUND)
                 .withAddress(new CreateAddressDto("Street", "Number", "9000", "Gent"))
                 .withContactPerson(new CreateContactPersonDto("Jens", phoneNumberList, "Jensvco@gmail.com", new CreateAddressDto("Street", "Number", "9000", "Gent")))
                 .build();

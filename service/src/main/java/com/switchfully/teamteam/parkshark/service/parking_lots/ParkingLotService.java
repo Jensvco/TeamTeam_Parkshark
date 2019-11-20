@@ -25,7 +25,7 @@ public class ParkingLotService {
         return parkingLotRepository.save(parkingLotToCreate);
     }
 
-    public Iterable<ParkingLot> findAllParkingLots() {
+    public List<ParkingLot> findAllParkingLots() {
         return parkingLotRepository.findAll();
     }
 
