@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import static com.switchfully.teamteam.parkshark.api.directors.dtos.DirectorDto.directorDto;
 import static com.switchfully.teamteam.parkshark.domain.directors.Director.DirectorBuilder.director;
+
 @Component
 public class DirectorMapper implements Mapper<CreateDirectorDto, DirectorDto, Director> {
 
