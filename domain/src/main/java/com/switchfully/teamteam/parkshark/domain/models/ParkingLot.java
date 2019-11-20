@@ -24,6 +24,10 @@ public class ParkingLot {
     @Column(name = "PARKING_LOT_CATEGORY")
     private ParkingLotCategory parkingLotCategory;
 
+    public Division getDivision() {
+        return division;
+    }
+
     @Column(name = "CAPACITY")
     private int capacity;
 
@@ -38,7 +42,7 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
-    @Transient
+   
     @ManyToOne
     @JoinColumn(name="DIVISION_ID")
     private Division division;
@@ -104,6 +108,11 @@ public class ParkingLot {
 
         public Builder withParkingLotCategory(ParkingLotCategory parkingLotCategory) {
             this.parkingLotCategory = parkingLotCategory;
+            return this;
+        }
+
+        public Builder withDivision(Division division) {
+            this.division = division;
             return this;
         }
 
