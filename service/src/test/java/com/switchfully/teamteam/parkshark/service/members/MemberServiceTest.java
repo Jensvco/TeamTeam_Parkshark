@@ -11,8 +11,8 @@ import org.mockito.Mock;
 
 import java.util.Arrays;
 
+import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -41,12 +41,12 @@ class MemberServiceTest {
 
         LicensePlate licensePlate = new LicensePlate("123-abc", "BE");
 
-        member = Member.memberBuilder()
+        member = member()
                 .withFirstName("firstyname")
                 .withLastName("lastyname")
                 .withAddress(address)
                 .withEmail("boe@boe.be")
-                .withLicensePlate(Arrays.asList(licensePlate))
+                .withLicensePlates(Arrays.asList(licensePlate))
                 .build();
     }
 

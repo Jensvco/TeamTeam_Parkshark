@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static com.switchfully.teamteam.parkshark.domain.members.Member.memberBuilder;
+import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MemberValidatorTest {
@@ -30,8 +30,12 @@ public class MemberValidatorTest {
 
         LicensePlate licensePlate = new LicensePlate("123-abc", "BE");
 
-        memberBuilder = memberBuilder().withFirstName("yey").withLastName("sdf").withAddress(address)
-                .withLicensePlate(Arrays.asList(licensePlate)).withEmail("empty");
+        memberBuilder = member()
+                .withFirstName("yey")
+                .withLastName("sdf")
+                .withAddress(address)
+                .withLicensePlates(Arrays.asList(licensePlate))
+                .withEmail("empty");
     }
 
     @Test

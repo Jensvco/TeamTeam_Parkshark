@@ -6,6 +6,8 @@ import com.switchfully.teamteam.parkshark.domain.memberships.GoldMembership;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static com.switchfully.teamteam.parkshark.domain.Address.Builder.address;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
@@ -27,7 +29,7 @@ class MemberTest {
                         .withPostalCode("1000")
                         .build())
                 .withEmail("boe@boe.be")
-                .withLicensePlate(new LicensePlate("123-abc", "BE"));
+                .withLicensePlates(List.of(new LicensePlate("123-abc", "BE")));
     }
 
     @Test
@@ -41,8 +43,8 @@ class MemberTest {
         assertThat(createdMember.getAddress().getStreetName()).isEqualTo("Bosstraat");
         assertThat(createdMember.getAddress().getPostalCode()).isEqualTo("1000");
         assertThat(createdMember.getEmail()).isEqualTo("boe@boe.be");
-        assertThat(createdMember.getLicensePlate().getNumber()).isEqualTo("123-abc");
-        assertThat(createdMember.getLicensePlate().getIssuingCountry()).isEqualTo("BE");
+        assertThat(createdMember.getLicensePlates().get(0).getNumber()).isEqualTo("123-abc");
+        assertThat(createdMember.getLicensePlates().get(0).getIssuingCountry()).isEqualTo("BE");
     }
 
     @Test
