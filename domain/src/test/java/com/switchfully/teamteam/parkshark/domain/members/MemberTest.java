@@ -53,7 +53,7 @@ class MemberTest {
     }
 
     @Test
-    void createMember_withMembership_thenMembershipShouldAssigned() {
+    void createMember_withMembership_thenMembershipShouldBeAssigned() {
         var createdMember = member.withMembership(new GoldMembership()).build();
 
         assertThat(createdMember.getMembership()).isInstanceOf(GoldMembership.class);
