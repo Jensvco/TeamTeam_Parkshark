@@ -38,6 +38,7 @@ public class ParkingLot {
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
 
+    @Transient
     @ManyToOne
     @JoinColumn(name="DIVISION_ID")
     private Division division;
