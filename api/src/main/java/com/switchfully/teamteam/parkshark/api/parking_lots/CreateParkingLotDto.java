@@ -10,15 +10,21 @@ public class CreateParkingLotDto {
     private int capacity;
     private CreateContactPersonDto contactPerson;
     private CreateAddressDto address;
+    private int division_id;
     private double pricePerHour;
 
-    public CreateParkingLotDto(String name, ParkingLotCategory parkingLotCategory, int capacity, CreateContactPersonDto contactPersonDto, CreateAddressDto addressDto, double pricePerHour) {
+    public CreateParkingLotDto(String name, ParkingLotCategory parkingLotCategory, int division_id,int capacity, CreateContactPersonDto contactPersonDto, CreateAddressDto addressDto,  double pricePerHour) {
         this.name = name;
         this.parkingLotCategory = parkingLotCategory;
         this.capacity = capacity;
         this.contactPerson = contactPersonDto;
         this.address = addressDto;
+        this.division_id = division_id;
         this.pricePerHour = pricePerHour;
+    }
+
+    public int getDivision_id() {
+        return division_id;
     }
 
     public String getName() {
