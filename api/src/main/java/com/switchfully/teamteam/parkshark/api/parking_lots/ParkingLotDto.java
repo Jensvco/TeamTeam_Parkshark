@@ -7,27 +7,30 @@ import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
 
 public class ParkingLotDto {
 
-    private long id;
+    private int id;
     private String name;
-    private ParkingLotCategory parkingLotCategoryDto;
+    private ParkingLotCategory parkingLotCategory;
     private int capacity;
-    private ContactPersonDto contactPersonDto;
-    private AddressDto addressDto;
+    private ContactPersonDto contactPerson;
+    private AddressDto address;
     private DivisionDto divisionDto;
     private double pricePerHour;
 
-    public ParkingLotDto(long id, String name, ParkingLotCategory parkingLotCategoryDto,DivisionDto divisionDto, int capacity, ContactPersonDto contactPersonDto, AddressDto addressDto, double pricePerHour) {
+    public ParkingLotDto() {
+    }
+
+    public ParkingLotDto(int id, String name, ParkingLotCategory parkingLotCategory, DivisionDto divisionDto, int capacity, ContactPersonDto contactPerson, AddressDto address, double pricePerHour) {
         this.id = id;
         this.name = name;
-        this.parkingLotCategoryDto = parkingLotCategoryDto;
-        this.divisionDto=divisionDto;
+        this.parkingLotCategory = parkingLotCategory;
+        this.divisionDto = divisionDto;
         this.capacity = capacity;
-        this.contactPersonDto = contactPersonDto;
-        this.addressDto = addressDto;
+        this.contactPerson = contactPerson;
+        this.address = address;
         this.pricePerHour = pricePerHour;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -35,20 +38,20 @@ public class ParkingLotDto {
         return name;
     }
 
-    public ParkingLotCategory getParkingLotCategoryDto() {
-        return parkingLotCategoryDto;
+    public ParkingLotCategory getParkingLotCategory() {
+        return parkingLotCategory;
     }
 
     public int getCapacity() {
         return capacity;
     }
 
-    public ContactPersonDto getContactPersonDto() {
-        return contactPersonDto;
+    public ContactPersonDto getContactPerson() {
+        return contactPerson;
     }
 
-    public AddressDto getAddressDto() {
-        return addressDto;
+    public AddressDto getAddress() {
+        return address;
     }
 
     public DivisionDto getDivisionDto() {

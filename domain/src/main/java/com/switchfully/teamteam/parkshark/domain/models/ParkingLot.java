@@ -59,7 +59,7 @@ public class ParkingLot {
         division = builder.division;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -132,10 +132,6 @@ public class ParkingLot {
 
         public Builder withPricePerHour(double pricePerHour) {
             this.pricePerHour = pricePerHour;
-            return this;
-        }
-        public Builder withPricePerHour(Division division){
-            this.division = division;
             return this;
         }
 

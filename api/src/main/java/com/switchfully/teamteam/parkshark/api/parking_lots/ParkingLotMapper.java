@@ -28,11 +28,13 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
 
     @Override
     public ParkingLot toDomain(CreateParkingLotDto createParkingLotDto) {
-        Division division=divisionService.findDivisionById(createParkingLotDto.getDivision_id());
+        Division division = divisionService.findDivisionById(createParkingLotDto.getDivisionId());
         return new ParkingLot.Builder()
                 .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
                 .withCapacity(createParkingLotDto.getCapacity())
                 .withAddress(addressMapper.toDomain(createParkingLotDto.getAddress()))
+                .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
+                .withPricePerHour(createParkingLotDto.getPricePerHour())
                 .withName(createParkingLotDto.getName())
                 .withDivision(division)
                 .withParkingLotCategory(createParkingLotDto.getParkingLotCategory())
@@ -41,7 +43,8 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
 
     @Override
     public ParkingLotDto toDto(ParkingLot parkingLot) {
-        return new ParkingLotDto(parkingLot.getId(), parkingLot.getName()
+        return new ParkingLotDto(parkingLot.getId()
+                , parkingLot.getName()
                 , parkingLot.getParkingLotCategory()
                 , divisionMapper.toDto(parkingLot.getDivision())
                 , parkingLot.getCapacity()

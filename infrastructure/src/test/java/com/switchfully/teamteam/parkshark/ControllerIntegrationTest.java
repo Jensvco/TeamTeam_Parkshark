@@ -14,7 +14,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {TestApplication.class},
         webEnvironment = RANDOM_PORT)
-@Transactional
+//@Transactional
 public abstract class ControllerIntegrationTest {
 
     @LocalServerPort
@@ -27,9 +27,9 @@ public abstract class ControllerIntegrationTest {
     @BeforeEach
     public void clearAndFlushDatabase() {
         clearDatabase();
-        TestTransaction.flagForCommit();
-        TestTransaction.end();
-        TestTransaction.start();
+//        TestTransaction.flagForCommit();
+//        TestTransaction.end();
+//        TestTransaction.start();
     }
 
     public abstract void clearDatabase();

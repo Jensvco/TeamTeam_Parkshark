@@ -6,6 +6,9 @@ public class CreatePhoneNumberDto {
     private String phoneNumber;
     private PhoneNumber.PhoneNumberType phoneNumberType;
 
+    public CreatePhoneNumberDto() {
+    }
+
     public CreatePhoneNumberDto(String phoneNumber, PhoneNumber.PhoneNumberType phoneNumberType) {
         this.phoneNumber = phoneNumber;
         this.phoneNumberType = phoneNumberType;
