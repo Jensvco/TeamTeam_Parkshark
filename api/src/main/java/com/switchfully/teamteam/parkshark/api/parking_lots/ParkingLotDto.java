@@ -19,11 +19,11 @@ public class ParkingLotDto {
     public ParkingLotDto() {
     }
 
-    public ParkingLotDto(long id, String name, ParkingLotCategory parkingLotCategoryDto, DivisionDto divisionDto, int capacity, ContactPersonDto contactPersonDto, AddressDto addressDto, double pricePerHour) {
+    public ParkingLotDto(long id, String name, ParkingLotCategory parkingLotCategory, DivisionDto divisionDto, int capacity, ContactPersonDto contactPerson, AddressDto address, double pricePerHour) {
         this.id = id;
         this.name = name;
         this.parkingLotCategory = parkingLotCategory;
-        this.divisionDto=divisionDto;
+        this.divisionDto = divisionDto;
         this.capacity = capacity;
         this.contactPerson = contactPerson;
         this.address = address;
@@ -56,5 +56,9 @@ public class ParkingLotDto {
 
     public double getPricePerHour() {
         return pricePerHour;
+    }
+
+    public DivisionDto getDivisionDto() {
+        return divisionDto;
     }
 }

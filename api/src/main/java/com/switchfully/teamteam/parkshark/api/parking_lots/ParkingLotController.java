@@ -11,8 +11,9 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-@RequestMapping(path = "/parkinglots")
+@RequestMapping(path = "/" + ParkingLotController.PARKING_LOT_RESOURCE_NAME)
 public class ParkingLotController {
+    public static final String PARKING_LOT_RESOURCE_NAME = "parkinglots";
 
     private ParkingLotService parkingLotService;
     private ParkingLotMapper parkingLotMapper;

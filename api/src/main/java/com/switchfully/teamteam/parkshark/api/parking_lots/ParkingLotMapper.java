@@ -28,7 +28,7 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
 
     @Override
     public ParkingLot toDomain(CreateParkingLotDto createParkingLotDto) {
-        Division division = divisionService.findDivisionById(createParkingLotDto.getDivision_id());
+        Division division = divisionService.findDivisionById(createParkingLotDto.getDivisionId());
         return new ParkingLot.Builder()
                 .withContactPerson(contactPersonMapper.toDomain(createParkingLotDto.getContactPerson()))
                 .withCapacity(createParkingLotDto.getCapacity())
