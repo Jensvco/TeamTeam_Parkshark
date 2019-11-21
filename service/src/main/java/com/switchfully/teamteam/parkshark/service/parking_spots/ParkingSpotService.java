@@ -11,11 +11,9 @@ import java.time.LocalDateTime;
 @Transactional
 public class ParkingSpotService {
 
-    private ParkingSpotService parkingSpotService;
     private ParkingSpotRepository parkingSpotRepository;
 
-    public ParkingSpotService(ParkingSpotService parkingSpotService, ParkingSpotRepository parkingSpotRepository) {
-        this.parkingSpotService = parkingSpotService;
+    public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
         this.parkingSpotRepository = parkingSpotRepository;
     }
 
