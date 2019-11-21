@@ -4,14 +4,12 @@ import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
-import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.BRONZE;
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -51,6 +49,9 @@ public class Member {
     @Embedded
     private Membership membership;
 
+    private Member() {
+    }
+
     private Member(MemberBuilder builder) {
         firstName = builder.firstName;
         lastName = builder.lastName;
@@ -59,12 +60,7 @@ public class Member {
         email = builder.email;
         licensePlate = builder.licensePlate;
         registrationDate = LocalDate.now();
-        membership = enrichWithMembership(builder);
-    }
-
-    private Membership enrichWithMembership(MemberBuilder builder) {
-        return builder.membership == null ?
-                new Membership(BRONZE) : new Membership(builder.membership);
+        membership = builder.membership;
     }
 
     public void setMembershipType(Membership membership) {
@@ -114,7 +110,7 @@ public class Member {
         private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
         private LicensePlate licensePlate;
-        private MembershipType membership;
+        private Membership membership;
 
         public static MemberBuilder member() {
             return new MemberBuilder();
@@ -150,7 +146,7 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withMembership(MembershipType membership) {
+        public MemberBuilder withMembership(Membership membership) {
             this.membership = membership;
             return this;
         }

@@ -6,10 +6,13 @@ import com.switchfully.teamteam.parkshark.api.members.dtos.licenseplates.License
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
+import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
+import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
+import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.BRONZE;
 import static java.util.stream.Collectors.toList;
 
 @Component
@@ -41,9 +44,15 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(createMemberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
-                .withMembership(createMemberDto.getMembershipType())
+                .withMembership(enrichWithMembership(createMemberDto.getMembershipType()))
                 .build();
     }
+
+    private Membership enrichWithMembership(MembershipType membershipType) {
+        return membershipType == null ?
+                new Membership(BRONZE) : new Membership(membershipType);
+    }
+
 
     public Member toDomain(MemberDto memberDto) {
         return member()
@@ -55,7 +64,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(memberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
-                .withMembership(memberDto.getMembershipType())
+                .withMembership(enrichWithMembership(memberDto.getMembershipType()))
                 .build();
     }
 

@@ -1,6 +1,7 @@
 package com.switchfully.teamteam.parkshark.domain.members;
 
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
+import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -47,14 +48,14 @@ class MemberTest {
 
     @Test
     void createMember_withoutMembership_thenMembershipShouldBeBronze() {
-        var createdMember = member.build();
+        var createdMember = member.withMembership(new Membership(BRONZE)).build();
 
         assertThat(createdMember.getMembership().getType()).isEqualTo(BRONZE);
     }
 
     @Test
     void createMember_withMembership_thenMembershipShouldBeAssigned() {
-        var createdMember = member.withMembership(GOLD).build();
+        var createdMember = member.withMembership(new Membership(GOLD)).build();
 
         assertThat(createdMember.getMembership().getType()).isEqualTo(GOLD);
     }
