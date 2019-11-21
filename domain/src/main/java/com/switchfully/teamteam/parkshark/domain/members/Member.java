@@ -3,7 +3,6 @@ package com.switchfully.teamteam.parkshark.domain.members;
 import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
-import com.switchfully.teamteam.parkshark.domain.memberships.BronzeMembership;
 import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
 
 import javax.persistence.*;
@@ -11,6 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
 import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
@@ -28,7 +28,7 @@ public class Member {
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne(cascade = {PERSIST})
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
@@ -39,14 +39,15 @@ public class Member {
     @Column(name = "EMAIL")
     private String email;
 
-    @OneToMany
+    @OneToMany(cascade = {PERSIST})
     @JoinColumn(name = "LICENSE_PLATE_ID")
     private List<LicensePlate> licensePlates;
 
-    @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
+    @JoinColumn(name = "REGISTRATION_DATE", columnDefinition = "DATE")
     private LocalDate registrationDate;
 
-    @Embedded
+    @Enumerated(EnumType.STRING)
+    @Column(name = "MEMBERSHIP")
     private Membership membership;
 
     private Member(MemberBuilder builder) {
@@ -62,7 +63,7 @@ public class Member {
 
     private Membership enrichWithMembership(MemberBuilder builder) {
         return builder.membership == null ?
-                new BronzeMembership() : builder.membership;
+                BRONZE : builder.membership;
     }
 
     public void setMembership(Membership membership) {

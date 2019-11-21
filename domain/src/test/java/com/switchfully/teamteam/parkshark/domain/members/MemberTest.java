@@ -1,8 +1,6 @@
 package com.switchfully.teamteam.parkshark.domain.members;
 
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
-import com.switchfully.teamteam.parkshark.domain.memberships.BronzeMembership;
-import com.switchfully.teamteam.parkshark.domain.memberships.GoldMembership;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +9,8 @@ import java.util.List;
 import static com.switchfully.teamteam.parkshark.domain.Address.Builder.address;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
+import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
+import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.GOLD;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MemberTest {
@@ -51,14 +51,14 @@ class MemberTest {
     void createMember_withoutMembership_thenMembershipShouldBeBronze() {
         var createdMember = member.build();
 
-        assertThat(createdMember.getMembership()).isInstanceOf(BronzeMembership.class);
+        assertThat(createdMember.getMembership()).isEqualTo(BRONZE);
     }
 
     @Test
     void createMember_withMembership_thenMembershipShouldBeAssigned() {
-        var createdMember = member.withMembership(new GoldMembership()).build();
+        var createdMember = member.withMembership(GOLD).build();
 
-        assertThat(createdMember.getMembership()).isInstanceOf(GoldMembership.class);
+        assertThat(createdMember.getMembership()).isEqualTo(GOLD);
     }
 
 }

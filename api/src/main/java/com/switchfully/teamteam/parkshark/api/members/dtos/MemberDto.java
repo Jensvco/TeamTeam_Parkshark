@@ -3,6 +3,7 @@ package com.switchfully.teamteam.parkshark.api.members.dtos;
 import com.switchfully.teamteam.parkshark.api.addresses.dto.AddressDto;
 import com.switchfully.teamteam.parkshark.api.members.dtos.licenseplates.LicensePlateDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberDto;
+import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,8 +18,17 @@ public class MemberDto {
     private String email;
     private List<LicensePlateDto> licensePlate;
     private LocalDate registrationDate;
+    private Membership membership;
 
-    public MemberDto(Long id, String firstName, String lastName, AddressDto address, List<PhoneNumberDto> phoneNumbers, String email, List<LicensePlateDto> licensePlate, LocalDate registrationDate) {
+    public MemberDto(Long id,
+                     String firstName,
+                     String lastName,
+                     AddressDto address,
+                     List<PhoneNumberDto> phoneNumbers,
+                     String email,
+                     List<LicensePlateDto> licensePlate,
+                     LocalDate registrationDate,
+                     Membership membership) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +37,7 @@ public class MemberDto {
         this.email = email;
         this.licensePlate = licensePlate;
         this.registrationDate = registrationDate;
+        this.membership = membership;
     }
 
     public Long getId() {
@@ -59,5 +70,9 @@ public class MemberDto {
 
     public LocalDate getRegistrationDate() {
         return registrationDate;
+    }
+
+    public Membership getMembership() {
+        return membership;
     }
 }

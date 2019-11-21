@@ -30,7 +30,8 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
 
     @Override
     public Member toDomain(CreateMemberDto createMemberDto) {
-        LicensePlate licensePlate = new LicensePlate(createMemberDto.getLicensePlateNumber(),createMemberDto.getLicensePlateIssuingCountry());
+        LicensePlate licensePlate = new LicensePlate(createMemberDto.getLicensePlateNumber(),
+                createMemberDto.getLicensePlateIssuingCountry());
         return member()
                 .withAddress(addressMapper.toDomain(createMemberDto.getAddress()))
                 .withEmail(createMemberDto.getEmail())
@@ -40,6 +41,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(createMemberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
+                .withMembership(createMemberDto.getMembership())
                 .build();
     }
 
@@ -55,6 +57,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(memberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
+                .withMembership(memberDto.getMembership())
                 .build();
     }
 
@@ -68,7 +71,8 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getLicensePlates().stream()
                 .map(licensePlate -> licensePlateMapper.toOverviewDto(licensePlate))
                 .collect(toList())
-                , member.getRegistrationDate());
+                , member.getRegistrationDate()
+                , member.getMembership());
     }
 
     @Override
@@ -85,7 +89,8 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getLicensePlates().stream()
                 .map(value -> licensePlateMapper.toDto(value))
                 .collect(toList())
-                , member.getRegistrationDate());
+                , member.getRegistrationDate()
+                , member.getMembership());
     }
 
 }
