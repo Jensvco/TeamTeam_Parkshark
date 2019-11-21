@@ -2,7 +2,7 @@ package com.switchfully.teamteam.parkshark.api.members.dtos;
 
 import com.switchfully.teamteam.parkshark.api.members.dtos.licenseplates.OverviewLicensePlateDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberDto;
-import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
+import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class OverviewMemberDto {
     private String email;
     private OverviewLicensePlateDto licensePlate;
     private LocalDate registrationDate;
-    private Membership membership;
+    private MembershipType membershipType;
 
     public OverviewMemberDto(Long id,
                              String firstName,
@@ -25,7 +25,7 @@ public class OverviewMemberDto {
                              String email,
                              OverviewLicensePlateDto licensePlate,
                              LocalDate registrationDate,
-                             Membership membership) {
+                             MembershipType membershipType) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,7 +33,7 @@ public class OverviewMemberDto {
         this.email = email;
         this.licensePlate = licensePlate;
         this.registrationDate = registrationDate;
-        this.membership = membership;
+        this.membershipType = membershipType;
     }
 
     public Long getId() {
@@ -64,7 +64,7 @@ public class OverviewMemberDto {
         return registrationDate;
     }
 
-    public Membership getMembership() {
-        return membership;
+    public MembershipType getMembershipType() {
+        return membershipType;
     }
 }

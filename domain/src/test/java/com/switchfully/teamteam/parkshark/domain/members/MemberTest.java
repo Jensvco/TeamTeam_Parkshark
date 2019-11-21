@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static com.switchfully.teamteam.parkshark.domain.Address.Builder.address;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder;
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
-import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
-import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.GOLD;
+import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.BRONZE;
+import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.GOLD;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MemberTest {
@@ -49,14 +49,14 @@ class MemberTest {
     void createMember_withoutMembership_thenMembershipShouldBeBronze() {
         var createdMember = member.build();
 
-        assertThat(createdMember.getMembership()).isEqualTo(BRONZE);
+        assertThat(createdMember.getMembership().getType()).isEqualTo(BRONZE);
     }
 
     @Test
     void createMember_withMembership_thenMembershipShouldBeAssigned() {
         var createdMember = member.withMembership(GOLD).build();
 
-        assertThat(createdMember.getMembership()).isEqualTo(GOLD);
+        assertThat(createdMember.getMembership().getType()).isEqualTo(GOLD);
     }
 
 }

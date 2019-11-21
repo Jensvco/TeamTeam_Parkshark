@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
+import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.BRONZE;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MembershipTest {
+class MembershipTypeTest {
 
     @Test
     void createMembership_thenMembershipShouldHaveTodayAsStartingDate() {
-        var membership = BRONZE;
+        var membership = new Membership(BRONZE);
 
         assertThat(membership.getStartingDate()).isEqualTo(LocalDate.now());
     }

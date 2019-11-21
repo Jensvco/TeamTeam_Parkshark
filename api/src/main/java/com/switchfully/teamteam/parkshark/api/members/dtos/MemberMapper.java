@@ -20,7 +20,9 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
     private PhoneNumberMapper phoneNumberMapper;
 
     @Autowired
-    public MemberMapper(AddressMapper addressMapper, LicensePlateMapper licensePlateMapper, PhoneNumberMapper phoneNumberMapper) {
+    public MemberMapper(AddressMapper addressMapper,
+                        LicensePlateMapper licensePlateMapper,
+                        PhoneNumberMapper phoneNumberMapper) {
         this.addressMapper = addressMapper;
         this.licensePlateMapper = licensePlateMapper;
         this.phoneNumberMapper = phoneNumberMapper;
@@ -39,7 +41,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(createMemberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
-                .withMembership(createMemberDto.getMembership())
+                .withMembership(createMemberDto.getMembershipType())
                 .build();
     }
 
@@ -53,7 +55,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withPhoneNumbers(memberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
-                .withMembership(memberDto.getMembership())
+                .withMembership(memberDto.getMembershipType())
                 .build();
     }
 
@@ -66,7 +68,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getEmail()
                 , licensePlateMapper.toOverviewDto(member.getLicensePlate())
                 , member.getRegistrationDate()
-                , member.getMembership());
+                , member.getMembership().getType());
     }
 
     @Override
@@ -82,7 +84,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getEmail()
                 , licensePlateMapper.toDto(member.getLicensePlate())
                 , member.getRegistrationDate()
-                , member.getMembership());
+                , member.getMembership().getType());
     }
 
 }

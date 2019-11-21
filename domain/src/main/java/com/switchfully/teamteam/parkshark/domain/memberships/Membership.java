@@ -1,37 +1,30 @@
 package com.switchfully.teamteam.parkshark.domain.memberships;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Enumerated;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 
-public enum Membership {
+import static javax.persistence.EnumType.STRING;
 
-    BRONZE(0.0, 0.0, 4),
-    SILVER(10.0, 0.2, 6),
-    GOLD(40.0, 0.3, 24);
+@Embeddable
+public class Membership {
 
-    private double monthlyCost;
-    private double allocationReduction;
-    private int maximumAllowedAllocationHours;
+    @Enumerated(STRING)
+    @Column(name = "MEMBERSHIP")
+    private MembershipType type;
+
+    @Transient
     private LocalDate startingDate;
 
-    Membership(double monthlyCost,
-               double allocationReduction,
-               int maximumAllowedAllocationHours) {
-        this.monthlyCost = monthlyCost;
-        this.allocationReduction = allocationReduction;
-        this.maximumAllowedAllocationHours = maximumAllowedAllocationHours;
+    public Membership(MembershipType type) {
+        this.type = type;
         this.startingDate = LocalDate.now();
     }
 
-    public double getMonthlyCost() {
-        return monthlyCost;
-    }
-
-    public double getAllocationReduction() {
-        return allocationReduction;
-    }
-
-    public int getMaximumAllowedAllocationHours() {
-        return maximumAllowedAllocationHours;
+    public MembershipType getType() {
+        return type;
     }
 
     public LocalDate getStartingDate() {

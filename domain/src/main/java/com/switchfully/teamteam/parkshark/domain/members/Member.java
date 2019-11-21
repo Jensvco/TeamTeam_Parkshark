@@ -4,15 +4,15 @@ import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
+import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
+import static com.switchfully.teamteam.parkshark.domain.memberships.MembershipType.BRONZE;
 import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -48,8 +48,7 @@ public class Member {
     @Column(name = "REGISTRATION_DATE", columnDefinition = "DATE")
     private LocalDate registrationDate;
 
-    @Enumerated(STRING)
-    @Column(name = "MEMBERSHIP")
+    @Embedded
     private Membership membership;
 
     private Member(MemberBuilder builder) {
@@ -65,10 +64,10 @@ public class Member {
 
     private Membership enrichWithMembership(MemberBuilder builder) {
         return builder.membership == null ?
-                BRONZE : builder.membership;
+                new Membership(BRONZE) : new Membership(builder.membership);
     }
 
-    public void setMembership(Membership membership) {
+    public void setMembershipType(Membership membership) {
         this.membership = membership;
     }
 
@@ -115,7 +114,7 @@ public class Member {
         private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
         private LicensePlate licensePlate;
-        private Membership membership;
+        private MembershipType membership;
 
         public static MemberBuilder member() {
             return new MemberBuilder();
@@ -151,7 +150,7 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withMembership(Membership membership) {
+        public MemberBuilder withMembership(MembershipType membership) {
             this.membership = membership;
             return this;
         }
