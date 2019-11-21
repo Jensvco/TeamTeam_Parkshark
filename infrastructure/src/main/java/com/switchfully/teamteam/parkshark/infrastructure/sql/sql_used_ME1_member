@@ -10,12 +10,11 @@
    create table MEMBER
    (
    ID number not null,
-   NAME varchar2(25) not null,
    FIRST_NAME varchar2(25) not null,
-   LAST_NAME number not null,
-   ADDRESS_ID number not null,
+   LAST_NAME varchar2(25) not null,
+   ADDRESS_ID number ,
    EMAIL varchar2(25),
-   LICENSE_PLATE_ID number not null,
+   LICENSE_PLATE_ID number ,
    REGISTRATION_DATE varchar2(25) not null,
    constraint PK_MEMBER primary key (ID),
    );

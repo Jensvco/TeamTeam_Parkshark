@@ -21,7 +21,7 @@ public class DirectorControllerIntegrationTest extends ControllerIntegrationTest
 
     @Override
     public void clearDatabase() {
-        directorRepository.deleteAll();
+        /*directorRepository.deleteAll();*/
     }
 
     @Test

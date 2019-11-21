@@ -4,7 +4,7 @@ import com.switchfully.teamteam.parkshark.api.Mapper;
 import com.switchfully.teamteam.parkshark.domain.ParkingSpot;
 
 public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpotDto, ParkingSpot> {
-    
+
     @Override
     public ParkingSpot toDomain(CreateParkingSpotDto createParkingSpotDto) {
 

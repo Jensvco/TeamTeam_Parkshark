@@ -24,4 +24,5 @@ public class LicensePlateMapper implements Mapper<CreateLicensePlateDto,LicenseP
     public LicensePlateDto toDto(LicensePlate licensePlate) {
         return new LicensePlateDto(licensePlate.getId(),licensePlate.getNumber(),licensePlate.getIssuingCountry());
     }
+
 }

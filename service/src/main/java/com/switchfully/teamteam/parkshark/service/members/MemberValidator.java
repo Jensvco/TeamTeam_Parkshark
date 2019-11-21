@@ -4,8 +4,6 @@ import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.service.EntityValidator;
 import org.springframework.stereotype.Component;
 
-import static java.util.Objects.isNull;
-
 @Component
 public class MemberValidator extends EntityValidator<Member> {
 
@@ -18,7 +16,5 @@ public class MemberValidator extends EntityValidator<Member> {
                 || isEmptyOrNull(member.getEmail())
                 || isNull(member.getLicensePlate())
                 || isNull(member.getRegistrationDate());
-
-
     }
 }
