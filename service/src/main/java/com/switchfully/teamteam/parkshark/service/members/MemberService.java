@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.service.members;
 
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.MemberRepository;
+import com.switchfully.teamteam.parkshark.infrastructure.apiExceptions.ApiRequestException;
 import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class MemberService {
 
     public Member createMember(Member memberToCreate) {
         if (!memberValidator.isValidForCreation(memberToCreate)) {
-            throw new NotCreatedException();
+            throw new ApiRequestException("wrong JSON format");
         }
         return memberRepository.save(memberToCreate);
     }

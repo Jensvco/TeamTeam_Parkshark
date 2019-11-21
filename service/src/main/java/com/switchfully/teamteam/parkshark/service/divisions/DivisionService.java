@@ -2,8 +2,7 @@ package com.switchfully.teamteam.parkshark.service.divisions;
 
 import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
-import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
-import com.switchfully.teamteam.parkshark.infrastructure.exception.NotFoundException;
+import com.switchfully.teamteam.parkshark.infrastructure.apiExceptions.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +27,7 @@ public class DivisionService {
 
     public Division createDivision(Division divisionToCreate) {
         if (!divisionValidator.isValidForCreation(divisionToCreate)) {
-            throw new NotCreatedException();
+            throw  new ApiRequestException("Wrong JSON format");
         }
         return divisionRepository.save(divisionToCreate);
     }
@@ -39,7 +38,7 @@ public class DivisionService {
 
     public Division findDivisionById(int id) {
         return divisionRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(format("Id %s cannot be found", id)));
+                .orElseThrow(() -> new ApiRequestException(format("Id %s cannot be found", id)));
     }
 
 }
