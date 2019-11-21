@@ -4,12 +4,14 @@ import com.switchfully.teamteam.parkshark.api.members.dtos.CreateMemberDto;
 import com.switchfully.teamteam.parkshark.api.members.dtos.MemberDto;
 import com.switchfully.teamteam.parkshark.api.members.dtos.MemberMapper;
 import com.switchfully.teamteam.parkshark.api.members.dtos.OverviewMemberDto;
+import com.switchfully.teamteam.parkshark.service.members.MemberService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -25,6 +27,8 @@ public class MemberController {
         return memberMapper.toDto(memberService.createMember(memberToCreate));
     }
 
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(OK)
     public List<OverviewMemberDto> getAllMembers(){
        return memberService.getAllMembers().stream()
                 .map(memberMapper::toOverviewDto)
