@@ -18,7 +18,6 @@ public class LicensePlateMapper implements Mapper<CreateLicensePlateDto,LicenseP
         return new OverviewLicensePlateDto(licensePlate.getNumber());
     }
 
-
     @Override
     public LicensePlateDto toDto(LicensePlate licensePlate) {
         return new LicensePlateDto(licensePlate.getId(),licensePlate.getNumber(),licensePlate.getIssuingCountry());
