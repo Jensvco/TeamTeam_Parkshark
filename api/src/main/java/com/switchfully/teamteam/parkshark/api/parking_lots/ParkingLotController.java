@@ -1,7 +1,6 @@
 package com.switchfully.teamteam.parkshark.api.parking_lots;
 
 import com.switchfully.teamteam.parkshark.api.LoggingController;
-import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
 import com.switchfully.teamteam.parkshark.service.parking_lots.ParkingLotService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,13 +21,11 @@ public class ParkingLotController {
 
     private ParkingLotService parkingLotService;
     private ParkingLotMapper parkingLotMapper;
-    private PhoneNumberMapper phoneNumberMapper;
 
     @Autowired
-    public ParkingLotController(ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper, PhoneNumberMapper phoneNumberMapper) {
+    public ParkingLotController(ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper) {
         this.parkingLotService = parkingLotService;
         this.parkingLotMapper = parkingLotMapper;
-        this.phoneNumberMapper = phoneNumberMapper;
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")

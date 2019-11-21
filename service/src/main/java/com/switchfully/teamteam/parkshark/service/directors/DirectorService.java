@@ -2,7 +2,7 @@ package com.switchfully.teamteam.parkshark.service.directors;
 
 import com.switchfully.teamteam.parkshark.domain.directors.Director;
 import com.switchfully.teamteam.parkshark.domain.directors.DirectorRepository;
-import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
+import com.switchfully.teamteam.parkshark.infrastructure.apiExceptions.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +23,7 @@ public class DirectorService {
 
     public Director createDirector(Director directorToCreate) {
         if (!directorValidator.isValidForCreation(directorToCreate)) {
-            throw new NotCreatedException();
+            throw new ApiRequestException("wrong JSON format");
         }
         return directorRepository.save(directorToCreate);
     }

@@ -7,7 +7,7 @@ import com.switchfully.teamteam.parkshark.domain.ParkingLotCategory;
 
 public class ParkingLotDto {
 
-    private long id;
+    private int id;
     private String name;
     private ParkingLotCategory parkingLotCategory;
     private int capacity;
@@ -19,7 +19,7 @@ public class ParkingLotDto {
     public ParkingLotDto() {
     }
 
-    public ParkingLotDto(long id, String name, ParkingLotCategory parkingLotCategory, DivisionDto divisionDto, int capacity, ContactPersonDto contactPerson, AddressDto address, double pricePerHour) {
+    public ParkingLotDto(int id, String name, ParkingLotCategory parkingLotCategory, DivisionDto divisionDto, int capacity, ContactPersonDto contactPerson, AddressDto address, double pricePerHour) {
         this.id = id;
         this.name = name;
         this.parkingLotCategory = parkingLotCategory;
@@ -30,7 +30,7 @@ public class ParkingLotDto {
         this.pricePerHour = pricePerHour;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -54,11 +54,11 @@ public class ParkingLotDto {
         return address;
     }
 
-    public double getPricePerHour() {
-        return pricePerHour;
-    }
-
     public DivisionDto getDivisionDto() {
         return divisionDto;
+    }
+
+    public double getPricePerHour() {
+        return pricePerHour;
     }
 }

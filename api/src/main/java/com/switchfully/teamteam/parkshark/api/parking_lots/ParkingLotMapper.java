@@ -43,7 +43,8 @@ public class ParkingLotMapper implements Mapper<CreateParkingLotDto, ParkingLotD
 
     @Override
     public ParkingLotDto toDto(ParkingLot parkingLot) {
-        return new ParkingLotDto(parkingLot.getId(), parkingLot.getName()
+        return new ParkingLotDto(parkingLot.getId()
+                , parkingLot.getName()
                 , parkingLot.getParkingLotCategory()
                 , divisionMapper.toDto(parkingLot.getDivision())
                 , parkingLot.getCapacity()
