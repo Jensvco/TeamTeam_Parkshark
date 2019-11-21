@@ -33,10 +33,7 @@ public class MemberService {
 
     public Member findMemberById(int id){
         Optional<Member> member = memberRepository.findById(id);
-        if (member.isPresent()){
-            return member.get();
-        }
-        return null;
+        return member.orElse(null);
     }
 
     public List<Member> getMembers() {
