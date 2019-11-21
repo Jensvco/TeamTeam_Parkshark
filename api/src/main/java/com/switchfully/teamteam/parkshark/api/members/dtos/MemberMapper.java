@@ -7,10 +7,12 @@ import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+@Component
 public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> {
 
 

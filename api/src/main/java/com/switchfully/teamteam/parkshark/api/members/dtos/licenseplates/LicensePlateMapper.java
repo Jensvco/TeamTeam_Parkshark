@@ -2,7 +2,9 @@ package com.switchfully.teamteam.parkshark.api.members.dtos.licenseplates;
 
 import com.switchfully.teamteam.parkshark.api.Mapper;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LicensePlateMapper implements Mapper<CreateLicensePlateDto,LicensePlateDto, LicensePlate> {
 
     @Override
