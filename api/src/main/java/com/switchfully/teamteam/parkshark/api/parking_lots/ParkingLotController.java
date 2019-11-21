@@ -35,13 +35,14 @@ public class ParkingLotController {
     @ResponseStatus(HttpStatus.CREATED)
     public ParkingLotDto createParkingLot(@RequestBody CreateParkingLotDto createParkingLotDto) {
         var createdParkingLot =  parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
-        logger.info("Created a Parking Lot");
+        logger.info("Received call to create a parking lot with id " + createdParkingLot.getId());
         return parkingLotMapper.toDto(createdParkingLot);
     }
 
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public List<ParkingLotDto> findAllParkingLots() {
+        logger.info("Received call to fetch all parking lots");
         return parkingLotService.findAllParkingLots().stream()
                 .map(parkingLot -> parkingLotMapper.toDto(parkingLot))
                 .collect(toList());
@@ -49,6 +50,7 @@ public class ParkingLotController {
 
     @GetMapping(path = "/{parkingLotId}", produces = "application/json")
     public ParkingLotDto getParkingLotById(@PathVariable int parkingLotId) {
+        logger.info("Received call to look up parking lot with id " + parkingLotId);
         return parkingLotMapper.toDto(parkingLotService.findParkingLotById(parkingLotId));
     }
 }

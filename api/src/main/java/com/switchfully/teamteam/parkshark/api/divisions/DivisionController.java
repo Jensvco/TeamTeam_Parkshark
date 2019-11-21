@@ -1,9 +1,12 @@
 package com.switchfully.teamteam.parkshark.api.divisions;
 
+import com.switchfully.teamteam.parkshark.api.LoggingController;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.CreateDivisionDto;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionDto;
 import com.switchfully.teamteam.parkshark.api.divisions.dtos.DivisionMapper;
 import com.switchfully.teamteam.parkshark.service.divisions.DivisionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +21,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/" + RESOURCE_NAME)
 public class DivisionController {
+    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     public static final String RESOURCE_NAME = "divisions";
 
@@ -40,6 +44,7 @@ public class DivisionController {
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
     public List<DivisionDto> getAllDivisions() {
+        logger.info("Received a call to get all divisions");
         return divisionService.getAllDivisions().stream()
                 .map(divisionMapper::toDto)
                 .collect(toList());
@@ -48,6 +53,7 @@ public class DivisionController {
     @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
     public DivisionDto getDivision(@PathVariable long id) {
+        logger.info("Received a call to get division with id " + id);
         return divisionMapper.toDto(divisionService.findDivisionById(id));
     }
 
