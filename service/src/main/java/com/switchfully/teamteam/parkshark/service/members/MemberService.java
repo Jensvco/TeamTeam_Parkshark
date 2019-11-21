@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
+import static java.lang.String.format;
 
 @Service
 @Transactional
@@ -30,8 +34,24 @@ public class MemberService {
         return memberRepository.save(memberToCreate);
     }
 
+
+    public Member findMemberById(Long id){
+        Optional<Member> member = memberRepository.findById(id);
+        if (member.isPresent()){
+            return member.get();
+        }
+        return null;
+    }
+
+    public List<Member> getMembers() {
+        return memberRepository.findAll();
+    }
+
+
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
+
+
 
 }
