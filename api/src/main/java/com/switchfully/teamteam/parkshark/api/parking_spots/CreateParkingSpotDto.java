@@ -10,10 +10,10 @@ public class CreateParkingSpotDto {
 
 
     private String licensePlateNumber;
-    private int memberId;
-    private int  parkingLotId;
+    private long memberId;
+    private long parkingLotId;
 
-    public CreateParkingSpotDto(MemberService memberService, String licensePlateNumber, int memberId, int parkingLotId) {
+    public CreateParkingSpotDto(MemberService memberService, String licensePlateNumber, long memberId, long parkingLotId) {
         this.licensePlateNumber = licensePlateNumber;
         this.memberId = memberId;
         this.parkingLotId = parkingLotId;
@@ -23,11 +23,11 @@ public class CreateParkingSpotDto {
         return licensePlateNumber;
     }
 
-    public int getMemberId() {
+    public long getMemberId() {
         return memberId;
     }
 
-    public int getParkingLotId() {
+    public long getParkingLotId() {
         return parkingLotId;
     }
 

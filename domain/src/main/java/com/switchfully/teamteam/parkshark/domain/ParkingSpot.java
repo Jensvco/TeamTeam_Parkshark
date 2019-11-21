@@ -6,6 +6,7 @@ import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class ParkingSpot {
@@ -31,12 +32,14 @@ public class ParkingSpot {
     private LocalDateTime stopSession;
 
 
-    public ParkingSpot(LicensePlate licensePlate, Member member, ParkingLot parkingLot, LocalDateTime startSession, LocalDateTime stopSession) {
+    public ParkingSpot(LicensePlate licensePlate, Member member, ParkingLot parkingLot) {
+        this.id= UUID.randomUUID().toString();
         this.licensePlate = licensePlate;
         this.member = member;
         this.parkingLot = parkingLot;
-        this.startSession = startSession;
-        this.stopSession = stopSession;
+        this.startSession = LocalDateTime.now();
+
+
     }
 
     public String getId() {
