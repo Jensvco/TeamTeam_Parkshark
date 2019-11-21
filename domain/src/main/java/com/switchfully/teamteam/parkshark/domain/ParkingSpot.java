@@ -3,6 +3,7 @@ package com.switchfully.teamteam.parkshark.domain;
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -64,5 +65,9 @@ public class ParkingSpot {
 
     public LocalDateTime getStopSession() {
         return stopSession;
+    }
+
+    public void setStopSession(LocalDateTime stopSession) {
+        this.stopSession = stopSession;
     }
 }

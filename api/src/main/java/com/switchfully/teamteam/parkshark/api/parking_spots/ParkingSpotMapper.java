@@ -11,6 +11,7 @@ import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
 import com.switchfully.teamteam.parkshark.service.members.MemberService;
 import com.switchfully.teamteam.parkshark.service.parking_lots.ParkingLotService;
+import com.switchfully.teamteam.parkshark.service.parking_spots.ParkingSpotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,16 +23,18 @@ public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpo
     private ParkingLotService parkingLotService;
     private ParkingLotMapper parkingLotMapper;
     private MemberMapper memberMapper;
+    private ParkingSpotService parkingSpotService;
     private Member member;
 
 
     @Autowired
-    public ParkingSpotMapper(MemberService memberService, LicensePlateMapper licensePlateMapper, ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper, MemberMapper memberMapper) {
+    public ParkingSpotMapper(MemberService memberService, LicensePlateMapper licensePlateMapper, ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper, MemberMapper memberMapper, ParkingSpotService parkingSpotService) {
         this.memberService = memberService;
         this.licensePlateMapper = licensePlateMapper;
         this.parkingLotService = parkingLotService;
         this.parkingLotMapper = parkingLotMapper;
         this.memberMapper = memberMapper;
+        this.parkingSpotService = parkingSpotService;
     }
 
 
@@ -65,6 +68,10 @@ public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpo
                 ,parkingLotMapper.toDto(parkingSpot.getParkingLot())
                 ,parkingSpot.getStartSession()
                 ,parkingSpot.getStopSession());
+    }
+
+    public ParkingSpot toDomain(StopParkingSpotDto stopParkingSpotDto) {
+        return parkingSpotService.findParkingSpotById(stopParkingSpotDto.getId());
     }
 }
 
