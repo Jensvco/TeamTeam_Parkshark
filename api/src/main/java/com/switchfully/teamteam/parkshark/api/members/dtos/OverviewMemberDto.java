@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.api.members.dtos;
 
 import com.switchfully.teamteam.parkshark.api.members.dtos.licenseplates.OverviewLicensePlateDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberDto;
+import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,10 +14,18 @@ public class OverviewMemberDto {
     private String lastName;
     private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
     private String email;
-    private List<OverviewLicensePlateDto> licensePlate;
+    private OverviewLicensePlateDto licensePlate;
     private LocalDate registrationDate;
+    private MembershipType membershipType;
 
-    public OverviewMemberDto(Long id, String firstName, String lastName, List<PhoneNumberDto> phoneNumbers, String email, List<OverviewLicensePlateDto> licensePlate, LocalDate registrationDate) {
+    public OverviewMemberDto(Long id,
+                             String firstName,
+                             String lastName,
+                             List<PhoneNumberDto> phoneNumbers,
+                             String email,
+                             OverviewLicensePlateDto licensePlate,
+                             LocalDate registrationDate,
+                             MembershipType membershipType) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,6 +33,7 @@ public class OverviewMemberDto {
         this.email = email;
         this.licensePlate = licensePlate;
         this.registrationDate = registrationDate;
+        this.membershipType = membershipType;
     }
 
     public Long getId() {
@@ -46,11 +56,15 @@ public class OverviewMemberDto {
         return email;
     }
 
-    public List<OverviewLicensePlateDto> getLicensePlate() {
+    public OverviewLicensePlateDto getLicensePlate() {
         return licensePlate;
     }
 
     public LocalDate getRegistrationDate() {
         return registrationDate;
+    }
+
+    public MembershipType getMembershipType() {
+        return membershipType;
     }
 }

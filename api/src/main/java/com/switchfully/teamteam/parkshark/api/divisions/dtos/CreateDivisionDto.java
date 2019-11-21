@@ -51,4 +51,5 @@ public class CreateDivisionDto {
         this.parentId = parentId;
         return this;
     }
+
 }

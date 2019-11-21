@@ -3,6 +3,7 @@ package com.switchfully.teamteam.parkshark.domain.members;
 import com.switchfully.teamteam.parkshark.domain.Address;
 import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
+import com.switchfully.teamteam.parkshark.domain.memberships.Membership;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,20 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name ="MEMBER")
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceMember")
+    @GeneratedValue(strategy = SEQUENCE, generator = "sequenceMember")
     @SequenceGenerator(name = "sequenceMember", sequenceName = "PARKSHARK_MEMBER_SEQ", allocationSize = 1)
     private Long id;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
+
     @Column(name = "LAST_NAME")
     private String lastName;
-    @ManyToOne
+
+    @ManyToOne(cascade = {PERSIST})
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
@@ -34,17 +39,20 @@ public class Member {
     @Column(name = "EMAIL")
     private String email;
 
-    @OneToMany
+    @OneToOne(cascade = {PERSIST})
     @JoinColumn(name = "LICENSE_PLATE_ID")
-    private List<LicensePlate> licensePlate = new ArrayList<>();
+    private LicensePlate licensePlate;
 
-    @JoinColumn(name = "REGISTRATION_DATE",columnDefinition = "DATE")
+    @Column(name = "REGISTRATION_DATE", columnDefinition = "DATE")
     private LocalDate registrationDate;
 
-    public Member() {
+    @Embedded
+    private Membership membership;
+
+    private Member() {
     }
 
-    public Member(MemberBuilder builder) {
+    private Member(MemberBuilder builder) {
         firstName = builder.firstName;
         lastName = builder.lastName;
         address = builder.address;
@@ -52,59 +60,11 @@ public class Member {
         email = builder.email;
         licensePlate = builder.licensePlate;
         registrationDate = LocalDate.now();
+        membership = builder.membership;
     }
 
-    public static MemberBuilder memberBuilder() {
-        return new MemberBuilder();
-    }
-
-
-    public static class MemberBuilder {
-        private String firstName;
-        private String lastName;
-        private Address address;
-        private List<PhoneNumber> phoneNumbers = new ArrayList<>();
-        private String email;
-        private List<LicensePlate> licensePlate = new ArrayList<>();
-
-        public static MemberBuilder member() {
-            return new MemberBuilder();
-        }
-
-        public MemberBuilder withFirstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public MemberBuilder withLastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public MemberBuilder withAddress(Address address) {
-            this.address = address;
-            return this;
-        }
-
-        public MemberBuilder withPhoneNumber(List<PhoneNumber> phoneNumbers) {
-            this.phoneNumbers = phoneNumbers;
-            return this;
-        }
-
-        public MemberBuilder withEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public MemberBuilder withLicensePlate(List<LicensePlate> licensePlate) {
-            this.licensePlate = licensePlate;
-            return this;
-        }
-
-
-        public Member build() {
-            return new Member(this);
-        }
+    public void setMembershipType(Membership membership) {
+        this.membership = membership;
     }
 
     public String getFirstName() {
@@ -127,7 +87,7 @@ public class Member {
         return email;
     }
 
-    public List<LicensePlate> getLicensePlate() {
+    public LicensePlate getLicensePlate() {
         return licensePlate;
     }
 
@@ -135,7 +95,65 @@ public class Member {
         return registrationDate;
     }
 
+    public Membership getMembership() {
+        return membership;
+    }
+
     public Long getId() {
         return id;
     }
+
+    public static class MemberBuilder {
+        private String firstName;
+        private String lastName;
+        private Address address;
+        private List<PhoneNumber> phoneNumbers = new ArrayList<>();
+        private String email;
+        private LicensePlate licensePlate;
+        private Membership membership;
+
+        public static MemberBuilder member() {
+            return new MemberBuilder();
+        }
+
+        public MemberBuilder withFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public MemberBuilder withLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public MemberBuilder withAddress(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public MemberBuilder withPhoneNumbers(List<PhoneNumber> phoneNumbers) {
+            this.phoneNumbers = phoneNumbers;
+            return this;
+        }
+
+        public MemberBuilder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public MemberBuilder withLicensePlate(LicensePlate licensePlate) {
+            this.licensePlate = licensePlate;
+            return this;
+        }
+
+        public MemberBuilder withMembership(Membership membership) {
+            this.membership = membership;
+            return this;
+        }
+
+        public Member build() {
+            return new Member(this);
+        }
+    }
+
 }

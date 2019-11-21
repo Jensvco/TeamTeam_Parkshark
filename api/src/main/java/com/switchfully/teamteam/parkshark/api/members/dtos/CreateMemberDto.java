@@ -2,8 +2,8 @@ package com.switchfully.teamteam.parkshark.api.members.dtos;
 
 import com.switchfully.teamteam.parkshark.api.addresses.dto.AddressDto;
 import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberDto;
+import com.switchfully.teamteam.parkshark.domain.memberships.MembershipType;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +15,16 @@ public class CreateMemberDto {
     private String email;
     private String licensePlateNumber;
     private String licensePlateIssuingCountry;
-    private LocalDate registrationDate;
+    private MembershipType membershipType;
 
-    public CreateMemberDto(String firstName, String lastName, AddressDto address, List<PhoneNumberDto> phoneNumbers, String email, String licensePlateNumber, String licensePlateIssuingCountry, LocalDate registrationDate) {
+    public CreateMemberDto(String firstName,
+                           String lastName,
+                           AddressDto address,
+                           List<PhoneNumberDto> phoneNumbers,
+                           String email,
+                           String licensePlateNumber,
+                           String licensePlateIssuingCountry,
+                           MembershipType membershipType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -25,8 +32,7 @@ public class CreateMemberDto {
         this.email = email;
         this.licensePlateNumber = licensePlateNumber;
         this.licensePlateIssuingCountry = licensePlateIssuingCountry;
-
-        this.registrationDate = registrationDate;
+        this.membershipType = membershipType;
     }
 
     public String getFirstName() {
@@ -49,16 +55,15 @@ public class CreateMemberDto {
         return email;
     }
 
-
-    public LocalDate getRegistrationDate() {
-        return registrationDate;
-    }
-
     public String getLicensePlateNumber() {
         return licensePlateNumber;
     }
 
     public String getLicensePlateIssuingCountry() {
         return licensePlateIssuingCountry;
+    }
+
+    public MembershipType getMembershipType() {
+        return membershipType;
     }
 }

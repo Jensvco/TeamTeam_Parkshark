@@ -8,10 +8,8 @@ public class OverviewLicensePlateDto {
         return number;
     }
 
-
     public OverviewLicensePlateDto( String number) {
-
         this.number = number;
-
     }
+
 }
