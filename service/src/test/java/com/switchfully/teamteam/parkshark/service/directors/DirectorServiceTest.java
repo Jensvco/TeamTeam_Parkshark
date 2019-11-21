@@ -2,8 +2,7 @@ package com.switchfully.teamteam.parkshark.service.directors;
 
 import com.switchfully.teamteam.parkshark.domain.directors.Director;
 import com.switchfully.teamteam.parkshark.domain.directors.DirectorRepository;
-import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
-import com.switchfully.teamteam.parkshark.service.EntityValidator;
+import com.switchfully.teamteam.parkshark.infrastructure.apiExceptions.ApiRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -52,7 +51,7 @@ class DirectorServiceTest {
         when(directorValidator.isValidForCreation(director)).thenReturn(false);
 
         assertThatThrownBy(() -> directorService.createDirector(director))
-                .isInstanceOf(NotCreatedException.class);
+                .isInstanceOf(ApiRequestException.class);
     }
 
 }
