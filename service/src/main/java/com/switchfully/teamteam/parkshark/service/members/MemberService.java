@@ -3,16 +3,12 @@ package com.switchfully.teamteam.parkshark.service.members;
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.MemberRepository;
 import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
-import com.switchfully.teamteam.parkshark.infrastructure.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-import static java.lang.String.format;
 
 @Service
 @Transactional
@@ -35,7 +31,7 @@ public class MemberService {
     }
 
 
-    public Member findMemberById(Long id){
+    public Member findMemberById(int id){
         Optional<Member> member = memberRepository.findById(id);
         if (member.isPresent()){
             return member.get();

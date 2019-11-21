@@ -10,7 +10,7 @@ public class LicensePlate {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceLicencePlate")
     @SequenceGenerator(name = "sequenceLicencePlate", sequenceName = "PARKSHARK_LICENSE_PLATE_SEQ", allocationSize = 1)
-    private Long id;
+    private Integer id;
 
     @Column(name = "LP_NUMBER")
     private String number;
@@ -26,7 +26,7 @@ public class LicensePlate {
         this.issuingCountry = issuingCountry;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -15,6 +15,9 @@ public class ParkingSpotDto {
     private LocalDateTime startSession;
     private LocalDateTime stopSession;
 
+    public ParkingSpotDto() {
+    }
+
     public ParkingSpotDto(String id, LicensePlateDto licensePlate, MemberDto member, ParkingLotDto parkingLot, LocalDateTime startSession, LocalDateTime stopSession) {
         this.id = id;
         this.licensePlate = licensePlate;

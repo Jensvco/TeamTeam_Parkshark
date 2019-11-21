@@ -41,7 +41,7 @@ public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpo
     @Override
     public ParkingSpot toDomain(CreateParkingSpotDto createParkingSpotDto) {
        LicensePlate licensePlate= licensePlateCheck(createParkingSpotDto);
-       ParkingLot parkingLot= parkingLotService.findParkingLotById((int)createParkingSpotDto.getMemberId());
+       ParkingLot parkingLot= parkingLotService.findParkingLotById(createParkingSpotDto.getMemberId());
        return new ParkingSpot(licensePlate,member,parkingLot);
     }
 

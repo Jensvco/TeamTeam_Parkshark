@@ -10,7 +10,7 @@ public class CreateParkingLotDto {
     private int capacity;
     private CreateContactPersonDto contactPerson;
     private CreateAddressDto address;
-    private long divisionId;
+    private int divisionId;
     private double pricePerHour;
 
     public CreateParkingLotDto() {
@@ -26,7 +26,7 @@ public class CreateParkingLotDto {
         this.pricePerHour = builder.pricePerHour;
     }
 
-    public long getDivisionId() {
+    public int getDivisionId() {
         return divisionId;
     }
 
@@ -62,7 +62,7 @@ public class CreateParkingLotDto {
         private CreateContactPersonDto contactPerson;
         private CreateAddressDto address;
         private double pricePerHour;
-        private long divisionId;
+        private int divisionId;
 
         public Builder() {
         }
@@ -97,7 +97,7 @@ public class CreateParkingLotDto {
             return this;
         }
 
-        public Builder withDivisionId(long division_id) {
+        public Builder withDivisionId(int division_id) {
             this.divisionId = division_id;
             return this;
         }

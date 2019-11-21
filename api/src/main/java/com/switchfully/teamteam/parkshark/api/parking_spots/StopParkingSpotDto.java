@@ -7,6 +7,9 @@ public class StopParkingSpotDto {
         return id;
     }
 
+    public StopParkingSpotDto() {
+    }
+
     public StopParkingSpotDto(String id) {
         this.id = id;
     }

@@ -16,17 +16,16 @@ private ParkingSpotMapper parkingSpotMapper;
         this.parkingSpotMapper = parkingSpotMapper;
     }
 
-
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ParkingSpotDto createParkingSpot(CreateParkingSpotDto createParkingSpotDto){
+    public ParkingSpotDto createParkingSpot(@RequestBody CreateParkingSpotDto createParkingSpotDto){
        return parkingSpotMapper.toDto(parkingSpotService.createParkingSpot(parkingSpotMapper.toDomain(createParkingSpotDto)));
     }
 
 
     @PutMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ParkingSpotDto stopParking(StopParkingSpotDto stopParkingSpotDto) {
+    public ParkingSpotDto stopParking(@RequestBody StopParkingSpotDto stopParkingSpotDto) {
         return parkingSpotMapper.toDto(parkingSpotService.stopParking(parkingSpotMapper.toDomain(stopParkingSpotDto)));
 
     }

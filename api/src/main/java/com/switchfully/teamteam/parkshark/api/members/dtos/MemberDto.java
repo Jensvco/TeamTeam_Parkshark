@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberDto {
-    private Long id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private AddressDto address;
@@ -20,7 +20,7 @@ public class MemberDto {
     private LocalDate registrationDate;
     private MembershipType membershipType;
 
-    public MemberDto(Long id,
+    public MemberDto(Integer id,
                      String firstName,
                      String lastName,
                      AddressDto address,
@@ -40,7 +40,7 @@ public class MemberDto {
         this.membershipType = membershipType;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

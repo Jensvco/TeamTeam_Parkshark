@@ -1,11 +1,11 @@
 package com.switchfully.teamteam.parkshark.api.members;
 
 public class LicensePlateDto {
-    private Long id;
+    private Integer id;
     private String number;
     private String issuingCountry;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -17,7 +17,7 @@ public class LicensePlateDto {
         return issuingCountry;
     }
 
-    public LicensePlateDto(Long id, String number, String issuingCountry) {
+    public LicensePlateDto(Integer id, String number, String issuingCountry) {
         this.id = id;
         this.number = number;
         this.issuingCountry = issuingCountry;

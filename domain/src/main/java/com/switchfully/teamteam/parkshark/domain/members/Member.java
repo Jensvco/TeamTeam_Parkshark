@@ -20,7 +20,7 @@ public class Member {
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "sequenceMember")
     @SequenceGenerator(name = "sequenceMember", sequenceName = "PARKSHARK_MEMBER_SEQ", allocationSize = 1)
-    private Long id;
+    private Integer id;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -99,7 +99,7 @@ public class Member {
         return membership;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

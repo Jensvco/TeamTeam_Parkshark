@@ -107,7 +107,7 @@ class DivisionMapperTest {
                 .withDirector(createDirectorDto())
                 .withName("IT")
                 .withOriginalName("IT")
-                .withParentId(10L);
+                .withParentId(10);
 
         assertThatThrownBy(() -> divisionMapper.toDomain(dto))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -121,7 +121,7 @@ class DivisionMapperTest {
                         .withFirstName("Nick")
                         .withLastName("Meert")
                         .build());
-        when(divisionService.findDivisionById(10L)).thenReturn(division()
+        when(divisionService.findDivisionById(10)).thenReturn(division()
                 .withName("Big Boss")
                 .withOriginalName("Bossy")
                 .build());
@@ -130,7 +130,7 @@ class DivisionMapperTest {
                 .withDirector(createDirectorDto())
                 .withName("IT")
                 .withOriginalName("IT")
-                .withParentId(10L);
+                .withParentId(10);
 
         assertThat(divisionMapper.toDomain(dto))
                 .usingRecursiveComparison()

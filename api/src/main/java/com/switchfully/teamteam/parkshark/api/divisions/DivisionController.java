@@ -47,7 +47,7 @@ public class DivisionController {
 
     @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
-    public DivisionDto getDivision(@PathVariable long id) {
+    public DivisionDto getDivision(@PathVariable int id) {
         return divisionMapper.toDto(divisionService.findDivisionById(id));
     }
 

@@ -7,7 +7,7 @@ public class CreateDivisionDto {
     private String name;
     private String originalName;
     private CreateDirectorDto director;
-    private Long parentId;
+    private Integer parentId;
 
     public CreateDivisionDto() {
     }
@@ -24,7 +24,7 @@ public class CreateDivisionDto {
         return director;
     }
 
-    public Long getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
@@ -47,7 +47,7 @@ public class CreateDivisionDto {
         return this;
     }
 
-    public CreateDivisionDto withParentId(Long parentId) {
+    public CreateDivisionDto withParentId(Integer parentId) {
         this.parentId = parentId;
         return this;
     }

@@ -5,10 +5,13 @@ import com.switchfully.teamteam.parkshark.service.members.MemberService;
 public class CreateParkingSpotDto {
 
     private String licensePlateNumber;
-    private long memberId;
-    private long parkingLotId;
+    private int memberId;
+    private int parkingLotId;
 
-    public CreateParkingSpotDto(MemberService memberService, String licensePlateNumber, long memberId, long parkingLotId) {
+    private CreateParkingSpotDto() {
+    }
+
+    public CreateParkingSpotDto(MemberService memberService, String licensePlateNumber, int memberId, int parkingLotId) {
         this.licensePlateNumber = licensePlateNumber;
         this.memberId = memberId;
         this.parkingLotId = parkingLotId;
@@ -18,11 +21,11 @@ public class CreateParkingSpotDto {
         return licensePlateNumber;
     }
 
-    public long getMemberId() {
+    public int getMemberId() {
         return memberId;
     }
 
-    public long getParkingLotId() {
+    public int getParkingLotId() {
         return parkingLotId;
     }
 

@@ -37,7 +37,7 @@ public class DivisionService {
         return divisionRepository.findAll();
     }
 
-    public Division findDivisionById(long id) {
+    public Division findDivisionById(int id) {
         return divisionRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(format("Id %s cannot be found", id)));
     }

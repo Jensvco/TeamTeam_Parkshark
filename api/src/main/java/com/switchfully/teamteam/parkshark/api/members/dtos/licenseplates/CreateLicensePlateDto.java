@@ -14,7 +14,7 @@ public class CreateLicensePlateDto {
         return issuingCountry;
     }
 
-    public CreateLicensePlateDto(Long id, String number, String issuingCountry) {
+    public CreateLicensePlateDto(Integer id, String number, String issuingCountry) {
         this.number = number;
         this.issuingCountry = issuingCountry;
 

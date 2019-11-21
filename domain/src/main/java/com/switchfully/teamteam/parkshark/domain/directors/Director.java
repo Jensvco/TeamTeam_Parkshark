@@ -9,7 +9,7 @@ public class Director {
     @Id
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDirector")
     @SequenceGenerator(name = "sequenceDirector", sequenceName = "PARKSHARK_DIRECTOR_SEQ", allocationSize = 1)
-    private long id;
+    private int id;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -17,7 +17,7 @@ public class Director {
     @Column(name="LAST_NAME")
     private String lastName;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
