@@ -25,7 +25,7 @@ public class ParkingLotService {
         return parkingLotRepository.save(parkingLotToCreate);
     }
 
-    public Iterable<ParkingLot> findAllParkingLots() {
+    public List<ParkingLot> findAllParkingLots() {
         return parkingLotRepository.findAll();
     }
 
@@ -36,5 +36,6 @@ public class ParkingLotService {
     public void addPhoneNumbers(int contactPersonId, List<PhoneNumber> phoneNumberList) {
         contactPersonRepository.findById(contactPersonId).ifPresent(c -> c.getPhoneNumbers().addAll(phoneNumberList));
     }
+
 }
 

@@ -15,7 +15,7 @@ public class ParkingLot {
     @Id
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceParkingLot")
     @SequenceGenerator(name = "sequenceParkingLot", sequenceName = "PARKSHARK_PARKINGLOT_SEQ", allocationSize = 1)
-    private long id;
+    private int id;
 
     @Column(name = "NAME")
     private String name;
@@ -41,7 +41,6 @@ public class ParkingLot {
 
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
-
    
     @ManyToOne
     @JoinColumn(name="DIVISION_ID")
@@ -60,7 +59,7 @@ public class ParkingLot {
         division = builder.division;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -133,10 +132,6 @@ public class ParkingLot {
 
         public Builder withPricePerHour(double pricePerHour) {
             this.pricePerHour = pricePerHour;
-            return this;
-        }
-        public Builder withPricePerHour(Division division){
-            this.division = division;
             return this;
         }
 

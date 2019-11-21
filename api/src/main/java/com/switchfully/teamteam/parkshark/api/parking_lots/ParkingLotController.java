@@ -1,38 +1,47 @@
 package com.switchfully.teamteam.parkshark.api.parking_lots;
 
-import com.switchfully.teamteam.parkshark.api.phone_numbers.PhoneNumberMapper;
-import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
+import com.switchfully.teamteam.parkshark.api.LoggingController;
 import com.switchfully.teamteam.parkshark.service.parking_lots.ParkingLotService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 @RestController
-@RequestMapping(path = "/parkinglots")
+@RequestMapping(path = "/" + ParkingLotController.PARKING_LOT_RESOURCE_NAME)
 public class ParkingLotController {
+    public static final String PARKING_LOT_RESOURCE_NAME = "parkinglots";
+
+    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     private ParkingLotService parkingLotService;
     private ParkingLotMapper parkingLotMapper;
-    private PhoneNumberMapper phoneNumberMapper;
 
     @Autowired
-    public ParkingLotController(ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper, PhoneNumberMapper phoneNumberMapper) {
+    public ParkingLotController(ParkingLotService parkingLotService, ParkingLotMapper parkingLotMapper) {
         this.parkingLotService = parkingLotService;
         this.parkingLotMapper = parkingLotMapper;
-        this.phoneNumberMapper = phoneNumberMapper;
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ParkingLot createParkingLot(@RequestBody CreateParkingLotDto createParkingLotDto) {
-        //        parkingLotService.addPhoneNumbers(parkingLot.getContactPerson().getId(), createParkingLotDto.getContactPerson().getPhoneNumbers().stream().map(phoneNumberMapper::toDomain).collect(Collectors.toList()));
-        return parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
+    public ParkingLotDto createParkingLot(@RequestBody CreateParkingLotDto createParkingLotDto) {
+        var createdParkingLot =  parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
+        logger.info("Created a Parking Lot");
+        return parkingLotMapper.toDto(createdParkingLot);
     }
 
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public Iterable<ParkingLot> findAllParkingLots() {
-        return parkingLotService.findAllParkingLots();
+    public List<ParkingLotDto> findAllParkingLots() {
+        return parkingLotService.findAllParkingLots().stream()
+                .map(parkingLot -> parkingLotMapper.toDto(parkingLot))
+                .collect(toList());
     }
 
     @GetMapping(path = "/{parkingLotId}", produces = "application/json")

@@ -7,6 +7,9 @@ public class PhoneNumberDto {
     private String phoneNumber;
     private PhoneNumber.PhoneNumberType phoneNumberType;
 
+    public PhoneNumberDto() {
+    }
+
     public PhoneNumberDto(int id, String phoneNumber, PhoneNumber.PhoneNumberType phoneNumberType) {
         this.id = id;
         this.phoneNumber = phoneNumber;

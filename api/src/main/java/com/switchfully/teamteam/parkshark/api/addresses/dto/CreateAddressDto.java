@@ -6,6 +6,9 @@ public class CreateAddressDto {
     private String postalCode;
     private String city;
 
+    public CreateAddressDto() {
+    }
+
     public String getStreetName() {
         return streetName;
     }

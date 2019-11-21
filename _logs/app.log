@@ -1,0 +1,61 @@
+2019-11-21 14:52:44,633 INFO com.switchfully.teamteam.parkshark.Application [main] Starting Application on 5CG61177PF with PID 12672 (C:\_Projects\switchfully\parkshark\war\target\classes started by jvancopa in C:\_Projects\switchfully\parkshark)
+2019-11-21 14:52:44,643 DEBUG com.switchfully.teamteam.parkshark.Application [main] Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-11-21 14:52:44,644 INFO com.switchfully.teamteam.parkshark.Application [main] No active profile set, falling back to default profiles: default
+2019-11-21 14:52:47,316 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2019-11-21 14:52:47,317 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-21 14:52:47,504 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2019-11-21 14:52:47,779 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2019-11-21 14:52:48,521 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2019-11-21 14:52:48,591 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-11-21 14:52:48,671 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.6.Final}
+2019-11-21 14:52:48,832 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-11-21 14:52:48,980 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-11-21 14:52:50,544 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-11-21 14:52:51,439 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [main] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-11-21 14:52:51,771 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Context refreshed
+2019-11-21 14:52:51,791 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Found 1 custom documentation plugin(s)
+2019-11-21 14:52:51,824 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [main] Scanning for api listing references
+2019-11-21 14:52:52,081 INFO com.switchfully.teamteam.parkshark.Application [main] Started Application in 8.248 seconds (JVM running for 9.568)
+2019-11-21 14:53:09,115 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8921-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-21 14:53:12,159 INFO com.switchfully.teamteam.parkshark.api.LoggingController [http-nio-8921-exec-1] Created a Parking Lot
+2019-11-21 14:58:48,271 INFO com.switchfully.teamteam.parkshark.Application [main] Starting Application on 5CG61177PF with PID 13268 (C:\_Projects\switchfully\parkshark\war\target\classes started by jvancopa in C:\_Projects\switchfully\parkshark)
+2019-11-21 14:58:48,276 DEBUG com.switchfully.teamteam.parkshark.Application [main] Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-11-21 14:58:48,277 INFO com.switchfully.teamteam.parkshark.Application [main] No active profile set, falling back to default profiles: default
+2019-11-21 14:58:51,131 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2019-11-21 14:58:51,132 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-21 14:58:51,264 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2019-11-21 14:58:51,461 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2019-11-21 14:58:52,327 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2019-11-21 14:58:52,401 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-11-21 14:58:52,484 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.6.Final}
+2019-11-21 14:58:52,639 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-11-21 14:58:52,795 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-11-21 14:58:54,459 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-11-21 14:58:55,356 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [main] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-11-21 14:58:55,679 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Context refreshed
+2019-11-21 14:58:55,699 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Found 1 custom documentation plugin(s)
+2019-11-21 14:58:55,734 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [main] Scanning for api listing references
+2019-11-21 14:58:56,020 INFO com.switchfully.teamteam.parkshark.Application [main] Started Application in 8.62 seconds (JVM running for 9.935)
+2019-11-21 14:59:03,882 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8921-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-21 14:59:03,927 DEBUG com.switchfully.teamteam.parkshark.api.LoggingController [http-nio-8921-exec-1] A DEBUG Message
+2019-11-21 14:59:03,928 INFO com.switchfully.teamteam.parkshark.api.LoggingController [http-nio-8921-exec-1] An INFO Message
+2019-11-21 14:59:03,928 WARN com.switchfully.teamteam.parkshark.api.LoggingController [http-nio-8921-exec-1] A WARN Message
+2019-11-21 14:59:03,929 ERROR com.switchfully.teamteam.parkshark.api.LoggingController [http-nio-8921-exec-1] An ERROR Message
+2019-11-21 14:59:54,968 INFO com.switchfully.teamteam.parkshark.Application [main] Starting Application on 5CG61177PF with PID 11344 (C:\_Projects\switchfully\parkshark\war\target\classes started by jvancopa in C:\_Projects\switchfully\parkshark)
+2019-11-21 14:59:54,972 DEBUG com.switchfully.teamteam.parkshark.Application [main] Running with Spring Boot v2.2.0.RELEASE, Spring v5.2.0.RELEASE
+2019-11-21 14:59:54,975 INFO com.switchfully.teamteam.parkshark.Application [main] No active profile set, falling back to default profiles: default
+2019-11-21 14:59:57,549 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2019-11-21 14:59:57,550 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-21 14:59:57,665 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2019-11-21 14:59:57,849 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2019-11-21 14:59:58,576 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2019-11-21 14:59:58,646 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-11-21 14:59:58,728 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.6.Final}
+2019-11-21 14:59:58,893 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-11-21 14:59:59,043 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2019-11-21 15:00:00,748 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-11-21 15:00:01,619 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [main] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-11-21 15:00:01,937 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Context refreshed
+2019-11-21 15:00:01,957 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [main] Found 1 custom documentation plugin(s)
+2019-11-21 15:00:01,990 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [main] Scanning for api listing references
+2019-11-21 15:00:02,247 INFO com.switchfully.teamteam.parkshark.Application [main] Started Application in 8.122 seconds (JVM running for 9.542)
