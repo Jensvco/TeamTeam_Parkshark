@@ -1,13 +1,8 @@
 package com.switchfully.teamteam.parkshark.api.parking_spots;
 
-import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.service.members.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.time.LocalDateTime;
 
 public class CreateParkingSpotDto {
-
 
     private String licensePlateNumber;
     private long memberId;
@@ -30,14 +25,5 @@ public class CreateParkingSpotDto {
     public long getParkingLotId() {
         return parkingLotId;
     }
-
-
-
-
-
-
-
-
-
 
 }
