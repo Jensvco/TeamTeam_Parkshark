@@ -9,8 +9,6 @@ import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicenseP
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
 import static java.util.stream.Collectors.toList;
 
@@ -30,14 +28,14 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
 
     @Override
     public Member toDomain(CreateMemberDto createMemberDto) {
-        LicensePlate licensePlate = new LicensePlate(createMemberDto.getLicensePlateNumber(),
+        var licensePlate = new LicensePlate(createMemberDto.getLicensePlateNumber(),
                 createMemberDto.getLicensePlateIssuingCountry());
         return member()
                 .withAddress(addressMapper.toDomain(createMemberDto.getAddress()))
                 .withEmail(createMemberDto.getEmail())
                 .withFirstName(createMemberDto.getFirstName())
                 .withLastName(createMemberDto.getLastName())
-                .withLicensePlates(Arrays.asList(licensePlate))
+                .withLicensePlate(licensePlate)
                 .withPhoneNumbers(createMemberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
@@ -51,9 +49,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .withEmail(memberDto.getEmail())
                 .withFirstName(memberDto.getFirstName())
                 .withLastName(memberDto.getLastName())
-                .withLicensePlates(memberDto.getLicensePlate().stream()
-                        .map(value -> licensePlateMapper.toDomain(value))
-                        .collect(toList()))
+                .withLicensePlate(licensePlateMapper.toDomain(memberDto.getLicensePlate()))
                 .withPhoneNumbers(memberDto.getPhoneNumbers().stream()
                         .map(value -> phoneNumberMapper.toDomain(value))
                         .collect(toList()))
@@ -68,9 +64,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 , member.getLastName()
                 , member.getPhoneNumbers().stream().map(value -> phoneNumberMapper.toDto(value)).collect(toList())
                 , member.getEmail()
-                , member.getLicensePlates().stream()
-                .map(licensePlate -> licensePlateMapper.toOverviewDto(licensePlate))
-                .collect(toList())
+                , licensePlateMapper.toOverviewDto(member.getLicensePlate())
                 , member.getRegistrationDate()
                 , member.getMembership());
     }
@@ -86,9 +80,7 @@ public class MemberMapper implements Mapper<CreateMemberDto, MemberDto, Member> 
                 .map(value -> phoneNumberMapper.toDto(value))
                 .collect(toList())
                 , member.getEmail()
-                , member.getLicensePlates().stream()
-                .map(value -> licensePlateMapper.toDto(value))
-                .collect(toList())
+                , licensePlateMapper.toDto(member.getLicensePlate())
                 , member.getRegistrationDate()
                 , member.getMembership());
     }

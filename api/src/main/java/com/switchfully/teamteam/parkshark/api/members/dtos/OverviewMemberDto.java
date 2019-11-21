@@ -14,7 +14,7 @@ public class OverviewMemberDto {
     private String lastName;
     private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
     private String email;
-    private List<OverviewLicensePlateDto> licensePlates;
+    private OverviewLicensePlateDto licensePlate;
     private LocalDate registrationDate;
     private Membership membership;
 
@@ -23,7 +23,7 @@ public class OverviewMemberDto {
                              String lastName,
                              List<PhoneNumberDto> phoneNumbers,
                              String email,
-                             List<OverviewLicensePlateDto> licensePlates,
+                             OverviewLicensePlateDto licensePlate,
                              LocalDate registrationDate,
                              Membership membership) {
         this.id = id;
@@ -31,7 +31,7 @@ public class OverviewMemberDto {
         this.lastName = lastName;
         this.phoneNumbers = phoneNumbers;
         this.email = email;
-        this.licensePlates = licensePlates;
+        this.licensePlate = licensePlate;
         this.registrationDate = registrationDate;
         this.membership = membership;
     }
@@ -56,8 +56,8 @@ public class OverviewMemberDto {
         return email;
     }
 
-    public List<OverviewLicensePlateDto> getLicensePlates() {
-        return licensePlates;
+    public OverviewLicensePlateDto getLicensePlate() {
+        return licensePlate;
     }
 
     public LocalDate getRegistrationDate() {

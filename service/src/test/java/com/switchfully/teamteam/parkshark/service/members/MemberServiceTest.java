@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import java.util.Arrays;
-
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -46,7 +44,7 @@ class MemberServiceTest {
                 .withLastName("lastyname")
                 .withAddress(address)
                 .withEmail("boe@boe.be")
-                .withLicensePlates(Arrays.asList(licensePlate))
+                .withLicensePlate(licensePlate)
                 .build();
     }
 
@@ -57,6 +55,5 @@ class MemberServiceTest {
 
         assertThat(memberService.createMember(member)).isEqualToComparingFieldByField(member);
     }
-
 
 }

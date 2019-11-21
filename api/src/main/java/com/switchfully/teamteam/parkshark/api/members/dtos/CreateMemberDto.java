@@ -21,7 +21,8 @@ public class CreateMemberDto {
                            String lastName,
                            AddressDto address,
                            List<PhoneNumberDto> phoneNumbers,
-                           String email, String licensePlateNumber,
+                           String email,
+                           String licensePlateNumber,
                            String licensePlateIssuingCountry,
                            Membership membership) {
         this.firstName = firstName;

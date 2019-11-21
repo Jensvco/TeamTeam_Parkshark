@@ -1,14 +1,10 @@
 package com.switchfully.teamteam.parkshark.service.members;
 
 import com.switchfully.teamteam.parkshark.domain.Address;
-import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
-import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder;
 import com.switchfully.teamteam.parkshark.domain.members.license_plates.LicensePlate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static com.switchfully.teamteam.parkshark.domain.members.Member.MemberBuilder.member;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,7 +30,7 @@ public class MemberValidatorTest {
                 .withFirstName("yey")
                 .withLastName("sdf")
                 .withAddress(address)
-                .withLicensePlates(Arrays.asList(licensePlate))
+                .withLicensePlate(licensePlate)
                 .withEmail("empty");
     }
 

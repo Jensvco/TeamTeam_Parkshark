@@ -16,7 +16,7 @@ public class MemberDto {
     private AddressDto address;
     private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
     private String email;
-    private List<LicensePlateDto> licensePlate;
+    private LicensePlateDto licensePlate;
     private LocalDate registrationDate;
     private Membership membership;
 
@@ -26,7 +26,7 @@ public class MemberDto {
                      AddressDto address,
                      List<PhoneNumberDto> phoneNumbers,
                      String email,
-                     List<LicensePlateDto> licensePlate,
+                     LicensePlateDto licensePlate,
                      LocalDate registrationDate,
                      Membership membership) {
         this.id = id;
@@ -64,7 +64,7 @@ public class MemberDto {
         return email;
     }
 
-    public List<LicensePlateDto> getLicensePlate() {
+    public LicensePlateDto getLicensePlate() {
         return licensePlate;
     }
 

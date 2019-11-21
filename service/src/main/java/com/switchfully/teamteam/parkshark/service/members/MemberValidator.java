@@ -14,7 +14,7 @@ public class MemberValidator extends EntityValidator<Member> {
                 || isEmptyOrNull(member.getLastName())
                 || isNull(member.getAddress())
                 || isEmptyOrNull(member.getEmail())
-                || isNull(member.getLicensePlates())
+                || isNull(member.getLicensePlate())
                 || isNull(member.getRegistrationDate());
     }
 }

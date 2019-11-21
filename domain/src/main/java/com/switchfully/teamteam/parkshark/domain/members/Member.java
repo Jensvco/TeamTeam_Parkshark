@@ -12,13 +12,15 @@ import java.util.List;
 
 import static com.switchfully.teamteam.parkshark.domain.memberships.Membership.BRONZE;
 import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.EnumType.STRING;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name ="MEMBER")
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceMember")
+    @GeneratedValue(strategy = SEQUENCE, generator = "sequenceMember")
     @SequenceGenerator(name = "sequenceMember", sequenceName = "PARKSHARK_MEMBER_SEQ", allocationSize = 1)
     private Long id;
 
@@ -39,14 +41,14 @@ public class Member {
     @Column(name = "EMAIL")
     private String email;
 
-    @OneToMany(cascade = {PERSIST})
+    @OneToOne(cascade = {PERSIST})
     @JoinColumn(name = "LICENSE_PLATE_ID")
-    private List<LicensePlate> licensePlates;
+    private LicensePlate licensePlate;
 
-    @JoinColumn(name = "REGISTRATION_DATE", columnDefinition = "DATE")
+    @Column(name = "REGISTRATION_DATE", columnDefinition = "DATE")
     private LocalDate registrationDate;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(STRING)
     @Column(name = "MEMBERSHIP")
     private Membership membership;
 
@@ -56,7 +58,7 @@ public class Member {
         address = builder.address;
         phoneNumbers = builder.phoneNumbers;
         email = builder.email;
-        licensePlates = builder.licensePlates;
+        licensePlate = builder.licensePlate;
         registrationDate = LocalDate.now();
         membership = enrichWithMembership(builder);
     }
@@ -90,8 +92,8 @@ public class Member {
         return email;
     }
 
-    public List<LicensePlate> getLicensePlates() {
-        return licensePlates;
+    public LicensePlate getLicensePlate() {
+        return licensePlate;
     }
 
     public LocalDate getRegistrationDate() {
@@ -112,7 +114,7 @@ public class Member {
         private Address address;
         private List<PhoneNumber> phoneNumbers = new ArrayList<>();
         private String email;
-        private List<LicensePlate> licensePlates;
+        private LicensePlate licensePlate;
         private Membership membership;
 
         public static MemberBuilder member() {
@@ -144,8 +146,8 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withLicensePlates(List<LicensePlate> licensePlates) {
-            this.licensePlates = licensePlates;
+        public MemberBuilder withLicensePlate(LicensePlate licensePlate) {
+            this.licensePlate = licensePlate;
             return this;
         }
 
