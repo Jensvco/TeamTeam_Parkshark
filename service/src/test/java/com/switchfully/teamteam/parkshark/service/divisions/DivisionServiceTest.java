@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.service.divisions;
 
 import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
+import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -59,7 +60,7 @@ class DivisionServiceTest {
         when(divisionValidator.isValidForCreation(division)).thenReturn(false);
 
         assertThatThrownBy(() -> divisionService.createDivision(division))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(NotCreatedException.class);
     }
 
     @Test
