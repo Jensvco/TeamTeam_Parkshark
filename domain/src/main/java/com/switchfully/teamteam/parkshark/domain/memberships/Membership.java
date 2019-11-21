@@ -18,6 +18,9 @@ public class Membership {
     @Transient
     private LocalDate startingDate;
 
+    private Membership() {
+    }
+
     public Membership(MembershipType type) {
         this.type = type;
         this.startingDate = LocalDate.now();
