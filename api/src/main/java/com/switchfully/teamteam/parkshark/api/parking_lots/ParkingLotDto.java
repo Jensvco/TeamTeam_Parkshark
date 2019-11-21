@@ -26,4 +26,36 @@ public class ParkingLotDto {
         this.addressDto = addressDto;
         this.pricePerHour = pricePerHour;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ParkingLotCategory getParkingLotCategoryDto() {
+        return parkingLotCategoryDto;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public ContactPersonDto getContactPersonDto() {
+        return contactPersonDto;
+    }
+
+    public AddressDto getAddressDto() {
+        return addressDto;
+    }
+
+    public DivisionDto getDivisionDto() {
+        return divisionDto;
+    }
+
+    public double getPricePerHour() {
+        return pricePerHour;
+    }
 }

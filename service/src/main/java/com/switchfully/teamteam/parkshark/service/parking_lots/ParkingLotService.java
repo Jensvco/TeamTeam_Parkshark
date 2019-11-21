@@ -36,5 +36,6 @@ public class ParkingLotService {
     public void addPhoneNumbers(int contactPersonId, List<PhoneNumber> phoneNumberList) {
         contactPersonRepository.findById(contactPersonId).ifPresent(c -> c.getPhoneNumbers().addAll(phoneNumberList));
     }
+
 }
 
