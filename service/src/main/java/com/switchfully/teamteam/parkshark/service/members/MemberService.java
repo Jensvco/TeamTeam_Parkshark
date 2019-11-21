@@ -28,7 +28,7 @@ public class MemberService {
         return memberRepository.save(memberToCreate);
     }
 
-    public List<Member> getMembers() {
+    public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
 
