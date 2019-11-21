@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.service.divisions;
 
 import com.switchfully.teamteam.parkshark.domain.divisions.Division;
 import com.switchfully.teamteam.parkshark.domain.divisions.DivisionRepository;
+import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
 import com.switchfully.teamteam.parkshark.infrastructure.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class DivisionService {
 
     public Division createDivision(Division divisionToCreate) {
         if (!divisionValidator.isValidForCreation(divisionToCreate)) {
-            throw new IllegalArgumentException();
+            throw new NotCreatedException();
         }
         return divisionRepository.save(divisionToCreate);
     }
