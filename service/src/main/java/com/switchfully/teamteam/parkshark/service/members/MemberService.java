@@ -2,6 +2,7 @@ package com.switchfully.teamteam.parkshark.service.members;
 
 import com.switchfully.teamteam.parkshark.domain.members.Member;
 import com.switchfully.teamteam.parkshark.domain.members.MemberRepository;
+import com.switchfully.teamteam.parkshark.infrastructure.exception.NotCreatedException;
 import com.switchfully.teamteam.parkshark.infrastructure.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class MemberService {
 
     public Member createMember(Member memberToCreate) {
         if (!memberValidator.isValidForCreation(memberToCreate)) {
-            throw new IllegalArgumentException();
+            throw new NotCreatedException();
         }
         return memberRepository.save(memberToCreate);
     }
