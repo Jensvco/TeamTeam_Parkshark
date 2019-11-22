@@ -75,8 +75,8 @@ public class ParkingLotControllerIntegrationTest extends ControllerIntegrationTe
 
         ParkingLotDto[] allParkingLots = new TestRestTemplate()
                 .getForObject(format(LOCALHOST + ":%s/parkinglots",
-                                getPort()),
-                                ParkingLotDto[].class);
+                        getPort()),
+                        ParkingLotDto[].class);
 
         assertThat(allParkingLots).hasSize(2);
     }

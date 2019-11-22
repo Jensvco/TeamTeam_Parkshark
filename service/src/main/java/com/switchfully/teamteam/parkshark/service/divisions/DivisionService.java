@@ -27,7 +27,7 @@ public class DivisionService {
 
     public Division createDivision(Division divisionToCreate) {
         if (!divisionValidator.isValidForCreation(divisionToCreate)) {
-            throw  new ApiRequestException("Wrong JSON format");
+            throw new ApiRequestException("Wrong JSON format");
         }
         return divisionRepository.save(divisionToCreate);
     }

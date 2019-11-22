@@ -11,7 +11,7 @@ import static javax.persistence.CascadeType.*;
 public class Division {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDivision")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceDivision")
     @SequenceGenerator(name = "sequenceDivision", sequenceName = "PARKSHARK_DIVISION_SEQ", allocationSize = 1)
     private int id;
 

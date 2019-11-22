@@ -14,7 +14,7 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
-@Table(name ="MEMBER")
+@Table(name = "MEMBER")
 public class Member {
 
     @Id

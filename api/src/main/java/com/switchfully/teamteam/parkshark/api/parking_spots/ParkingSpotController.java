@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/parkingspots")
 public class ParkingSpotController {
 
-private ParkingSpotService parkingSpotService;
-private ParkingSpotMapper parkingSpotMapper;
+    private ParkingSpotService parkingSpotService;
+    private ParkingSpotMapper parkingSpotMapper;
 
     @Autowired
     public ParkingSpotController(ParkingSpotService parkingSpotService, ParkingSpotMapper parkingSpotMapper) {
@@ -24,18 +24,18 @@ private ParkingSpotMapper parkingSpotMapper;
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ParkingSpotDto createParkingSpot(@RequestBody CreateParkingSpotDto createParkingSpotDto){
-       return parkingSpotMapper.toDto(parkingSpotService.createParkingSpot(parkingSpotMapper.toDomain(createParkingSpotDto)));
+    public ParkingSpotDto createParkingSpot(@RequestBody CreateParkingSpotDto createParkingSpotDto) {
+        return parkingSpotMapper.toDto(parkingSpotService.createParkingSpot(parkingSpotMapper.toDomain(createParkingSpotDto)));
     }
 
 
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public List<ParkingSpotDto> findAllParkingSpots(){
+    public List<ParkingSpotDto> findAllParkingSpots() {
         return parkingSpotService.findAllParkingSpots().stream().map(value -> parkingSpotMapper.toDto(value)).collect(Collectors.toList());
     }
 
-    @PutMapping(consumes = "application/json",produces = "application/json")
+    @PutMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ParkingSpotDto stopParking(@RequestBody StopParkingSpotDto stopParkingSpotDto) {
         return parkingSpotMapper.toDto(parkingSpotService.stopParking(parkingSpotMapper.toDomain(stopParkingSpotDto)));

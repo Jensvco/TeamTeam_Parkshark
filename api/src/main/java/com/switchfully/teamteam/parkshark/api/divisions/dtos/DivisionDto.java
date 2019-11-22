@@ -13,6 +13,10 @@ public class DivisionDto {
     private DivisionDto() {
     }
 
+    public static DivisionDto divisionDto() {
+        return new DivisionDto();
+    }
+
     public Integer getId() {
         return id;
     }
@@ -31,10 +35,6 @@ public class DivisionDto {
 
     public Integer getParentId() {
         return parentId;
-    }
-
-    public static DivisionDto divisionDto() {
-        return new DivisionDto();
     }
 
     public DivisionDto withId(Integer id) {

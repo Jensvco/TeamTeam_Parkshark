@@ -14,7 +14,7 @@ import static javax.persistence.CascadeType.*;
 public class ContactPerson {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceContactPerson")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceContactPerson")
     @SequenceGenerator(name = "sequenceContactPerson", sequenceName = "PARKSHARK_CONTACT_PERSON_SEQ", allocationSize = 1)
     private int id;
 
@@ -22,14 +22,14 @@ public class ContactPerson {
     private String name;
 
     @OneToMany(cascade = {PERSIST})
-    @JoinColumn(name="CONTACT_PERSON_ID")
+    @JoinColumn(name = "CONTACT_PERSON_ID")
     private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
     @Column(name = "EMAIL")
     private String email;
 
     @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
-    @JoinColumn(name="ADDRESS_ID")
+    @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
     /* Required by JPA */

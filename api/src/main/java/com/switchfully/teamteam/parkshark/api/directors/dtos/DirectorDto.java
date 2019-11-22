@@ -4,16 +4,16 @@ public class DirectorDto {
     private String firstName;
     private String lastName;
 
+    public static DirectorDto directorDto() {
+        return new DirectorDto();
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public String getLastName() {
         return lastName;
-    }
-
-    public static DirectorDto directorDto() {
-        return new DirectorDto();
     }
 
     public DirectorDto withFirstName(String firstName) {

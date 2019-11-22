@@ -14,16 +14,13 @@ import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class ParkingLotServiceTest {
+    public ParkingLot parkingLot;
     @Mock
     private ParkingLotRepository parkingLotRepository;
-
     @Mock
     private ParkingLotValidator parkingLotValidator;
-
     @InjectMocks
     private ParkingLotService parkingLotService;
-
-    public ParkingLot parkingLot;
 
     public ParkingLotServiceTest() {
     }

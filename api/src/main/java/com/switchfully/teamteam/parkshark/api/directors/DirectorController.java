@@ -18,12 +18,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(path = "/" + DirectorController.RESOURCE_NAME)
 @RestController
 public class DirectorController {
-    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
-
     public static final String RESOURCE_NAME = "directors";
-
     private final DirectorService directorService;
     private final DirectorMapper directorMapper;
+    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     @Autowired
     public DirectorController(DirectorService directorService, DirectorMapper directorMapper) {
@@ -33,7 +31,7 @@ public class DirectorController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(CREATED)
-    public DirectorDto createDirector(@RequestBody CreateDirectorDto dto){
+    public DirectorDto createDirector(@RequestBody CreateDirectorDto dto) {
         Director newDirector = directorService.createDirector(directorMapper.toDomain(dto));
         logger.info("Received call to create a new director with id " + newDirector.getId() + " and name " + newDirector.getFirstName() + " " + newDirector.getLastName());
         return directorMapper.toDto(newDirector);

@@ -42,9 +42,9 @@ public class MemberController {
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
-    public List<OverviewMemberDto> getAllMembers(){
+    public List<OverviewMemberDto> getAllMembers() {
         logger.info("Received a call to get all members");
-       return memberService.getAllMembers().stream()
+        return memberService.getAllMembers().stream()
                 .map(memberMapper::toOverviewDto)
                 .collect(toList());
     }

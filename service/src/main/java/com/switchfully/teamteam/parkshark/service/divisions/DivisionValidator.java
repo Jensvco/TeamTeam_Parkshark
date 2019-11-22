@@ -14,8 +14,8 @@ public class DivisionValidator extends EntityValidator<Division> {
                 || isEmptyOrNull(division.getName())
                 || isEmptyOrNull(division.getOriginalName())
                 || isNull(division.getDirector())
-                    || isEmptyOrNull(division.getDirector().getFirstName())
-                    || isEmptyOrNull(division.getDirector().getLastName());
+                || isEmptyOrNull(division.getDirector().getFirstName())
+                || isEmptyOrNull(division.getDirector().getLastName());
     }
 
 }

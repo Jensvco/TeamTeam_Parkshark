@@ -5,6 +5,12 @@ public class LicensePlateDto {
     private String number;
     private String issuingCountry;
 
+    public LicensePlateDto(Integer id, String number, String issuingCountry) {
+        this.id = id;
+        this.number = number;
+        this.issuingCountry = issuingCountry;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -15,11 +21,5 @@ public class LicensePlateDto {
 
     public String getIssuingCountry() {
         return issuingCountry;
-    }
-
-    public LicensePlateDto(Integer id, String number, String issuingCountry) {
-        this.id = id;
-        this.number = number;
-        this.issuingCountry = issuingCountry;
     }
 }

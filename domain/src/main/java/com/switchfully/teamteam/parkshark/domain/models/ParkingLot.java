@@ -13,7 +13,7 @@ import static javax.persistence.CascadeType.*;
 public class ParkingLot {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceParkingLot")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceParkingLot")
     @SequenceGenerator(name = "sequenceParkingLot", sequenceName = "PARKSHARK_PARKINGLOT_SEQ", allocationSize = 1)
     private int id;
 
@@ -23,27 +23,18 @@ public class ParkingLot {
     @Enumerated(EnumType.STRING)
     @Column(name = "PARKING_LOT_CATEGORY")
     private ParkingLotCategory parkingLotCategory;
-
-    public Division getDivision() {
-        return division;
-    }
-
     @Column(name = "CAPACITY")
     private int capacity;
-
     @ManyToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "CONTACT_PERSON_ID")
     private ContactPerson contactPerson;
-
     @OneToOne(cascade = {PERSIST, MERGE, REMOVE, REFRESH, DETACH})
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
-
     @Column(name = "PRICE_PER_HOUR")
     private double pricePerHour;
-   
     @ManyToOne
-    @JoinColumn(name="DIVISION_ID")
+    @JoinColumn(name = "DIVISION_ID")
     private Division division;
 
     public ParkingLot() {
@@ -57,6 +48,10 @@ public class ParkingLot {
         address = builder.address;
         pricePerHour = builder.pricePerHour;
         division = builder.division;
+    }
+
+    public Division getDivision() {
+        return division;
     }
 
     public int getId() {
@@ -88,13 +83,13 @@ public class ParkingLot {
     }
 
     public static final class Builder {
+        public Division division;
         private String name;
         private ParkingLotCategory parkingLotCategory;
         private int capacity;
         private ContactPerson contactPerson;
         private Address address;
         private double pricePerHour;
-        public Division division;
 
         public static Builder parkingLot() {
             return new Builder();
