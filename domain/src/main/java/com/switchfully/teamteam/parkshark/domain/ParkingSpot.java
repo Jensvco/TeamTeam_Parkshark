@@ -25,6 +25,7 @@ public class ParkingSpot {
     private LocalDateTime startSession;
     @Column(name = "STOP_SESSION")
     private LocalDateTime stopSession;
+
     public ParkingSpot() {
     }
 
