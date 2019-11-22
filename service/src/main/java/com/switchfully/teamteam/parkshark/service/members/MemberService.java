@@ -34,7 +34,7 @@ public class MemberService {
     }
 
 
-    public Member findMemberById(Long id){
+    public Member findMemberById(Integer id){
         Optional<Member> member = memberRepository.findById(id);
         if (member.isPresent()){
             return member.get();

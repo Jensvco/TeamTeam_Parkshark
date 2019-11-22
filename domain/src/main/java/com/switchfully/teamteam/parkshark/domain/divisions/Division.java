@@ -13,7 +13,7 @@ public class Division {
     @Id
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDivision")
     @SequenceGenerator(name = "sequenceDivision", sequenceName = "PARKSHARK_DIVISION_SEQ", allocationSize = 1)
-    private long id;
+    private int id;
 
     @Column(name = "NAME")
     private String name;
@@ -40,7 +40,7 @@ public class Division {
         parent = builder.parent;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

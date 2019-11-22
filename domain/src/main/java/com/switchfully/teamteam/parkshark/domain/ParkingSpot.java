@@ -11,6 +11,8 @@ import java.util.UUID;
 
 @Entity
 public class ParkingSpot {
+    public ParkingSpot() {
+    }
 
     @Id
     private String id;

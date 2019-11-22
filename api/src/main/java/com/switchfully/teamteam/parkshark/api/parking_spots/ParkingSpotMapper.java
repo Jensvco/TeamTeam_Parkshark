@@ -41,7 +41,7 @@ public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpo
     @Override
     public ParkingSpot toDomain(CreateParkingSpotDto createParkingSpotDto) {
        LicensePlate licensePlate= licensePlateCheck(createParkingSpotDto);
-       ParkingLot parkingLot= parkingLotService.findParkingLotById((int)createParkingSpotDto.getMemberId());
+       ParkingLot parkingLot= parkingLotService.findParkingLotById((createParkingSpotDto.getParkingLotId()));
        return new ParkingSpot(licensePlate,member,parkingLot);
     }
 
@@ -49,7 +49,7 @@ public class ParkingSpotMapper implements Mapper<CreateParkingSpotDto,ParkingSpo
 
     private LicensePlate licensePlateCheck(CreateParkingSpotDto createParkingSpotDto)  {
         member=memberService.findMemberById(createParkingSpotDto.getMemberId());
-        if(member.getLicensePlate().getNumber()==createParkingSpotDto.getLicensePlateNumber()){
+        if(member.getLicensePlate().getNumber().equals(createParkingSpotDto.getLicensePlateNumber())){
             return member.getLicensePlate();
         }
         if (member.getMembership().getType()== MembershipType.GOLD){

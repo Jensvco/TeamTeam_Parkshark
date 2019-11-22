@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OverviewMemberDto {
-    private Long id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
@@ -18,7 +18,7 @@ public class OverviewMemberDto {
     private LocalDate registrationDate;
     private MembershipType membershipType;
 
-    public OverviewMemberDto(Long id,
+    public OverviewMemberDto(Integer id,
                              String firstName,
                              String lastName,
                              List<PhoneNumberDto> phoneNumbers,
@@ -36,7 +36,7 @@ public class OverviewMemberDto {
         this.membershipType = membershipType;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

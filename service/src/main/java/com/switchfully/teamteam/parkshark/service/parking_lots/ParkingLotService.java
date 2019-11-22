@@ -4,6 +4,7 @@ import com.switchfully.teamteam.parkshark.domain.PhoneNumber;
 import com.switchfully.teamteam.parkshark.domain.models.ParkingLot;
 import com.switchfully.teamteam.parkshark.domain.repositories.ContactPersonRepository;
 import com.switchfully.teamteam.parkshark.domain.repositories.ParkingLotRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ public class ParkingLotService {
     private final ParkingLotRepository parkingLotRepository;
     private final ContactPersonRepository contactPersonRepository;
 
+    @Autowired
     public ParkingLotService(ParkingLotRepository parkingLotRepository, ContactPersonRepository contactPersonRepository) {
         this.parkingLotRepository = parkingLotRepository;
         this.contactPersonRepository = contactPersonRepository;

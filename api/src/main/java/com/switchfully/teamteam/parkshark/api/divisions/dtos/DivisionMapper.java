@@ -42,7 +42,7 @@ public class DivisionMapper implements Mapper<CreateDivisionDto, DivisionDto, Di
         return enrichDtoWithParentId(dto, division);
     }
 
-    private Division enrichWithParent(Long parentId) {
+    private Division enrichWithParent(Integer parentId) {
         if (parentId == null) {
             return null;
         }
@@ -54,7 +54,7 @@ public class DivisionMapper implements Mapper<CreateDivisionDto, DivisionDto, Di
                 dto : dto.withParentId(division.getParent().getId());
     }
 
-    private Division getDivisionForId(Long parentId) {
+    private Division getDivisionForId(Integer parentId) {
         return divisionService.findDivisionById(parentId);
     }
 
