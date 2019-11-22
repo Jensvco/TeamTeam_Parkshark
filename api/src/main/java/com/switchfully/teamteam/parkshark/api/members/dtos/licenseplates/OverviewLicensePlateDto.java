@@ -4,12 +4,12 @@ public class OverviewLicensePlateDto {
 
     private String number;
 
-    public String getNumber() {
-        return number;
+    public OverviewLicensePlateDto(String number) {
+        this.number = number;
     }
 
-    public OverviewLicensePlateDto( String number) {
-        this.number = number;
+    public String getNumber() {
+        return number;
     }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ApiExceptionHandler {
 
-@ExceptionHandler(value = {ApiRequestException.class})
+    @ExceptionHandler(value = {ApiRequestException.class})
     public ResponseEntity<Object> handleApiRequestException(ApiRequestException e) {
         ApiException apiException = new ApiException(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
         return new ResponseEntity<>(apiException, HttpStatus.I_AM_A_TEAPOT);

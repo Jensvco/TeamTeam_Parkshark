@@ -5,6 +5,11 @@ public class CreateLicensePlateDto {
     private String issuingCountry;
 
 
+    public CreateLicensePlateDto(Long id, String number, String issuingCountry) {
+        this.number = number;
+        this.issuingCountry = issuingCountry;
+
+    }
 
     public String getNumber() {
         return number;
@@ -12,12 +17,6 @@ public class CreateLicensePlateDto {
 
     public String getIssuingCountry() {
         return issuingCountry;
-    }
-
-    public CreateLicensePlateDto(Long id, String number, String issuingCountry) {
-        this.number = number;
-        this.issuingCountry = issuingCountry;
-
     }
 
 }

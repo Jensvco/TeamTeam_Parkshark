@@ -7,15 +7,24 @@ import javax.persistence.*;
 public class Director {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequenceDirector")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceDirector")
     @SequenceGenerator(name = "sequenceDirector", sequenceName = "PARKSHARK_DIRECTOR_SEQ", allocationSize = 1)
     private long id;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @Column(name="LAST_NAME")
+    @Column(name = "LAST_NAME")
     private String lastName;
+
+    /* Required by JPA */
+    private Director() {
+    }
+
+    public Director(DirectorBuilder builder) {
+        firstName = builder.firstName;
+        lastName = builder.lastName;
+    }
 
     public long getId() {
         return id;
@@ -27,15 +36,6 @@ public class Director {
 
     public String getLastName() {
         return lastName;
-    }
-
-    /* Required by JPA */
-    private Director() {
-    }
-
-    public Director(DirectorBuilder builder) {
-        firstName = builder.firstName;
-        lastName = builder.lastName;
     }
 
     public static class DirectorBuilder {

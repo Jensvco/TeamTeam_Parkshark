@@ -31,7 +31,7 @@ public class ParkingLotController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public ParkingLotDto createParkingLot(@RequestBody CreateParkingLotDto createParkingLotDto) {
-        var createdParkingLot =  parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
+        var createdParkingLot = parkingLotService.createParkingLot(parkingLotMapper.toDomain(createParkingLotDto));
         logger.info("Received call to create a parking lot with id " + createdParkingLot.getId());
         return parkingLotMapper.toDto(createdParkingLot);
     }

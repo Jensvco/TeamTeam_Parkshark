@@ -12,6 +12,10 @@ public class CreateDivisionDto {
     public CreateDivisionDto() {
     }
 
+    public static CreateDivisionDto createDivisionDto() {
+        return new CreateDivisionDto();
+    }
+
     public String getName() {
         return name;
     }
@@ -26,10 +30,6 @@ public class CreateDivisionDto {
 
     public Long getParentId() {
         return parentId;
-    }
-
-    public static CreateDivisionDto createDivisionDto() {
-        return new CreateDivisionDto();
     }
 
     public CreateDivisionDto withName(String name) {

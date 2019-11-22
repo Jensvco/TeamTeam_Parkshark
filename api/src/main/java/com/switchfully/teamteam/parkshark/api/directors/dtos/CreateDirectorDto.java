@@ -5,16 +5,16 @@ public class CreateDirectorDto {
     private String firstName;
     private String lastName;
 
+    public static CreateDirectorDto createDirectorDto() {
+        return new CreateDirectorDto();
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public String getLastName() {
         return lastName;
-    }
-
-    public static CreateDirectorDto createDirectorDto() {
-        return new CreateDirectorDto();
     }
 
     public CreateDirectorDto withFirstName(String firstName) {

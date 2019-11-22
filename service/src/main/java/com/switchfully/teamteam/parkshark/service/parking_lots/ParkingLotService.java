@@ -30,7 +30,7 @@ public class ParkingLotService {
     }
 
     public ParkingLot findParkingLotById(int id) {
-       return parkingLotRepository.findById(id).orElse(null);
+        return parkingLotRepository.findById(id).orElse(null);
     }
 
     public void addPhoneNumbers(int contactPersonId, List<PhoneNumber> phoneNumberList) {

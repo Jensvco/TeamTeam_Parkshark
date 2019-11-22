@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/parkingspots")
 public class ParkingSpotController {
 
-private ParkingSpotService parkingSpotService;
-private ParkingSpotMapper parkingSpotMapper;
+    private ParkingSpotService parkingSpotService;
+    private ParkingSpotMapper parkingSpotMapper;
 
     public ParkingSpotController(ParkingSpotService parkingSpotService, ParkingSpotMapper parkingSpotMapper) {
         this.parkingSpotService = parkingSpotService;
@@ -19,8 +19,8 @@ private ParkingSpotMapper parkingSpotMapper;
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ParkingSpotDto createParkingSpot(CreateParkingSpotDto createParkingSpotDto){
-       return parkingSpotMapper.toDto(parkingSpotService.createParkingSpot(parkingSpotMapper.toDomain(createParkingSpotDto)));
+    public ParkingSpotDto createParkingSpot(CreateParkingSpotDto createParkingSpotDto) {
+        return parkingSpotMapper.toDto(parkingSpotService.createParkingSpot(parkingSpotMapper.toDomain(createParkingSpotDto)));
     }
 
 

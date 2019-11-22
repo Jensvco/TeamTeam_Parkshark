@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class PhoneNumber {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "sequencePhoneNumber")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequencePhoneNumber")
     @SequenceGenerator(name = "sequencePhoneNumber", sequenceName = "PARKSHARK_PHONENUMBER_SEQ", allocationSize = 1)
     private int id;
 
@@ -17,11 +17,6 @@ public class PhoneNumber {
     @Enumerated(EnumType.STRING)
     @Column(name = "PHONE_NUMBER_TYPE")
     private PhoneNumberType phoneNumberType;
-
-    public enum PhoneNumberType {
-        MOBILE_PHONE,
-        LAND_LINE
-    }
 
     /* Required by JPA */
     private PhoneNumber() {
@@ -42,5 +37,10 @@ public class PhoneNumber {
 
     public PhoneNumberType getPhoneNumberType() {
         return phoneNumberType;
+    }
+
+    public enum PhoneNumberType {
+        MOBILE_PHONE,
+        LAND_LINE
     }
 }

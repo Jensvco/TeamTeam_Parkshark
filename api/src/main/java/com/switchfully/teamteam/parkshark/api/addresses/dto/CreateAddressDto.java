@@ -9,6 +9,13 @@ public class CreateAddressDto {
     public CreateAddressDto() {
     }
 
+    public CreateAddressDto(String streetName, String houseNumber, String postalCode, String city) {
+        this.streetName = streetName;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
     public String getStreetName() {
         return streetName;
     }
@@ -23,12 +30,5 @@ public class CreateAddressDto {
 
     public String getCity() {
         return city;
-    }
-
-    public CreateAddressDto(String streetName, String houseNumber, String postalCode, String city) {
-        this.streetName = streetName;
-        this.houseNumber = houseNumber;
-        this.postalCode = postalCode;
-        this.city = city;
     }
 }

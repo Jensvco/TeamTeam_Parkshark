@@ -21,12 +21,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/" + RESOURCE_NAME)
 public class DivisionController {
-    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
-
     public static final String RESOURCE_NAME = "divisions";
-
     private final DivisionService divisionService;
     private final DivisionMapper divisionMapper;
+    private Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     @Autowired
     public DivisionController(DivisionService divisionService, DivisionMapper divisionMapper) {
