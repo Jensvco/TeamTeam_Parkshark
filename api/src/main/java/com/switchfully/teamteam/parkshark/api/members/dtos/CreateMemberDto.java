@@ -11,7 +11,7 @@ public class CreateMemberDto {
     private String firstName;
     private String lastName;
     private AddressDto address;
-    private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
+    private List<PhoneNumberDto> phoneNumbers;
     private String email;
     private String licensePlateNumber;
     private String licensePlateIssuingCountry;

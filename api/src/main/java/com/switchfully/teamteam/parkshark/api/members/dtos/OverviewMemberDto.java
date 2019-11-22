@@ -12,7 +12,7 @@ public class OverviewMemberDto {
     private Integer id;
     private String firstName;
     private String lastName;
-    private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
+    private List<PhoneNumberDto> phoneNumbers;
     private String email;
     private OverviewLicensePlateDto licensePlate;
     private LocalDate registrationDate;

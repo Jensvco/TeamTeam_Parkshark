@@ -3,18 +3,18 @@ package com.switchfully.teamteam.parkshark.infrastructure.apiExceptions;
 import org.springframework.http.HttpStatus;
 
 public class ApiException {
-    private final String messege;
+    private final String message;
 
     private final HttpStatus httpStatus;
 
     public ApiException(String message, HttpStatus httpStatus) {
-        this.messege = message;
+        this.message = message;
 
         this.httpStatus = httpStatus;
     }
 
-    public String getMessege() {
-        return messege;
+    public String getMessage() {
+        return message;
     }
 
     public HttpStatus getHttpStatus() {

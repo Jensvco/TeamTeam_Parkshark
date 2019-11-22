@@ -14,7 +14,7 @@ public class MemberDto {
     private String firstName;
     private String lastName;
     private AddressDto address;
-    private List<PhoneNumberDto> phoneNumbers = new ArrayList<>();
+    private List<PhoneNumberDto> phoneNumbers;
     private String email;
     private LicensePlateDto licensePlate;
     private LocalDate registrationDate;
